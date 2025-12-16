@@ -6,3 +6,68 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Permission {
+  id    String @id @default(uuid())
+  key   String @unique
+  label String
+
+  roles RolePermission[]
+}
+
+model Tenant {
+  id        String   @id @default(uuid())
+  slug      String   @unique
+  name      String
+  isActive  Boolean  @default(true)
+
+  users     User[]
+  roles     Role[]
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String
+  name      String?
+
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+
+  roles     UserRole[]
+
+  @@unique([email, tenantId])
+}
+
+model Role {
+  id        String   @id @default(uuid())
+  name      String
+
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+
+  permissions RolePermission[]
+  users       UserRole[]
+
+  @@unique([name, tenantId])
+}
+
+
+model UserRole {
+  userId String
+  roleId String
+
+  user User @relation(fields: [userId], references: [id])
+  role Role @relation(fields: [roleId], references: [id])
+
+  @@id([userId, roleId])
+}
+
+model RolePermission {
+  roleId       String
+  permissionId String
+
+  role       Role       @relation(fields: [roleId], references: [id])
+  permission Permission @relation(fields: [permissionId], references: [id])
+
+  @@id([roleId, permissionId])
+}

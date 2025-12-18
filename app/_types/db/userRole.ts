@@ -1,5 +1,5 @@
-import { Role } from "@/app/_types/role";
-import { User } from "@/app/_types/user";
+import { Role } from "@/app/_types/db/role";
+import { User } from "@/app/_types/db/user";
 
 export interface UserRole {
   userId: User["id"];

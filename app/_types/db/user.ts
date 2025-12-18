@@ -1,5 +1,5 @@
-import { Tenant } from "@/app/_types/tenant";
-import { UserRole } from "@/app/_types/userRole";
+import { Tenant } from "@/app/_types/db/tenant";
+import { UserRole } from "@/app/_types/db/userRole";
 
 export interface User {
   id: string;

@@ -1,5 +1,5 @@
-import { Role } from "@/app/_types/role";
-import { Permission } from "@/app/_types/permission";
+import { Role } from "@/app/_types/db/role";
+import { Permission } from "@/app/_types/db/permission";
 
 export interface RolePermission {
   roleId: Role["id"];

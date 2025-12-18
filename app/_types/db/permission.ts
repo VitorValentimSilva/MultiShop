@@ -1,4 +1,4 @@
-import { RolePermission } from "@/app/_types/rolePermission";
+import { RolePermission } from "@/app/_types/db/rolePermission";
 
 export interface Permission {
   id: string;

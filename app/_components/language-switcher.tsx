@@ -12,14 +12,14 @@ import {
 } from "@/app/_components/ui/dropdown-menu";
 import { Button } from "@/app/_components/ui/button";
 
-import {
-  localeOptions,
-  Locale,
-  extractLocaleFromPath,
-} from "@/app/_lib/i18n/config";
+import { localeOptions, Locale } from "@/app/_lib/i18n/config";
 import { getLocale } from "@/app/_lib/i18n/get-locale";
 import { setLocale } from "@/app/_lib/i18n/set-locale";
 import { useT } from "@/app/_lib/i18n/client";
+import {
+  extractLocaleFromPath,
+  replaceLocaleInPath,
+} from "@/app/_lib/i18n/path";
 
 export function LanguageSwitcher() {
   const router = useRouter();
@@ -38,8 +38,7 @@ export function LanguageSwitcher() {
   function changeLanguage(lang: Locale) {
     setLocale(lang);
 
-    const rest = pathname ? pathname.replace(/^\/(pt-BR|en-US)/, "") : "";
-    const newPath = `/${lang}${rest || "/"}`;
+    const newPath = replaceLocaleInPath(pathname, lang);
 
     startTransition(() => {
       router.replace(newPath);

@@ -11,13 +11,6 @@ export const supportedLocales = localeOptions.map(
 ) as readonly Locale[];
 export const defaultLocale: Locale = localeOptions[0].value;
 
-export function extractLocaleFromPath(pathname: string | null): Locale | null {
-  if (!pathname) return null;
-  const seg = pathname.split("/").filter(Boolean)[0];
-  if (!seg) return null;
-  return supportedLocales.includes(seg as Locale) ? (seg as Locale) : null;
-}
-
 export function normalizeLocale(locale: string): Locale {
   return supportedLocales.includes(locale as Locale)
     ? (locale as Locale)

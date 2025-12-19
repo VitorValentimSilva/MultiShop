@@ -17,3 +17,9 @@ export function extractLocaleFromPath(pathname: string | null): Locale | null {
   if (!seg) return null;
   return supportedLocales.includes(seg as Locale) ? (seg as Locale) : null;
 }
+
+export function normalizeLocale(locale: string): Locale {
+  return supportedLocales.includes(locale as Locale)
+    ? (locale as Locale)
+    : defaultLocale;
+}

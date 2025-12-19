@@ -4,7 +4,9 @@ import { Locale } from "@/app/_lib/i18n/config";
 import { tServer } from "@/app/_lib/i18n/server";
 
 interface HomeDomainProps {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{
+    locale: string;
+  }>;
 }
 
 export default async function HomeDomain({ params }: HomeDomainProps) {

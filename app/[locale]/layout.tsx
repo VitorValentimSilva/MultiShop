@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/app/_components/theme-provider";
-import { Locale } from "@/app/_lib/i18n/config";
+import { normalizeLocale } from "@/app/_lib/i18n/config";
 import "@/app/_styles/globals.css";
 
 const geistSans = Geist({
@@ -23,7 +23,9 @@ export const metadata: Metadata = {
 
 interface LocaleRootLayoutProps {
   children: ReactNode;
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{
+    locale: string;
+  }>;
 }
 
 export default async function LocaleRootLayout({
@@ -31,9 +33,10 @@ export default async function LocaleRootLayout({
   params,
 }: LocaleRootLayoutProps) {
   const { locale } = await params;
+  const normalizedLocale = normalizeLocale(locale);
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={normalizedLocale} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

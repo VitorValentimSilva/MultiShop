@@ -51,7 +51,7 @@ export function LanguageSwitcher() {
         <Button
           variant="ghost"
           size="icon"
-          aria-label={t("common.selectLanguage")}
+          aria-label={t("common.lenguage.selectLanguage")}
         >
           <Globe className="h-5 w-5" />
         </Button>

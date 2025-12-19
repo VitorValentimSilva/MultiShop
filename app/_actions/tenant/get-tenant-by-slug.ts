@@ -32,6 +32,6 @@ export async function getTenantBySlug(slug: string): Promise<Response<Tenant>> {
     return ok(tenant as Tenant);
   } catch (error) {
     console.error("Erro ao buscar tenant:", error);
-    return fail("common.internalError");
+    return fail("common.errors.internal");
   }
 }

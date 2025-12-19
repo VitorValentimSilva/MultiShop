@@ -1,0 +1,6 @@
+{
+  "notFound": "Tenant não encontrado",
+  "errors": {
+    "slugRequired": "O campo slug do tenant é obrigatório."
+  }
+}

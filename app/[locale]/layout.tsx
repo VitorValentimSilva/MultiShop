@@ -1,6 +1,8 @@
+import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/app/_components/theme-provider";
+import { normalizeLocale } from "@/app/_lib/i18n/config";
 import "@/app/_styles/globals.css";
 
 const geistSans = Geist({
@@ -19,13 +21,22 @@ export const metadata: Metadata = {
     "Multi Shop é uma plataforma de e-commerce multi-tenant, desenvolvida para suportar diversos tipos de vendas e categorias de produtos, permitindo que diferentes lojas utilizem a mesma infraestrutura de forma escalável e configurável.",
 };
 
-export default function RootLayout({
+interface LocaleRootLayoutProps {
+  children: ReactNode;
+  params: Promise<{
+    locale: string;
+  }>;
+}
+
+export default async function LocaleRootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+  params,
+}: LocaleRootLayoutProps) {
+  const { locale } = await params;
+  const normalizedLocale = normalizeLocale(locale);
+
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang={normalizedLocale} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

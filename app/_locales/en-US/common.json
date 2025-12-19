@@ -1,0 +1,14 @@
+{
+  "theme": {
+    "changeTheme": "Change Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "lenguage": {
+    "selectLanguage": "Select Language"
+  },
+  "errors": {
+    "internal": "Internal Server Error"
+  }
+}

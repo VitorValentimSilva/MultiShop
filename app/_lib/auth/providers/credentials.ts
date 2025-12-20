@@ -1,7 +1,7 @@
 import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/app/_lib/prisma";
-import { resolveTenantFromRequest } from "@/app/_actions/auth";
+import { getTenantFromCookie } from "@/app/_actions/auth";
 
 export const credentialsProvider = Credentials({
   name: "credentials",
@@ -13,13 +13,15 @@ export const credentialsProvider = Credentials({
   async authorize(credentials) {
     if (!credentials?.email || !credentials.password) return null;
 
-    const tenantSlug = await resolveTenantFromRequest();
-    if (!tenantSlug) return null;
+    const tenant = await getTenantFromCookie();
 
-    const tenant = await prisma.tenant.findUnique({
-      where: { slug: tenantSlug },
+    if (!tenant || !tenant.slug) return null;
+
+    const tenantRecord = await prisma.tenant.findUnique({
+      where: { slug: tenant.slug },
     });
-    if (!tenant) return null;
+
+    if (!tenantRecord) return null;
 
     const user = await prisma.user.findUnique({
       where: {

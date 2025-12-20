@@ -1,13 +1,12 @@
 import type { NextAuthConfig } from "next-auth";
-import { PrismaAdapter } from "@auth/prisma-adapter";
-import { prisma } from "@/app/_lib/prisma";
 import { googleProvider } from "@/app/_lib/auth/providers/google";
 import { credentialsProvider } from "@/app/_lib/auth/providers/credentials";
 import { githubProvider } from "@/app/_lib/auth/providers/github";
 import { authCallbacks } from "@/app/_lib/auth/callbacks";
+import { PrismaTenantAdapter } from "@/app/_lib/auth/prisma-tenant-adapter";
 
 export const authOptions: NextAuthConfig = {
-  adapter: PrismaAdapter(prisma),
+  adapter: PrismaTenantAdapter(),
 
   providers: [googleProvider, githubProvider, credentialsProvider],
 

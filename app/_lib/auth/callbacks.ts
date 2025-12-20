@@ -1,8 +1,5 @@
 import type { NextAuthConfig } from "next-auth";
-import {
-  signInWithTenant,
-  resolveTenantFromRequest,
-} from "@/app/_actions/auth";
+import { signInWithTenant, getTenantFromCookie } from "@/app/_actions/auth";
 import { getSessionUser } from "@/app/_actions/user";
 
 export const authCallbacks: NextAuthConfig["callbacks"] = {
@@ -12,8 +9,9 @@ export const authCallbacks: NextAuthConfig["callbacks"] = {
     const oauthProviders = ["google", "github"];
 
     if (oauthProviders.includes(account.provider)) {
-      const tenantSlug = await resolveTenantFromRequest();
-      if (!tenantSlug) return false;
+      const tenant = await getTenantFromCookie();
+
+      if (!tenant || !tenant.slug) return false;
 
       const result = await signInWithTenant({
         user: {
@@ -22,7 +20,7 @@ export const authCallbacks: NextAuthConfig["callbacks"] = {
           name: user.name,
           image: user.image,
         },
-        slug: tenantSlug,
+        slug: tenant.slug,
       });
 
       return result.success;
@@ -35,10 +33,11 @@ export const authCallbacks: NextAuthConfig["callbacks"] = {
     return false;
   },
 
-  async session({ session, user }) {
-    if (!session.user) return session;
+  async session({ session, token }) {
+    if (!session.user || !token?.sub) return session;
 
-    const res = await getSessionUser({ userId: user.id });
+    const res = await getSessionUser({ userId: token.sub });
+
     if (!res.success) return session;
 
     session.user = res.data as never;

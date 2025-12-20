@@ -1,9 +1,20 @@
-import { headers } from "next/headers";
+import { cookies } from "next/headers";
+import { getTenantBySlug } from "@/app/_actions/tenant";
+import { Tenant } from "@/app/_types/db";
 
-export async function resolveTenantFromRequest(): Promise<string | null> {
-  const pathname = (await headers()).get("x-pathname");
-  if (!pathname) return null;
+export async function getTenantFromCookie(): Promise<
+  Tenant | undefined | null
+> {
+  try {
+    const slug = (await cookies()).get("tenant")?.value;
+    if (!slug) return null;
 
-  const segments = pathname.split("/").filter(Boolean);
-  return segments[1] ?? null;
+    const tenantRes = await getTenantBySlug(slug);
+    if (!tenantRes.success) return null;
+
+    return tenantRes.data;
+  } catch (error) {
+    console.warn(error);
+    return null;
+  }
 }

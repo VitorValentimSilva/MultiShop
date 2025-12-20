@@ -1,8 +1,9 @@
-import { User } from "@/app/_types/db";
+import { Tenant, User } from "@/app/_types/db";
 
 export interface Account {
   id: string;
   userId: User["id"];
+  tenantId: Tenant["id"];
   type: string;
   provider: string;
   providerAccountId: string;
@@ -14,4 +15,5 @@ export interface Account {
   id_token?: string | null;
   session_state?: string | null;
   user: User;
+  tenant: Tenant;
 }

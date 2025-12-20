@@ -26,7 +26,9 @@ model Tenant {
 
   users     User[]
   roles     Role[]
-
+  accounts  Account[]
+  sessions  Session[]
+  
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 }
@@ -56,6 +58,7 @@ model User {
 model Account {
   id                String  @id @default(uuid())
   userId            String
+  tenantId          String
   type              String
   provider          String
   providerAccountId String
@@ -67,21 +70,26 @@ model Account {
   id_token          String?  @db.Text
   session_state     String?
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tenant Tenant @relation(fields: [tenantId], references: [id])
 
-  @@unique([provider, providerAccountId])
+  @@unique([provider, providerAccountId, tenantId])
   @@index([userId])
+  @@index([tenantId])
 }
 
 model Session {
   id           String   @id @default(uuid())
   sessionToken String   @unique
   userId       String
+  tenantId     String
   expires      DateTime
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tenant Tenant @relation(fields: [tenantId], references: [id])
 
   @@index([userId])
+  @@index([tenantId])
 }
 
 model VerificationToken {

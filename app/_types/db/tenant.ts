@@ -1,4 +1,4 @@
-import { User, Role } from "@/app/_types/db";
+import { User, Role, Account, Session } from "@/app/_types/db";
 
 export interface Tenant {
   id: string;
@@ -7,6 +7,8 @@ export interface Tenant {
   isActive: boolean;
   users: User[];
   roles: Role[];
+  accounts: Account[];
+  sessions: Session[];
   createdAt?: Date | null;
   updatedAt?: Date | null;
 }

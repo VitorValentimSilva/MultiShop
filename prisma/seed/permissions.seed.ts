@@ -1,18 +1,21 @@
 import { prisma } from "@/app/_lib/prisma";
+import { PERMISSION_ENTITIES } from "@/prisma/seed/constants/permission-entities";
+import { generateCrudPermissions } from "@/prisma/seed/helpers/generate-permissions";
+import { PERMISSION_ACTIONS } from "@/prisma/seed/constants/permission-actions";
 
 export async function seedPermissions() {
-  const permissions = [
-    { key: "USER_CREATE", label: "Criar usuário" },
-    { key: "USER_EDIT", label: "Editar usuário" },
-    { key: "USER_DELETE", label: "Remover usuário" },
-    { key: "ROLE_MANAGE", label: "Gerenciar roles" },
-  ];
+  const permissions = PERMISSION_ENTITIES.flatMap((entity) =>
+    generateCrudPermissions(entity, PERMISSION_ACTIONS),
+  );
 
   for (const permission of permissions) {
     await prisma.permission.upsert({
       where: { key: permission.key },
       update: {},
-      create: permission,
+      create: {
+        key: permission.key,
+        label: permission.label,
+      },
     });
   }
 }

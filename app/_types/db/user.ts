@@ -12,6 +12,6 @@ export interface User {
   roles: UserRole[];
   accounts: Account[];
   sessions: Session[];
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
 }

@@ -7,6 +7,6 @@ export interface Role {
   tenant: Tenant;
   permissions: RolePermission[];
   users: UserRole[];
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
 }

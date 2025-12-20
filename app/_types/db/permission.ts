@@ -5,6 +5,6 @@ export interface Permission {
   key: string;
   label: string;
   roles: RolePermission[];
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
 }

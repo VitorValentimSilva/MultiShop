@@ -7,6 +7,6 @@ export interface Tenant {
   isActive: boolean;
   users: User[];
   roles: Role[];
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
 }

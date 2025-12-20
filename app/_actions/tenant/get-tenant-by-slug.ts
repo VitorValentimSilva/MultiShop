@@ -1,17 +1,19 @@
 "use server";
 
 import { prisma } from "@/app/_lib/prisma";
-import { Tenant } from "@/app/_types/db";
 import { Response } from "@/app/_types/api";
 import { ok, fail } from "@/app/_lib/response";
+import { Tenant } from "@/app/_types/db";
 
-export async function getTenantBySlug(slug: string): Promise<Response<Tenant>> {
+export async function getTenantBySlug(
+  slug: Tenant["slug"],
+): Promise<Response<Tenant>> {
   if (!slug) {
     return fail("tenant.errors.slugRequired");
   }
 
   try {
-    const tenant = await prisma.tenant.findUnique({
+    const tenant = await prisma.tenant.findFirst({
       where: {
         slug,
         isActive: true,
@@ -20,8 +22,6 @@ export async function getTenantBySlug(slug: string): Promise<Response<Tenant>> {
         id: true,
         slug: true,
         name: true,
-        users: true,
-        roles: true,
       },
     });
 
@@ -31,7 +31,7 @@ export async function getTenantBySlug(slug: string): Promise<Response<Tenant>> {
 
     return ok(tenant as Tenant);
   } catch (error) {
-    console.error("Erro ao buscar tenant:", error);
+    console.error(error);
     return fail("common.errors.internal");
   }
 }

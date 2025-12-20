@@ -12,6 +12,7 @@ export async function seedUsers(tenantId: string, roleId: string) {
     create: {
       email: "admin@admin.com",
       name: "Admin",
+      passwordHash: "admin123",
       tenantId,
     },
   });
@@ -29,4 +30,6 @@ export async function seedUsers(tenantId: string, roleId: string) {
       roleId,
     },
   });
+
+  return user;
 }

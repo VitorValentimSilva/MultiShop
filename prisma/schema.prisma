@@ -8,11 +8,14 @@ datasource db {
 }
 
 model Permission {
-  id    String @id @default(uuid())
-  key   String @unique
-  label String
+  id        String  @id @default(uuid())
+  key       String  @unique
+  label     String
 
-  roles RolePermission[]
+  roles     RolePermission[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 }
 
 model Tenant {
@@ -23,19 +26,78 @@ model Tenant {
 
   users     User[]
   roles     Role[]
+  accounts  Account[]
+  sessions  Session[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 }
 
 model User {
-  id        String   @id @default(uuid())
-  email     String
-  name      String?
+  id            String   @id @default(uuid())
+  name          String?
+  email         String
+  emailVerified DateTime?
+  image         String?
+  passwordHash  String? 
 
-  tenantId  String
-  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  tenantId      String
+  tenant        Tenant   @relation(fields: [tenantId], references: [id])
 
-  roles     UserRole[]
+  roles         UserRole[]
+  accounts      Account[]
+  sessions      Session[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 
   @@unique([email, tenantId])
+  @@index([tenantId])
+}
+
+model Account {
+  id                String  @id @default(uuid())
+  userId            String
+  tenantId          String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?  @db.Text
+  access_token      String?  @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?  @db.Text
+  session_state     String?
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tenant Tenant @relation(fields: [tenantId], references: [id])
+
+  @@unique([provider, providerAccountId, tenantId])
+  @@index([userId])
+  @@index([tenantId])
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  sessionToken String   @unique
+  userId       String
+  tenantId     String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tenant Tenant @relation(fields: [tenantId], references: [id])
+
+  @@index([userId])
+  @@index([tenantId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
 }
 
 model Role {
@@ -48,9 +110,12 @@ model Role {
   permissions RolePermission[]
   users       UserRole[]
 
-  @@unique([name, tenantId])
-}
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 
+  @@unique([name, tenantId])
+  @@index([tenantId])
+}
 
 model UserRole {
   userId String

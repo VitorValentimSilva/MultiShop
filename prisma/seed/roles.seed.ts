@@ -15,7 +15,9 @@ export async function seedRoles(tenantId: string) {
     },
   });
 
-  const permissions = await prisma.permission.findMany();
+  const permissions = await prisma.permission.findMany({
+    select: { id: true },
+  });
 
   for (const permission of permissions) {
     await prisma.rolePermission.upsert({

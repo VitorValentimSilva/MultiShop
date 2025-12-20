@@ -4,3 +4,6 @@ export * from "@/app/_types/db/role";
 export * from "@/app/_types/db/permission";
 export * from "@/app/_types/db/role-permission";
 export * from "@/app/_types/db/user-role";
+export * from "@/app/_types/db/account";
+export * from "@/app/_types/db/session";
+export * from "@/app/_types/db/verification-token";

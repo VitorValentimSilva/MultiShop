@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getTenantBySlug } from "@/app/_actions/tenant";
+import { auth } from "@/app/_lib/auth/auth";
 import {
   defaultLocale,
   Locale,
@@ -11,7 +12,6 @@ const PROTECTED_ROUTES = ["/private"];
 
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
-
   const segments = pathname.split("/").filter(Boolean);
 
   if (segments.length === 0) {
@@ -45,26 +45,44 @@ export async function proxy(req: NextRequest) {
     return NextResponse.redirect(new URL(`/${locale}`, req.url));
   }
 
-  const isAuthenticated = req.cookies.has("auth_token");
+  const cookieOptions = {
+    httpOnly: true,
+    path: "/",
+    maxAge: 60 * 60 * 24 * 30,
+    sameSite: "lax" as const,
+    secure: process.env.NODE_ENV === "production",
+  };
+
+  const session = await auth();
+  const isAuthenticated = !!session?.user;
 
   if (tenantPath === "/") {
     const path = isAuthenticated ? TENANT_ROUTES[0] : TENANT_ROUTES[1];
-    return NextResponse.rewrite(
+    const res = NextResponse.rewrite(
       new URL(`/${locale}/${tenant}${path}`, req.url),
     );
+
+    res.cookies.set("tenant", tenant, cookieOptions);
+    return res;
   }
 
   const isProtected = PROTECTED_ROUTES.some((r) => tenantPath.startsWith(r));
 
   if (isProtected && !isAuthenticated) {
-    return NextResponse.redirect(new URL(`/${locale}/${tenant}`, req.url));
+    const res = NextResponse.redirect(new URL(`/${locale}/${tenant}`, req.url));
+
+    res.cookies.set("tenant", tenant, cookieOptions);
+    return res;
   }
 
-  return NextResponse.rewrite(
+  const res = NextResponse.rewrite(
     new URL(`/${locale}/${tenant}${tenantPath}`, req.url),
   );
+
+  res.cookies.set("tenant", tenant, cookieOptions);
+  return res;
 }
 
 export const config = {
-  matcher: ["/((?!_next|api|favicon.ico).*)"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };

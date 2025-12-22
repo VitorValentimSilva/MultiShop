@@ -8,10 +8,10 @@ import Link from "next/link";
 import { Button } from "@/app/_components/ui/button";
 import Image from "next/image";
 import { HeaderProps } from "@/app/_types/ui/header";
-import { headerIcons, withLocale } from "@/app/_lib/ui";
+import { icons, withLocale } from "@/app/_lib/ui";
 import { LanguageSwitcher } from "@/app/_components/language-switcher";
 
-export function Header({ title, navLinks, button }: HeaderProps) {
+export function Header({ title, navLinks, buttons }: HeaderProps) {
   const pathname = usePathname();
   const locale = pathname.split("/")[1];
 
@@ -44,7 +44,7 @@ export function Header({ title, navLinks, button }: HeaderProps) {
             <div className="w-10 h-10 rounded-xl bg-linear-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/25 group-hover:shadow-primary/40 transition-shadow">
               {title.type === "icon" &&
                 (() => {
-                  const Icon = headerIcons[title.icon];
+                  const Icon = icons[title.icon];
                   return <Icon className="w-5 h-5 text-primary-foreground" />;
                 })()}
 
@@ -60,21 +60,21 @@ export function Header({ title, navLinks, button }: HeaderProps) {
             </div>
 
             <span className="text-xl font-bold text-foreground">
-              {title.text}
+              {title.line1}
 
-              {title.text2 && (
-                <span className="gradient-text">{title.text2}</span>
+              {title.line2 && (
+                <span className="gradient-text">{title.line2}</span>
               )}
             </span>
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => {
-              const href = withLocale(link.href, locale);
+              const href = withLocale(link.value, locale);
 
               return (
                 <Link
-                  key={link.href}
+                  key={link.value}
                   href={href}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     pathname === href
@@ -91,7 +91,7 @@ export function Header({ title, navLinks, button }: HeaderProps) {
           <div className="hidden lg:flex items-center gap-4">
             <LanguageSwitcher />
 
-            {button.map((button) => (
+            {buttons.map((button) => (
               <Button
                 key={button.title}
                 variant={button.variant}
@@ -126,12 +126,12 @@ export function Header({ title, navLinks, button }: HeaderProps) {
           >
             <div className="container-custom py-6 space-y-4">
               {navLinks.map((link) => {
-                const href = withLocale(link.href, locale);
+                const href = withLocale(link.value, locale);
                 const isActive = pathname === href;
 
                 return (
                   <Link
-                    key={link.href}
+                    key={link.value}
                     href={href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`block px-4 py-3 rounded-lg text-base font-semibold transition-colors ${
@@ -146,7 +146,7 @@ export function Header({ title, navLinks, button }: HeaderProps) {
               })}
 
               <div className="pt-4 space-y-3 border-t border-border">
-                {button.map((button) => (
+                {buttons.map((button) => (
                   <Button
                     key={button.title}
                     variant={button.variant}

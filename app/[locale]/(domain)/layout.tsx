@@ -7,24 +7,24 @@ interface DomainLayoutProps {
 
 export default function DomainLayout({ children }: DomainLayoutProps) {
   return (
-    <div className="dark theme-domain min-h-screen">
+    <div className="dark theme-domain min-h-screen flex flex-col">
       <Header
         title={{
-          text: "Multi",
-          text2: "Shop",
+          line1: "Multi",
+          line2: "Shop",
           href: "/",
           type: "icon",
           icon: "shoppingBag",
         }}
         navLinks={[
-          { href: "/", label: "Home" },
-          { href: "/sobre", label: "Sobre" },
-          { href: "/funcionalidades", label: "Funcionalidades" },
-          { href: "/como-funciona", label: "Como Funciona" },
-          { href: "/planos", label: "Planos" },
-          { href: "/contato", label: "Contato" },
+          { value: "/", label: "Home" },
+          { value: "/sobre", label: "Sobre" },
+          { value: "/funcionalidades", label: "Funcionalidades" },
+          { value: "/como-funciona", label: "Como Funciona" },
+          { value: "/planos", label: "Planos" },
+          { value: "/contato", label: "Contato" },
         ]}
-        button={[
+        buttons={[
           { variant: "secondary", size: "sm", title: "Entrar" },
           { variant: "default", size: "sm", title: "Criar Minha Loja" },
         ]}

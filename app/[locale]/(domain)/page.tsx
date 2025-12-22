@@ -2,6 +2,7 @@ import { FeaturesGrid } from "@/app/_components/features-grid";
 import { HeroSection } from "@/app/_components/hero-section";
 import { HowItWorks } from "@/app/_components/howIt-works";
 import { PricingSection } from "@/app/_components/pricing-section";
+import { TestimonialsSection } from "@/app/_components/testimonials-section";
 import { Locale } from "@/app/_lib/i18n/config";
 import { tServer } from "@/app/_lib/i18n/server";
 
@@ -210,6 +211,65 @@ export default async function HomeDomain({ params }: HomeDomainProps) {
               tServer("pricing.plans.pro.features.feature4", locale as Locale),
             ],
             popular: true,
+          },
+        ]}
+      />
+
+      <TestimonialsSection
+        title={{
+          line1: tServer("testimonials.title.line1", locale as Locale),
+          highlight: tServer("testimonials.title.highlight", locale as Locale),
+          line2: tServer("testimonials.title.line2", locale as Locale),
+        }}
+        description={tServer("testimonials.description", locale as Locale)}
+        testimonials={[
+          {
+            avatar: "AB",
+            name: tServer(
+              "testimonials.items.testimonial1.name",
+              locale as Locale,
+            ),
+            role: tServer(
+              "testimonials.items.testimonial1.role",
+              locale as Locale,
+            ),
+            content: tServer(
+              "testimonials.items.testimonial1.content",
+              locale as Locale,
+            ),
+            rating: 5,
+          },
+          {
+            avatar: "CD",
+            name: tServer(
+              "testimonials.items.testimonial2.name",
+              locale as Locale,
+            ),
+            role: tServer(
+              "testimonials.items.testimonial2.role",
+              locale as Locale,
+            ),
+            content: tServer(
+              "testimonials.items.testimonial2.content",
+              locale as Locale,
+            ),
+            rating: 4,
+          },
+          {
+            avatar: "EF",
+            name: tServer(
+              "testimonials.items.testimonial3.name",
+              locale as Locale,
+            ),
+            role: tServer(
+              "testimonials.items.testimonial3.role",
+              locale as Locale,
+            ),
+            content: tServer(
+              "testimonials.items.testimonial3.content",
+              locale as Locale,
+            ),
+            rating: 5,
           },
         ]}
       />

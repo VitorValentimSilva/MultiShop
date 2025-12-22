@@ -1,3 +1,4 @@
+import { CtaSection } from "@/app/_components/cta-section";
 import { FeaturesGrid } from "@/app/_components/features-grid";
 import { HeroSection } from "@/app/_components/hero-section";
 import { HowItWorks } from "@/app/_components/howIt-works";
@@ -272,6 +273,30 @@ export default async function HomeDomain({ params }: HomeDomainProps) {
             rating: 5,
           },
         ]}
+      />
+
+      <CtaSection
+        title={{
+          line1: tServer("cta.title.line1", locale as Locale),
+          highlight: tServer("cta.title.highlight", locale as Locale),
+          line2: tServer("cta.title.line2", locale as Locale),
+        }}
+        description={tServer("cta.description", locale as Locale)}
+        buttons={[
+          {
+            variant: "default",
+            href: "/signup",
+            icons: { type: "icon", icon: "arrow-right" },
+            title: tServer("cta.buttons.primary", locale as Locale),
+          },
+          {
+            variant: "secondary",
+            href: "/learn-more",
+            icons: { type: "icon", icon: "play" },
+            title: tServer("cta.buttons.secondary", locale as Locale),
+          },
+        ]}
+        text={tServer("cta.text", locale as Locale)}
       />
 
       <p>{tServer("tenant.notFound", locale as Locale)}</p>

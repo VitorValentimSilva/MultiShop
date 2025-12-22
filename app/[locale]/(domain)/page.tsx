@@ -1,5 +1,6 @@
 import { FeaturesGrid } from "@/app/_components/features-grid";
 import { HeroSection } from "@/app/_components/hero-section";
+import { HowItWorks } from "@/app/_components/howIt-works";
 import { Locale } from "@/app/_lib/i18n/config";
 import { tServer } from "@/app/_lib/i18n/server";
 
@@ -95,6 +96,53 @@ export default async function HomeDomain({ params }: HomeDomainProps) {
             ),
             description: tServer(
               "features.items.customization.description",
+              locale as Locale,
+            ),
+          },
+        ]}
+      />
+
+      <HowItWorks
+        title={{
+          line1: tServer("howItWorks.title.line1", locale as Locale),
+          highlight: tServer("howItWorks.title.highlight", locale as Locale),
+          line2: tServer("howItWorks.title.line2", locale as Locale),
+        }}
+        description={tServer("howItWorks.description", locale as Locale)}
+        steps={[
+          {
+            number: "01",
+            icon: { type: "icon", icon: "user-plus" },
+            title: tServer("howItWorks.steps.step1.title", locale as Locale),
+            description: tServer(
+              "howItWorks.steps.step1.description",
+              locale as Locale,
+            ),
+          },
+          {
+            number: "02",
+            icon: { type: "icon", icon: "store" },
+            title: tServer("howItWorks.steps.step2.title", locale as Locale),
+            description: tServer(
+              "howItWorks.steps.step2.description",
+              locale as Locale,
+            ),
+          },
+          {
+            number: "03",
+            icon: { type: "icon", icon: "shopping-bag" },
+            title: tServer("howItWorks.steps.step3.title", locale as Locale),
+            description: tServer(
+              "howItWorks.steps.step3.description",
+              locale as Locale,
+            ),
+          },
+          {
+            number: "04",
+            icon: { type: "icon", icon: "trending-up" },
+            title: tServer("howItWorks.steps.step4.title", locale as Locale),
+            description: tServer(
+              "howItWorks.steps.step4.description",
               locale as Locale,
             ),
           },

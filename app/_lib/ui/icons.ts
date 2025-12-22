@@ -10,6 +10,9 @@ import {
   Layers,
   CreditCard,
   Shield,
+  UserPlus,
+  Rocket,
+  TrendingUp,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -25,4 +28,7 @@ export const icons: Record<string, LucideIcon> = {
   layers: Layers,
   creditCard: CreditCard,
   shield: Shield,
+  userPlus: UserPlus,
+  rocket: Rocket,
+  trendingUp: TrendingUp,
 };

@@ -1,6 +1,7 @@
 import { FeaturesGrid } from "@/app/_components/features-grid";
 import { HeroSection } from "@/app/_components/hero-section";
 import { HowItWorks } from "@/app/_components/howIt-works";
+import { PricingSection } from "@/app/_components/pricing-section";
 import { Locale } from "@/app/_lib/i18n/config";
 import { tServer } from "@/app/_lib/i18n/server";
 
@@ -145,6 +146,70 @@ export default async function HomeDomain({ params }: HomeDomainProps) {
               "howItWorks.steps.step4.description",
               locale as Locale,
             ),
+          },
+        ]}
+      />
+
+      <PricingSection
+        title={{
+          line1: tServer("pricing.title.line1", locale as Locale),
+          highlight: tServer("pricing.title.highlight", locale as Locale),
+          line2: tServer("pricing.title.line2", locale as Locale),
+        }}
+        description={tServer("pricing.description", locale as Locale)}
+        typePricing={[
+          {
+            type: "monthly",
+          },
+          {
+            type: "annual",
+            description: tServer(
+              "pricing.typePricing.annual",
+              locale as Locale,
+            ),
+          },
+        ]}
+        plans={[
+          {
+            name: tServer("pricing.plans.basic.name", locale as Locale),
+            description: tServer(
+              "pricing.plans.basic.description",
+              locale as Locale,
+            ),
+            priceMonthly: 29,
+            priceAnnual: 24,
+            currency: "BRL",
+            features: [
+              tServer(
+                "pricing.plans.basic.features.feature1",
+                locale as Locale,
+              ),
+              tServer(
+                "pricing.plans.basic.features.feature2",
+                locale as Locale,
+              ),
+              tServer(
+                "pricing.plans.basic.features.feature3",
+                locale as Locale,
+              ),
+            ],
+          },
+          {
+            name: tServer("pricing.plans.pro.name", locale as Locale),
+            description: tServer(
+              "pricing.plans.pro.description",
+              locale as Locale,
+            ),
+            priceMonthly: 59,
+            priceAnnual: 49,
+            currency: "BRL",
+            features: [
+              tServer("pricing.plans.pro.features.feature1", locale as Locale),
+              tServer("pricing.plans.pro.features.feature2", locale as Locale),
+              tServer("pricing.plans.pro.features.feature3", locale as Locale),
+              tServer("pricing.plans.pro.features.feature4", locale as Locale),
+            ],
+            popular: true,
           },
         ]}
       />

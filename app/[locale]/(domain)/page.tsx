@@ -1,3 +1,4 @@
+import { FeaturesGrid } from "@/app/_components/features-grid";
 import { HeroSection } from "@/app/_components/hero-section";
 import { Locale } from "@/app/_lib/i18n/config";
 import { tServer } from "@/app/_lib/i18n/server";
@@ -55,6 +56,47 @@ export default async function HomeDomain({ params }: HomeDomainProps) {
           {
             label: tServer("hero.stats.support.label", locale as Locale),
             value: tServer("hero.stats.support.value", locale as Locale),
+          },
+        ]}
+      />
+
+      <FeaturesGrid
+        title={{
+          line1: tServer("features.title.line1", locale as Locale),
+          highlight: tServer("features.title.highlight", locale as Locale),
+          line2: tServer("features.title.line2", locale as Locale),
+        }}
+        description={tServer("features.description", locale as Locale)}
+        features={[
+          {
+            icons: { type: "icon", icon: "shield-check" },
+            title: tServer("features.items.security.title", locale as Locale),
+            description: tServer(
+              "features.items.security.description",
+              locale as Locale,
+            ),
+          },
+          {
+            icons: { type: "icon", icon: "cpu" },
+            title: tServer(
+              "features.items.performance.title",
+              locale as Locale,
+            ),
+            description: tServer(
+              "features.items.performance.description",
+              locale as Locale,
+            ),
+          },
+          {
+            icons: { type: "icon", icon: "cog" },
+            title: tServer(
+              "features.items.customization.title",
+              locale as Locale,
+            ),
+            description: tServer(
+              "features.items.customization.description",
+              locale as Locale,
+            ),
           },
         ]}
       />

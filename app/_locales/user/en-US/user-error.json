@@ -1,0 +1,8 @@
+{
+  "USER_NOT_FOUND_GET_USER_BY_EMAIL": "User not found when getting by email",
+  "GET_USER_BY_EMAIL_FAILED": "Failed to get user by email",
+  "USER_NOT_FOUND_CREATE_USER": "User not found when creating",
+  "CREATE_USER_FAILED": "Failed to create user",
+  "USER_NOT_FOUND_GET_USER_BY_ACCOUNT": "User not found when getting by account",
+  "GET_USER_BY_ACCOUNT_FAILED": "Failed to get user by account"
+}

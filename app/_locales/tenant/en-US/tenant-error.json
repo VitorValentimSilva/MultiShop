@@ -1,0 +1,7 @@
+{
+  "TENANT_NOT_FOUND_GET_USER_BY_EMAIL": "Tenant not found when getting user by email",
+  "TENANT_NOT_FOUND_CREATE_USER": "Tenant not found when creating user",
+  "TENANT_NOT_FOUND_GET_USER_BY_ACCOUNT": "Tenant not found when getting user by account",
+  "TENANT_NOT_FOUND_LINK_ACCOUNT": "Tenant not found when linking account",
+  "TENANT_NOT_FOUND_CREATE_SESSION": "Tenant not found when creating session"
+}

@@ -1,0 +1,8 @@
+{
+  "USER_NOT_FOUND_GET_USER_BY_EMAIL": "Usuário não encontrado ao obter pelo email",
+  "GET_USER_BY_EMAIL_FAILED": "Falha ao obter o usuário pelo email",
+  "USER_NOT_FOUND_CREATE_USER": "Usuário não encontrado ao criar",
+  "CREATE_USER_FAILED": "Falha ao criar o usuário",
+  "USER_NOT_FOUND_GET_USER_BY_ACCOUNT": "Usuário não encontrado ao obter pela conta",
+  "GET_USER_BY_ACCOUNT_FAILED": "Falha ao obter o usuário pela conta"
+}

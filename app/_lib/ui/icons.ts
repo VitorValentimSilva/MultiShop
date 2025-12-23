@@ -1,0 +1,34 @@
+import {
+  ShoppingBag,
+  Store,
+  Package,
+  Users,
+  Zap,
+  LayoutDashboard,
+  ShoppingCart,
+  Palette,
+  Layers,
+  CreditCard,
+  Shield,
+  UserPlus,
+  Rocket,
+  TrendingUp,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+
+export const icons: Record<string, LucideIcon> = {
+  shoppingBag: ShoppingBag,
+  store: Store,
+  package: Package,
+  users: Users,
+  zap: Zap,
+  layoutDashboard: LayoutDashboard,
+  shoppingCart: ShoppingCart,
+  palette: Palette,
+  layers: Layers,
+  creditCard: CreditCard,
+  shield: Shield,
+  userPlus: UserPlus,
+  rocket: Rocket,
+  trendingUp: TrendingUp,
+};

@@ -17,3 +17,4 @@ export * from "@/app/_errors/role/role-error";
 export * from "@/app/_errors/role/role-error-code";
 export * from "@/app/_errors/permission/permission-error";
 export * from "@/app/_errors/permission/permission-error-code";
+export * from "@/app/_errors/error-code";

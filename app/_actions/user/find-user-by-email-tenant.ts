@@ -1,8 +1,7 @@
 "use server";
 
-import { prisma } from "@/app/_lib/prisma";
+import { prisma, ok, fail } from "@/app/_lib";
 import { Response } from "@/app/_types/api";
-import { ok, fail } from "@/app/_lib/response";
 import {
   FindUserByEmailAndTenantInput,
   FindUserByEmailAndTenantResult,
@@ -12,6 +11,10 @@ export async function findUserByEmailAndTenant(
   input: FindUserByEmailAndTenantInput,
 ): Promise<Response<FindUserByEmailAndTenantResult>> {
   try {
+    if (!input) {
+      return fail("INPUT_REQUIRED_FIND_USER_BY_EMAIL_AND_TENANT");
+    }
+
     const user = await prisma.user.findUnique({
       where: {
         email_tenantId: { email: input.email, tenantId: input.tenantId },
@@ -20,12 +23,13 @@ export async function findUserByEmailAndTenant(
     });
 
     if (!user) {
-      return fail("user.notFound");
+      return fail("USER_NOT_FOUND_FIND_USER_BY_EMAIL_AND_TENANT");
     }
 
     return ok(user);
   } catch (error) {
-    console.error(error);
-    return fail("common.errors.internal");
+    console.error("FIND_USER_BY_EMAIL_AND_TENANT_FAILED", error);
+
+    return fail("FIND_USER_BY_EMAIL_AND_TENANT_FAILED");
   }
 }

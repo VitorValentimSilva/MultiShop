@@ -1,8 +1,7 @@
 "use server";
 
-import { prisma } from "@/app/_lib/prisma";
+import { prisma, ok, fail } from "@/app/_lib";
 import { Response } from "@/app/_types/api";
-import { ok, fail } from "@/app/_lib/response";
 import {
   GetSessionUserInput,
   GetSessionUserResult,
@@ -12,6 +11,10 @@ export async function getSessionUser(
   input: GetSessionUserInput,
 ): Promise<Response<GetSessionUserResult>> {
   try {
+    if (!input) {
+      return fail("INPUT_REQUIRED_GET_SESSION_USER");
+    }
+
     const user = await prisma.user.findUnique({
       where: { id: input.userId },
       include: {
@@ -30,9 +33,11 @@ export async function getSessionUser(
       },
     });
 
-    if (!user) return fail("user.notFound");
+    if (!user) {
+      return fail("USER_NOT_FOUND_GET_SESSION_USER");
+    }
 
-    return ok({
+    const result: GetSessionUserResult = {
       id: user.id,
       name: user.name,
       email: user.email,
@@ -46,9 +51,16 @@ export async function getSessionUser(
       permissions: user.roles.flatMap((r) =>
         r.role.permissions.map((p) => p.permission.key),
       ),
-    });
+    };
+
+    if (!result) {
+      return fail("RESULT_NOT_FOUND_GET_SESSION_USER");
+    }
+
+    return ok(result);
   } catch (error) {
-    console.error(error);
-    return fail("common.errors.internal");
+    console.error("GET_SESSION_USER_FAILED", error);
+
+    return fail("GET_SESSION_USER_FAILED");
   }
 }

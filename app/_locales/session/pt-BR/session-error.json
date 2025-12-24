@@ -1,4 +1,5 @@
 {
   "SESSION_NOT_FOUND_CREATE_SESSION": "Sessão não encontrada ao criar",
-  "CREATE_SESSION_FAILED": "Falha ao criar a sessão"
+  "CREATE_SESSION_FAILED": "Falha ao criar a sessão",
+  "SESSION_FAILED": "Falha na sessão"
 }

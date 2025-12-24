@@ -6,3 +6,8 @@ export interface RolePermission {
   role: Role;
   permission: Permission;
 }
+
+export interface RolePermissionWithoutRelations {
+  roleId: Role["id"];
+  permissionId: Permission["id"];
+}

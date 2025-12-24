@@ -15,3 +15,15 @@ export interface User {
   createdAt?: Date | null;
   updatedAt?: Date | null;
 }
+
+export interface UserWithoutRelations {
+  id: string;
+  name?: string | null;
+  email: string;
+  emailVerified?: Date | null;
+  image?: string | null;
+  passwordHash?: string | null;
+  tenantId: Tenant["id"];
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
+}

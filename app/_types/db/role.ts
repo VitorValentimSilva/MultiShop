@@ -10,3 +10,11 @@ export interface Role {
   createdAt?: Date | null;
   updatedAt?: Date | null;
 }
+
+export interface RoleWithoutRelations {
+  id: string;
+  name: string;
+  tenantId: Tenant["id"];
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
+}

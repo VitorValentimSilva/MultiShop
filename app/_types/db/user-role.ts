@@ -6,3 +6,8 @@ export interface UserRole {
   user: User;
   role: Role;
 }
+
+export interface UserRoleWithoutRelations {
+  userId: User["id"];
+  roleId: Role["id"];
+}

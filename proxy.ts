@@ -1,11 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getTenantBySlug } from "@/app/_actions/tenant";
-import { auth } from "@/app/_lib/auth/auth";
-import {
-  defaultLocale,
-  Locale,
-  supportedLocales,
-} from "@/app/_lib/i18n/config";
+import { auth } from "@/app/_lib/auth";
+import { defaultLocale, Locale, supportedLocales } from "@/app/_lib/i18n";
 
 const TENANT_ROUTES = ["/private", "/public"];
 const PROTECTED_ROUTES = ["/private"];

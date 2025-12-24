@@ -4,8 +4,7 @@ import { HeroSection } from "@/app/_components/hero-section";
 import { HowItWorks } from "@/app/_components/howIt-works";
 import { PricingSection } from "@/app/_components/pricing-section";
 import { TestimonialsSection } from "@/app/_components/testimonials-section";
-import { Locale } from "@/app/_lib/i18n/config";
-import { tServer } from "@/app/_lib/i18n/server";
+import { Locale, tServer } from "@/app/_lib/i18n";
 
 interface HomeDomainProps {
   params: Promise<{

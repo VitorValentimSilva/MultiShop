@@ -1,5 +1,4 @@
-import { dictionaries } from "@/app/_lib/i18n/index";
-import { Locale } from "@/app/_lib/i18n/config";
+import { dictionaries, Locale } from "@/app/_lib/i18n";
 
 type TranslationNode = string | { [key: string]: TranslationNode };
 

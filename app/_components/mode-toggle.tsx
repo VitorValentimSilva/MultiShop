@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/app/_components/ui/dropdown-menu";
-import { useT } from "@/app/_lib/i18n/client";
+import { useT } from "@/app/_lib/i18n";
 
 export function ModeToggle() {
   const { setTheme } = useTheme();

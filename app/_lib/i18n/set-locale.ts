@@ -1,4 +1,4 @@
-import { supportedLocales, Locale } from "@/app/_lib/i18n/config";
+import { supportedLocales, Locale } from "@/app/_lib/i18n";
 
 const LOCALE_KEY = "locale";
 

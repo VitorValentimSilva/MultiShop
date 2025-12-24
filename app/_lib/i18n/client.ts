@@ -5,8 +5,8 @@ import {
   supportedLocales,
   Locale,
   defaultLocale,
-} from "@/app/_lib/i18n/config";
-import { translate } from "@/app/_lib/i18n/core";
+  translate,
+} from "@/app/_lib/i18n";
 
 function getLocaleFromPath(pathname: string | null): Locale {
   if (!pathname) return defaultLocale;

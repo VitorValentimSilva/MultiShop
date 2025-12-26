@@ -1,0 +1,20 @@
+{
+  "TENANT_NOT_FOUND_GET_USER_BY_EMAIL": "Tenant not found when getting user by email",
+  "TENANT_NOT_FOUND_CREATE_USER": "Tenant not found when creating user",
+  "TENANT_NOT_FOUND_GET_USER_BY_ACCOUNT": "Tenant not found when getting user by account",
+  "TENANT_NOT_FOUND_LINK_ACCOUNT": "Tenant not found when linking account",
+  "TENANT_NOT_FOUND_CREATE_SESSION": "Tenant not found when creating session",
+  "TENANT_NOT_FOUND_AUTHORIZE": "Tenant not found during authorization",
+  "TENANT_RECORD_NOT_FOUND_AUTHORIZE": "Tenant record not found during authorization",
+  "TENANT_NOT_FOUND_SIGNIN": "Tenant not found during sign in",
+  "TENANT_COOKIE_NOT_FOUND": "Tenant cookie not found",
+  "GET_TENANT_FROM_COOKIE_FAILED": "Failed to get tenant from cookie: {error}",
+  "TENANT_NOT_FOUND_SIGN_IN_WITH_TENANT": "Tenant not found when signing in with tenant",
+  "SIGN_IN_WITH_TENANT_FAILED": "Failed to sign in with tenant",
+  "SLUG_REQUIRED_GET_TENANT_BY_SLUG": "Slug is required to get tenant",
+  "TENANT_NOT_FOUND_GET_TENANT_BY_SLUG": "Tenant not found when getting tenant by slug",
+  "GET_TENANT_BY_SLUG_FAILED": "Failed to get tenant by slug",
+  "DATA_REQUIRED_CREATE_USER_FOR_TENANT": "Required data not provided to create user for tenant",
+  "CREATE_USER_FOR_TENANT_FAILED": "Failed to create user for tenant",
+  "INVALID_CREDENTIALS_AUTHORIZE": "Invalid credentials"
+}

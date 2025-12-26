@@ -1,12 +1,14 @@
 import type { NextAuthConfig } from "next-auth";
-import { googleProvider } from "@/app/_lib/auth/providers/google";
-import { credentialsProvider } from "@/app/_lib/auth/providers/credentials";
-import { githubProvider } from "@/app/_lib/auth/providers/github";
-import { authCallbacks } from "@/app/_lib/auth/callbacks";
-import { PrismaTenantAdapter } from "@/app/_lib/auth/prisma-tenant-adapter";
+import {
+  googleProvider,
+  githubProvider,
+  credentialsProvider,
+} from "@/app/_lib/auth/providers";
+import { PrismaMultiTenantAdapter, authCallbacks } from "@/app/_lib/auth";
+import { MainError } from "@/app/_errors";
 
 export const authOptions: NextAuthConfig = {
-  adapter: PrismaTenantAdapter(),
+  adapter: PrismaMultiTenantAdapter(),
 
   providers: [googleProvider, githubProvider, credentialsProvider],
 
@@ -15,4 +17,14 @@ export const authOptions: NextAuthConfig = {
   },
 
   callbacks: authCallbacks,
+
+  logger: {
+    error(error) {
+      if (error instanceof MainError) {
+        console.error(`AUTH_ERROR [${error.code}]:`, error);
+      } else {
+        console.error("AUTH_ERROR:", error);
+      }
+    },
+  },
 };

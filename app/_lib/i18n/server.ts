@@ -1,7 +1,13 @@
 import "server-only";
-import { Locale } from "@/app/_lib/i18n/config";
-import { translate } from "@/app/_lib/i18n/core";
+import { Locale, translate, TranslationNode } from "@/app/_lib/i18n";
+import { CommonError } from "@/app/_errors";
 
-export function tServer(key: string, locale: Locale) {
-  return translate(key, locale);
+export function tServer<T = TranslationNode>(key: string, locale: Locale): T {
+  const value = translate(key, locale);
+
+  if (value === undefined) {
+    throw new CommonError("MISSING_TRANSLATION_T_SERVER", 400, { key, locale });
+  }
+
+  return value as T;
 }

@@ -9,3 +9,11 @@ export interface Session {
   user: User;
   tenant: Tenant;
 }
+
+export interface SessionWithoutRelations {
+  id: string;
+  sessionToken: string;
+  userId: User["id"];
+  tenantId: Tenant["id"];
+  expires: Date;
+}

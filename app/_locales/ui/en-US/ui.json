@@ -1,0 +1,214 @@
+{
+  "heroSelection": {
+    "title": {
+      "line1": "Create your",
+      "highlight": "e-commerce",
+      "line2": "in minutes"
+    },
+    "description": "The complete platform to create, customize, and manage your online store with professional features. No technical knowledge required, no hassle.",
+    "buttons": {
+      "primary": "Create My Store for Free",
+      "secondary": "View Demo"
+    },
+    "stats": [
+      {
+        "label": "Stores Created",
+        "value": "10,000+"
+      },
+      {
+        "label": "Orders Processed",
+        "value": "500k+"
+      },
+      {
+        "label": "Guaranteed Uptime",
+        "value": "99.9%"
+      },
+      {
+        "label": "Support Available",
+        "value": "24/7"
+      }
+    ]
+  },
+  "featuresGrid": {
+    "title": {
+      "line1": "Features",
+      "highlight": "Everything you need to",
+      "line2": "sell online"
+    },
+    "description": "A complete platform with all the tools to create, manage, and scale your e-commerce business without technical knowledge.",
+    "features": [
+      {
+        "title": "Complete Online Store",
+        "description": "Create your professional online store in minutes, with product catalog, cart, and optimized checkout."
+      },
+      {
+        "title": "Admin Dashboard",
+        "description": "Manage everything from one place: products, orders, customers, and reports in an intuitive interface."
+      },
+      {
+        "title": "Product Management",
+        "description": "Add products with variations, photos, inventory, and pricing. Organize by categories and tags."
+      },
+      {
+        "title": "Order Management",
+        "description": "Track orders in real time, manage statuses, shipping, and customer communication."
+      },
+      {
+        "title": "Customizable Themes",
+        "description": "Choose from multiple themes and customize colors, fonts, and layout to match your brand."
+      },
+      {
+        "title": "Multi-tenant",
+        "description": "Modern architecture that ensures data isolation and performance for each store."
+      },
+      {
+        "title": "User System",
+        "description": "Your customers can create accounts, track orders, and save favorites in your store."
+      },
+      {
+        "title": "Integrated Payments",
+        "description": "Accept PIX, credit cards, and bank slips with leading payment gateways."
+      },
+      {
+        "title": "Security and Scalability",
+        "description": "Robust infrastructure with SSL, automatic backups, and built to grow with your business."
+      }
+    ]
+  },
+  "howItWorks": {
+    "title": {
+      "line1": "How It Works",
+      "highlight": "From zero to your store in",
+      "line2": "4 simple steps"
+    },
+    "description": "No technical experience needed. Our platform was built so anyone can create an online store.",
+    "steps": [
+      {
+        "title": "Create Your Account",
+        "description": "Sign up for free in less than 2 minutes. No credit card required, no commitment."
+      },
+      {
+        "title": "Customize your store",
+        "description": "Choose a theme, add your logo, configure colors, and make your store match your brand."
+      },
+      {
+        "title": "Add your products",
+        "description": "Add products with photos, descriptions, prices, and variations. Organize by categories."
+      },
+      {
+        "title": "Start selling",
+        "description": "Publish your store and start receiving orders. Track sales in real time from the dashboard."
+      }
+    ]
+  },
+  "pricingSection": {
+    "title": {
+      "line1": "Plans and Pricing",
+      "highlight": "Choose the plan",
+      "line2": "that’s right for you"
+    },
+    "description": "Start free for 14 days. No credit card required.",
+    "typePricing": {
+      "badge": "Save 20%"
+    },
+    "plans": [
+      {
+        "name": "Starter",
+        "description": "Ideal for those just getting started with e-commerce.",
+        "features": [
+          "1 online store",
+          "Up to 100 products",
+          "500 orders/month",
+          "Basic themes",
+          "Integrated payments",
+          "Email support",
+          "SSL certificate"
+        ]
+      },
+      {
+        "name": "Professional",
+        "description": "For growing businesses that need more features.",
+        "features": [
+          "3 online stores",
+          "Unlimited products",
+          "Unlimited orders",
+          "All premium themes",
+          "Custom domain",
+          "Advanced reports",
+          "Marketing integrations",
+          "Priority support",
+          "Integration API"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "description": "Complete solution for large-scale operations.",
+        "features": [
+          "Unlimited stores",
+          "Unlimited products",
+          "Unlimited orders",
+          "Exclusive themes",
+          "Multiple domains",
+          "Custom dashboards",
+          "Custom integrations",
+          "Dedicated success manager",
+          "Guaranteed SLA",
+          "Team training"
+        ]
+      }
+    ]
+  },
+  "testimonialsSection": {
+    "title": {
+      "line1": "Testimonials",
+      "highlight": "What our customers",
+      "line2": "say about us"
+    },
+    "description": "Thousands of entrepreneurs have already transformed their businesses with MultiShop.",
+    "testimonials": [
+      {
+        "name": "Mariana Silva",
+        "role": "Founder, Bella Moda",
+        "content": "I migrated my store from Instagram to MultiShop and my sales tripled in 3 months. The ease of use is impressive!"
+      },
+      {
+        "name": "Carlos Eduardo",
+        "role": "CEO, TechStore",
+        "content": "The best decision I made was choosing MultiShop. The support is exceptional and the platform is very stable."
+      },
+      {
+        "name": "Ana Paula Costa",
+        "role": "Owner, Doce Sabor",
+        "content": "Even without technical knowledge, I managed to create my handmade sweets store. My customers love it!"
+      },
+      {
+        "name": "Roberto Mendes",
+        "role": "Director, ModaFit",
+        "content": "We manage 5 different stores on MultiShop. The multi-tenant architecture is perfect for our business model."
+      },
+      {
+        "name": "Juliana Ferreira",
+        "role": "Entrepreneur",
+        "content": "The optimized checkout increased my conversion rate by 40%. I recommend it to all entrepreneurs!"
+      },
+      {
+        "name": "Lucas Oliveira",
+        "role": "Founder, GameZone",
+        "content": "Payment gateway integration was super easy. I'm selling across Brazil with ease."
+      }
+    ]
+  },
+  "ctaSection": {
+    "title": {
+      "line1": "Start free for 14 days",
+      "highlight": "Ready to",
+      "line2": "transform your business?"
+    },
+    "description": "Join thousands of entrepreneurs who are already selling more with MultiShop. Create your store in minutes and start earning today.",
+    "buttons": {
+      "primary": "Create My Store for Free",
+      "secondary": "Talk to a Specialist"
+    },
+    "text": "No credit card required • Cancel anytime • Support included"
+  }
+}

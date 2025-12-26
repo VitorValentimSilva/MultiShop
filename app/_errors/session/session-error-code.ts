@@ -1,0 +1,4 @@
+export type SessionErrorCode =
+  | "SESSION_NOT_FOUND_CREATE_SESSION"
+  | "CREATE_SESSION_FAILED"
+  | "SESSION_FAILED";

@@ -12,3 +12,12 @@ export interface Tenant {
   createdAt?: Date | null;
   updatedAt?: Date | null;
 }
+
+export interface TenantWithoutRelations {
+  id: string;
+  slug: string;
+  name: string;
+  isActive: boolean;
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
+}

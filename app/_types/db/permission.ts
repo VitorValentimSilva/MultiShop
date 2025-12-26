@@ -8,3 +8,11 @@ export interface Permission {
   createdAt?: Date | null;
   updatedAt?: Date | null;
 }
+
+export interface PermissionWithoutRelations {
+  id: string;
+  key: string;
+  label: string;
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
+}

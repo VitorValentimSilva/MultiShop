@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/app/_components/theme-provider";
-import { normalizeLocale } from "@/app/_lib/i18n/config";
+import { normalizeLocale } from "@/app/_lib/i18n";
 import "@/app/_styles/globals.css";
 
 const geistSans = Geist({

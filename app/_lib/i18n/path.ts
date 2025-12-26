@@ -1,4 +1,4 @@
-import { supportedLocales, Locale } from "@/app/_lib/i18n/config";
+import { supportedLocales, Locale } from "@/app/_lib/i18n";
 
 export function extractLocaleFromPath(pathname: string | null): Locale | null {
   if (!pathname) return null;

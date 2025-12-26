@@ -1,7 +1,7 @@
 import { TitleProps } from "@/app/_types/ui";
 
 export type TypePricingProps = {
-  type: "monthly" | "annual";
+  type: "monthly" | "yearly";
   description?: string;
 };
 

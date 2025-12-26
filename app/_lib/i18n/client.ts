@@ -1,12 +1,8 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import {
-  supportedLocales,
-  Locale,
-  defaultLocale,
-} from "@/app/_lib/i18n/config";
-import { translate } from "@/app/_lib/i18n/core";
+import { supportedLocales, Locale, defaultLocale } from "@/app/_lib/i18n";
+import { tString } from "@/app/_lib/i18n";
 
 function getLocaleFromPath(pathname: string | null): Locale {
   if (!pathname) return defaultLocale;
@@ -16,9 +12,9 @@ function getLocaleFromPath(pathname: string | null): Locale {
     : defaultLocale;
 }
 
-export function useT() {
+export function useTString() {
   const pathname = usePathname();
   const locale = getLocaleFromPath(pathname);
 
-  return (key: string) => translate(key, locale);
+  return (key: string, fallback = "") => tString(key, locale, fallback);
 }

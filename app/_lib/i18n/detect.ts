@@ -1,8 +1,4 @@
-import {
-  supportedLocales,
-  defaultLocale,
-  Locale,
-} from "@/app/_lib/i18n/config";
+import { supportedLocales, defaultLocale, Locale } from "@/app/_lib/i18n";
 
 export function detectBrowserLocale(): Locale {
   if (typeof navigator === "undefined") return defaultLocale;

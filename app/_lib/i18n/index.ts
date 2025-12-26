@@ -1,15 +1,11 @@
-import ptBRCommon from "@/app/_locales/pt-BR/common.json";
-import ptBRTenant from "@/app/_locales/pt-BR/tenant.json";
-import enUSCommon from "@/app/_locales/en-US/common.json";
-import enUSTenant from "@/app/_locales/en-US/tenant.json";
-
-export const dictionaries = {
-  "pt-BR": {
-    common: ptBRCommon,
-    tenant: ptBRTenant,
-  },
-  "en-US": {
-    common: enUSCommon,
-    tenant: enUSTenant,
-  },
-};
+export * from "@/app/_lib/i18n/config";
+export * from "@/app/_lib/i18n/core";
+export * from "@/app/_lib/i18n/detect";
+export * from "@/app/_lib/i18n/path";
+export * from "@/app/_lib/i18n/set-locale";
+export * from "@/app/_lib/i18n/client";
+export * from "@/app/_lib/i18n/dictionaries";
+export * from "@/app/_lib/i18n/get-locale";
+export * from "@/app/_lib/i18n/utils";
+export * from "@/app/_lib/i18n/error-message";
+export * from "@/app/_lib/i18n/t-string";

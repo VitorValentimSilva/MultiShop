@@ -19,16 +19,21 @@ model Permission {
 }
 
 model Tenant {
-  id        String   @id @default(uuid())
-  slug      String   @unique
-  name      String
-  isActive  Boolean  @default(true)
+  id                   String   @id @default(uuid())
+  slug                 String   @unique
+  name                 String
+  isActive             Boolean  @default(true)
+  stripeCustomerId     String?  @unique
+  stripeSubscriptionId String?  @unique
+  subscriptionStatus   String?
+  planId               String?
 
-  users     User[]
-  roles     Role[]
-  accounts  Account[]
-  sessions  Session[]
-  
+  users                User[]
+  roles                Role[]
+  accounts             Account[]
+  sessions             Session[]
+  plan                 Plan?    @relation(fields: [planId], references: [id])
+
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 }
@@ -156,8 +161,9 @@ model Plan {
   stripeProductId String?      
   stripePriceId   String?      
 
-  features       PlanFeature[]
-  reviews        Review[]
+  features        PlanFeature[]
+  reviews         Review[]
+  tenants         Tenant[]
 
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @default(now()) @updatedAt

@@ -7,3 +7,8 @@ export * from "@/app/_types/db/user-role";
 export * from "@/app/_types/db/account";
 export * from "@/app/_types/db/session";
 export * from "@/app/_types/db/verification-token";
+export * from "@/app/_types/db/plan";
+export * from "@/app/_types/db/feature";
+export * from "@/app/_types/db/plan-feature";
+export * from "@/app/_types/db/review";
+export * from "@/app/_types/db/domain-metric";

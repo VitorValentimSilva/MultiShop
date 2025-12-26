@@ -136,3 +136,89 @@ model RolePermission {
 
   @@id([roleId, permissionId])
 }
+
+enum BillingInterval {
+  MONTH
+  YEAR
+  ONE_TIME
+}
+
+model Plan {
+  id              String          @id @default(uuid())
+  key             String          @unique                       
+  title           String
+  subtitle        String?
+  description     String?         @db.Text
+  active          Boolean         @default(true)
+  priceCents      Int?          
+  currency        String?       
+  interval        BillingInterval @default(MONTH)
+  stripeProductId String?      
+  stripePriceId   String?      
+
+  features       PlanFeature[]
+  reviews        Review[]
+
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @default(now()) @updatedAt
+
+  @@index([key])
+}
+
+model Feature {
+  id          String        @id @default(uuid())
+  key         String        @unique
+  name        String
+  description String?       @db.Text
+  order       Int?          
+
+  plans       PlanFeature[]
+
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @default(now()) @updatedAt
+}
+
+model PlanFeature {
+  planId     String
+  featureId  String
+  included   Boolean       @default(true)
+  note       String?
+
+  plan       Plan         @relation(fields: [planId], references: [id], onDelete: Cascade)
+  feature    Feature      @relation(fields: [featureId], references: [id], onDelete: Cascade)
+
+  @@id([planId, featureId])
+  @@index([featureId])
+}
+
+model Review {
+  id          String   @id @default(uuid())
+  rating      Int      
+  title       String?
+  message     String?  @db.Text
+  authorName  String?
+  authorEmail String?
+  isPublished Boolean  @default(true)
+  planId      String?
+
+  plan        Plan?    @relation(fields: [planId], references: [id], onDelete: SetNull)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+
+  @@index([planId])
+  @@index([rating])
+}
+
+model DomainMetric {
+  id        String   @id @default(uuid())
+  key       String
+  namespace String?
+  value     Decimal  @db.Decimal(30, 6)
+  unit      String?
+  meta      Json?
+  createdAt DateTime @default(now())
+
+  @@unique([key, namespace])
+  @@index([key])
+}

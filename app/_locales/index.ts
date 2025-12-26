@@ -42,6 +42,26 @@ import ptBRCommonError from "@/app/_locales/common/pt-BR/common-error.json";
 import enUSCommonError from "@/app/_locales/common/en-US/common-error.json";
 import ptBRCommon from "@/app/_locales/common/pt-BR/common.json";
 import enUSCommon from "@/app/_locales/common/en-US/common.json";
+import ptBRPlan from "@/app/_locales/plan/pt-BR/plan.json";
+import enUSPlan from "@/app/_locales/plan/en-US/plan.json";
+import ptBRPlanError from "@/app/_locales/plan/pt-BR/plan-error.json";
+import enUSPlanError from "@/app/_locales/plan/en-US/plan-error.json";
+import ptBRFeature from "@/app/_locales/feature/pt-BR/feature.json";
+import enUSFeature from "@/app/_locales/feature/en-US/feature.json";
+import ptBRFeatureError from "@/app/_locales/feature/pt-BR/feature-error.json";
+import enUSFeatureError from "@/app/_locales/feature/en-US/feature-error.json";
+import ptBRPlanFeature from "@/app/_locales/plan-feature/pt-BR/plan-feature.json";
+import enUSPlanFeature from "@/app/_locales/plan-feature/en-US/plan-feature.json";
+import ptBRPlanFeatureError from "@/app/_locales/plan-feature/pt-BR/plan-feature-error.json";
+import enUSPlanFeatureError from "@/app/_locales/plan-feature/en-US/plan-feature-error.json";
+import ptBRReview from "@/app/_locales/review/pt-BR/review.json";
+import enUSReview from "@/app/_locales/review/en-US/review.json";
+import ptBRReviewError from "@/app/_locales/review/pt-BR/review-error.json";
+import enUSReviewError from "@/app/_locales/review/en-US/review-error.json";
+import ptBRDomainMetric from "@/app/_locales/domain-metric/pt-BR/domain-metric.json";
+import enUSDomainMetric from "@/app/_locales/domain-metric/en-US/domain-metric.json";
+import ptBRDomainMetricError from "@/app/_locales/domain-metric/pt-BR/domain-metric-error.json";
+import enUSDomainMetricError from "@/app/_locales/domain-metric/en-US/domain-metric-error.json";
 
 export {
   ptBRTenant,
@@ -88,4 +108,24 @@ export {
   enUSCommonError,
   ptBRCommon,
   enUSCommon,
+  ptBRPlan,
+  enUSPlan,
+  ptBRPlanError,
+  enUSPlanError,
+  ptBRFeature,
+  enUSFeature,
+  ptBRFeatureError,
+  enUSFeatureError,
+  ptBRPlanFeature,
+  enUSPlanFeature,
+  ptBRPlanFeatureError,
+  enUSPlanFeatureError,
+  ptBRReview,
+  enUSReview,
+  ptBRReviewError,
+  enUSReviewError,
+  ptBRDomainMetric,
+  enUSDomainMetric,
+  ptBRDomainMetricError,
+  enUSDomainMetricError,
 };

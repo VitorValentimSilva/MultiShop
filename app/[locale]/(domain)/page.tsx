@@ -32,19 +32,6 @@ export default async function HomeDomain({ params }: HomeDomainProps) {
     ctaSection,
   } = home;
 
-  if (featuresGrid.features.length !== featureIcons.length) {
-    console.warn("features length mismatch");
-  }
-  if (howItWorks.steps.length !== stepIcons.length) {
-    console.warn("steps length mismatch");
-  }
-  if (pricingSection.plans.length !== pricingConfig.length) {
-    console.warn("plans length mismatch");
-  }
-  if (testimonialsSection.testimonials.length !== testimonialsConfig.length) {
-    console.warn("testimonials length mismatch");
-  }
-
   return (
     <main className="flex-1">
       <HeroSection

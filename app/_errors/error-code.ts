@@ -9,6 +9,7 @@ import {
   RoleErrorCode,
   RolePermissionErrorCode,
   CommonErrorCode,
+  UiErrorCode,
 } from "@/app/_errors";
 
 export type ErrorCode =
@@ -21,4 +22,5 @@ export type ErrorCode =
   | VerificationTokenErrorCode
   | RoleErrorCode
   | RolePermissionErrorCode
-  | CommonErrorCode;
+  | CommonErrorCode
+  | UiErrorCode;

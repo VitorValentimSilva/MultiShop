@@ -36,6 +36,8 @@ import enUSVerificationToken from "@/app/_locales/verification-token/en-US/verif
 import enUSVerificationTokenError from "@/app/_locales/verification-token/en-US/verification-token-error.json";
 import ptBRUi from "@/app/_locales/ui/pt-BR/ui.json";
 import enUSUi from "@/app/_locales/ui/en-US/ui.json";
+import ptBRUiError from "@/app/_locales/ui/pt-BR/ui-error.json";
+import enUSUiError from "@/app/_locales/ui/en-US/ui-error.json";
 import ptBRCommonError from "@/app/_locales/common/pt-BR/common-error.json";
 import enUSCommonError from "@/app/_locales/common/en-US/common-error.json";
 import ptBRCommon from "@/app/_locales/common/pt-BR/common.json";
@@ -80,6 +82,8 @@ export {
   enUSVerificationTokenError,
   ptBRUi,
   enUSUi,
+  ptBRUiError,
+  enUSUiError,
   ptBRCommonError,
   enUSCommonError,
   ptBRCommon,

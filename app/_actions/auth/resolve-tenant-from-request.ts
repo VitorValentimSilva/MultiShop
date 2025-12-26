@@ -21,6 +21,8 @@ export async function getTenantFromCookie(): Promise<Tenant> {
   } catch (error) {
     console.warn("GET_TENANT_FROM_COOKIE_FAILED", error);
 
-    throw new TenantError("GET_TENANT_FROM_COOKIE_FAILED", 500, error);
+    throw new TenantError("GET_TENANT_FROM_COOKIE_FAILED", 500, {
+      error,
+    });
   }
 }

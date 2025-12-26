@@ -8,7 +8,7 @@
   "TENANT_RECORD_NOT_FOUND_AUTHORIZE": "Registro do tenant não encontrado durante a autorização",
   "TENANT_NOT_FOUND_SIGNIN": "Tenant não encontrado ao realizar login",
   "TENANT_COOKIE_NOT_FOUND": "Cookie do tenant não encontrado",
-  "GET_TENANT_FROM_COOKIE_FAILED": "Falha ao obter tenant a partir do cookie",
+  "GET_TENANT_FROM_COOKIE_FAILED": "Falha ao obter tenant a partir do cookie: {error}",
   "TENANT_NOT_FOUND_SIGN_IN_WITH_TENANT": "Tenant não encontrado ao realizar login com tenant",
   "SIGN_IN_WITH_TENANT_FAILED": "Falha ao realizar login com tenant",
   "SLUG_REQUIRED_GET_TENANT_BY_SLUG": "Slug é obrigatório para obter o tenant",

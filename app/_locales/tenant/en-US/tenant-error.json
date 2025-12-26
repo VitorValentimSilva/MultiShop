@@ -8,7 +8,7 @@
   "TENANT_RECORD_NOT_FOUND_AUTHORIZE": "Tenant record not found during authorization",
   "TENANT_NOT_FOUND_SIGNIN": "Tenant not found during sign in",
   "TENANT_COOKIE_NOT_FOUND": "Tenant cookie not found",
-  "GET_TENANT_FROM_COOKIE_FAILED": "Failed to get tenant from cookie",
+  "GET_TENANT_FROM_COOKIE_FAILED": "Failed to get tenant from cookie: {error}",
   "TENANT_NOT_FOUND_SIGN_IN_WITH_TENANT": "Tenant not found when signing in with tenant",
   "SIGN_IN_WITH_TENANT_FAILED": "Failed to sign in with tenant",
   "SLUG_REQUIRED_GET_TENANT_BY_SLUG": "Slug is required to get tenant",

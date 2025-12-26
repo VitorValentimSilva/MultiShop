@@ -53,7 +53,9 @@ export const authCallbacks: NextAuthConfig["callbacks"] = {
     } catch (error) {
       console.error("SIGNIN_FAILED", error);
 
-      throw new UserError("SIGNIN_FAILED", 500, error);
+      throw new UserError("SIGNIN_FAILED", 500, {
+        error,
+      });
     }
   },
 
@@ -75,7 +77,9 @@ export const authCallbacks: NextAuthConfig["callbacks"] = {
     } catch (error) {
       console.error("SESSION_FAILED", error);
 
-      throw new SessionError("SESSION_FAILED", 500, error);
+      throw new SessionError("SESSION_FAILED", 500, {
+        error,
+      });
     }
   },
 };

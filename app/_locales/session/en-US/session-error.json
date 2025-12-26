@@ -1,5 +1,5 @@
 {
   "SESSION_NOT_FOUND_CREATE_SESSION": "Session not found when creating session",
-  "CREATE_SESSION_FAILED": "Failed to create session",
-  "SESSION_FAILED": "Session failed"
+  "CREATE_SESSION_FAILED": "Failed to create session: {error}",
+  "SESSION_FAILED": "Session failed: {error}"
 }

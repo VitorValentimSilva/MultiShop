@@ -52,7 +52,9 @@ export function PrismaMultiTenantAdapter() {
       } catch (error) {
         console.error("GET_USER_BY_EMAIL_FAILED", error);
 
-        throw new UserError("GET_USER_BY_EMAIL_FAILED", 500, error);
+        throw new UserError("GET_USER_BY_EMAIL_FAILED", 500, {
+          error,
+        });
       }
     },
 
@@ -89,7 +91,9 @@ export function PrismaMultiTenantAdapter() {
       } catch (error) {
         console.error("CREATE_USER_FAILED", error);
 
-        throw new UserError("CREATE_USER_FAILED", 500, error);
+        throw new UserError("CREATE_USER_FAILED", 500, {
+          error,
+        });
       }
     },
 
@@ -131,7 +135,9 @@ export function PrismaMultiTenantAdapter() {
       } catch (error) {
         console.error("GET_USER_BY_ACCOUNT_FAILED", error);
 
-        throw new UserError("GET_USER_BY_ACCOUNT_FAILED", 500, error);
+        throw new UserError("GET_USER_BY_ACCOUNT_FAILED", 500, {
+          error,
+        });
       }
     },
 
@@ -182,7 +188,9 @@ export function PrismaMultiTenantAdapter() {
       } catch (error) {
         console.error("LINK_ACCOUNT_FAILED", error);
 
-        throw new AccountError("LINK_ACCOUNT_FAILED", 500, error);
+        throw new AccountError("LINK_ACCOUNT_FAILED", 500, {
+          error,
+        });
       }
     },
 
@@ -211,7 +219,9 @@ export function PrismaMultiTenantAdapter() {
       } catch (error) {
         console.error("CREATE_SESSION_FAILED", error);
 
-        throw new SessionError("CREATE_SESSION_FAILED", 500, error);
+        throw new SessionError("CREATE_SESSION_FAILED", 500, {
+          error,
+        });
       }
     },
   };

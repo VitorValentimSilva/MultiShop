@@ -62,7 +62,9 @@ export const credentialsProvider = Credentials({
     } catch (error) {
       console.error("AUTHORIZE_FAILED", error);
 
-      throw new UserError("AUTHORIZE_FAILED", 500, error);
+      throw new UserError("AUTHORIZE_FAILED", 500, {
+        error,
+      });
     }
   },
 });

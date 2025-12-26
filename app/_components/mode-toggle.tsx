@@ -9,12 +9,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/app/_components/ui/dropdown-menu";
-import { useT } from "@/app/_lib/i18n";
+import { useTString } from "@/app/_lib/i18n";
 
 export function ModeToggle() {
   const { setTheme } = useTheme();
-  const t = useT();
-
+  const t = useTString();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

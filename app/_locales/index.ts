@@ -34,6 +34,12 @@ import ptBRVerificationToken from "@/app/_locales/verification-token/pt-BR/verif
 import ptBRVerificationTokenError from "@/app/_locales/verification-token/pt-BR/verification-token-error.json";
 import enUSVerificationToken from "@/app/_locales/verification-token/en-US/verification-token.json";
 import enUSVerificationTokenError from "@/app/_locales/verification-token/en-US/verification-token-error.json";
+import ptBRUi from "@/app/_locales/ui/pt-BR/ui.json";
+import enUSUi from "@/app/_locales/ui/en-US/ui.json";
+import ptBRCommonError from "@/app/_locales/common/pt-BR/common-error.json";
+import enUSCommonError from "@/app/_locales/common/en-US/common-error.json";
+import ptBRCommon from "@/app/_locales/common/pt-BR/common.json";
+import enUSCommon from "@/app/_locales/common/en-US/common.json";
 
 export {
   ptBRTenant,
@@ -72,4 +78,10 @@ export {
   ptBRVerificationTokenError,
   enUSVerificationToken,
   enUSVerificationTokenError,
+  ptBRUi,
+  enUSUi,
+  ptBRCommonError,
+  enUSCommonError,
+  ptBRCommon,
+  enUSCommon,
 };

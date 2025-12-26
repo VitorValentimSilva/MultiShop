@@ -35,6 +35,12 @@ import {
   ptBRVerificationTokenError,
   enUSVerificationToken,
   enUSVerificationTokenError,
+  ptBRUi,
+  enUSUi,
+  ptBRCommonError,
+  enUSCommonError,
+  ptBRCommon,
+  enUSCommon,
 } from "@/app/_locales";
 
 export const dictionaries = {
@@ -57,6 +63,9 @@ export const dictionaries = {
     rolePermissionError: ptBRRolePermissionError,
     verificationToken: ptBRVerificationToken,
     verificationTokenError: ptBRVerificationTokenError,
+    ui: ptBRUi,
+    commonError: ptBRCommonError,
+    common: ptBRCommon,
   },
   "en-US": {
     tenant: enUSTenant,
@@ -77,5 +86,8 @@ export const dictionaries = {
     rolePermissionError: enUSRolePermissionError,
     verificationToken: enUSVerificationToken,
     verificationTokenError: enUSVerificationTokenError,
+    ui: enUSUi,
+    commonError: enUSCommonError,
+    common: enUSCommon,
   },
 } as const;

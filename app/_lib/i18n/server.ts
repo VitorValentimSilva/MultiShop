@@ -1,6 +1,12 @@
 import "server-only";
-import { Locale, translate } from "@/app/_lib/i18n";
+import { Locale, translate, TranslationNode } from "@/app/_lib/i18n";
 
-export function tServer(key: string, locale: Locale) {
-  return translate(key, locale);
+export function tServer<T = TranslationNode>(key: string, locale: Locale): T {
+  const value = translate(key, locale);
+
+  if (value === undefined) {
+    throw new Error(`Missing translation: ${key}`);
+  }
+
+  return value as T;
 }

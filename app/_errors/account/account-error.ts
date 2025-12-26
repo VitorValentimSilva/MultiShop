@@ -1,7 +1,14 @@
 import { MainError, AccountErrorCode } from "@/app/_errors";
 
-export class AccountError extends MainError<AccountErrorCode> {
-  constructor(code: AccountErrorCode, status = 400, cause?: unknown) {
-    super(code, status, cause);
+export class AccountError<
+  TParams extends Record<string, unknown> | undefined = undefined,
+> extends MainError<AccountErrorCode, TParams> {
+  constructor(
+    code: AccountErrorCode,
+    status = 400,
+    params?: TParams,
+    cause?: unknown,
+  ) {
+    super(code, status, params, cause);
   }
 }

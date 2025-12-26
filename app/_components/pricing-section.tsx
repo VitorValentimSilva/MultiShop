@@ -74,7 +74,7 @@ export function PricingSection({
 
           {typePricing.map(
             (type) =>
-              type.type === "annual" && (
+              type.type === "yearly" && (
                 <span
                   key={type.type}
                   className={`text-sm font-medium flex items-center gap-2 ${isYearly ? "text-foreground" : "text-muted-foreground"}`}

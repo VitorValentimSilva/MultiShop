@@ -10,6 +10,11 @@ import {
   RolePermissionErrorCode,
   CommonErrorCode,
   UiErrorCode,
+  DomainMetricErrorCode,
+  PlanErrorCode,
+  PlanFeatureErrorCode,
+  FeatureErrorCode,
+  ReviewErrorCode,
 } from "@/app/_errors";
 
 export type ErrorCode =
@@ -23,4 +28,9 @@ export type ErrorCode =
   | RoleErrorCode
   | RolePermissionErrorCode
   | CommonErrorCode
-  | UiErrorCode;
+  | UiErrorCode
+  | DomainMetricErrorCode
+  | PlanErrorCode
+  | PlanFeatureErrorCode
+  | FeatureErrorCode
+  | ReviewErrorCode;

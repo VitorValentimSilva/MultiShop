@@ -1,4 +1,4 @@
-import { Feature, Review } from "@/app/_types/db";
+import { Feature, Review, Tenant } from "@/app/_types/db";
 
 export type BillingInterval = "MONTH" | "YEAR" | "ONE_TIME";
 
@@ -6,32 +6,33 @@ export interface Plan {
   id: string;
   key: string;
   title: string;
-  subtitle?: string;
-  description?: string;
+  subtitle?: string | null;
+  description?: string | null;
   active: boolean;
-  priceCents?: number;
-  currency?: string;
+  priceCents?: number | null;
+  currency?: string | null;
   interval: BillingInterval;
-  stripeProductId?: string;
-  stripePriceId?: string;
+  stripeProductId?: string | null;
+  stripePriceId?: string | null;
   features: Feature[];
   reviews: Review[];
-  createdAt?: Date;
-  updatedAt?: Date;
+  tenants: Tenant[];
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
 }
 
 export interface PlanWithoutRelations {
   id: string;
   key: string;
   title: string;
-  subtitle?: string;
-  description?: string;
+  subtitle?: string | null;
+  description?: string | null;
   active: boolean;
-  priceCents?: number;
-  currency?: string;
+  priceCents?: number | null;
+  currency?: string | null;
   interval: BillingInterval;
-  stripeProductId?: string;
-  stripePriceId?: string;
-  createdAt?: Date;
-  updatedAt?: Date;
+  stripeProductId?: string | null;
+  stripePriceId?: string | null;
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
 }

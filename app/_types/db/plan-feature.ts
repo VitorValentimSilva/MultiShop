@@ -4,7 +4,7 @@ export interface PlanFeature {
   planId: Plan["id"];
   featureId: Feature["id"];
   included: boolean;
-  note?: string;
+  note?: string | null;
   plan: Plan;
   feature: Feature;
 }
@@ -13,5 +13,5 @@ export interface PlanFeatureWithoutRelations {
   planId: Plan["id"];
   featureId: Feature["id"];
   included: boolean;
-  note?: string;
+  note?: string | null;
 }

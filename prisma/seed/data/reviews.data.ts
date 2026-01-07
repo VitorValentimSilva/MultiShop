@@ -1,0 +1,145 @@
+export const REVIEWS = [
+  {
+    planKey: "starter",
+    rating: 5,
+    title: "Perfeito para começar!",
+    message:
+      "Consegui criar minha primeira loja em menos de 2 horas. Interface muito intuitiva e suporte excelente.",
+    authorName: "Maria Silva",
+    authorEmail: "maria.silva@example.com",
+    locale: "pt-BR",
+    isPublished: true,
+  },
+  {
+    planKey: "starter",
+    rating: 4,
+    title: "Great for beginners",
+    message:
+      "Easy to set up and use. The only limitation is the product count, but it's perfect for starting out.",
+    authorName: "John Doe",
+    authorEmail: "john.doe@example.com",
+    locale: "en-US",
+    isPublished: true,
+  },
+  {
+    planKey: "starter",
+    rating: 5,
+    title: "Ótimo custo-benefício",
+    message:
+      "Para quem está começando, esse plano tem tudo que precisa. Sistema de pagamento integrado funcionou perfeitamente.",
+    authorName: "Carlos Santos",
+    authorEmail: "carlos.santos@example.com",
+    locale: "pt-BR",
+    isPublished: true,
+  },
+  {
+    planKey: "pro",
+    rating: 5,
+    title: "Excelente para crescimento",
+    message:
+      "Migrei do plano Starter e a diferença é notável. Consigo gerenciar múltiplas lojas e os relatórios avançados me ajudam muito.",
+    authorName: "Ana Paula Oliveira",
+    authorEmail: "ana.oliveira@example.com",
+    locale: "pt-BR",
+    isPublished: true,
+  },
+  {
+    planKey: "pro",
+    rating: 5,
+    title: "Perfect for growing businesses",
+    message:
+      "The analytics are amazing and having multiple payment gateways really helped increase our conversion rate.",
+    authorName: "Sarah Johnson",
+    authorEmail: "sarah.johnson@example.com",
+    locale: "en-US",
+    isPublished: true,
+  },
+  {
+    planKey: "pro",
+    rating: 4,
+    title: "Recursos avançados que fazem diferença",
+    message:
+      "O limite de 1000 produtos é mais do que suficiente. Os temas personalizáveis são lindos e profissionais.",
+    authorName: "Roberto Lima",
+    authorEmail: "roberto.lima@example.com",
+    locale: "pt-BR",
+    isPublished: true,
+  },
+  {
+    planKey: "pro",
+    rating: 5,
+    title: "Worth every penny",
+    message:
+      "The advanced tracking and automation features saved us so much time. Highly recommended for serious sellers.",
+    authorName: "Michael Brown",
+    authorEmail: "michael.brown@example.com",
+    locale: "en-US",
+    isPublished: true,
+  },
+  {
+    planKey: "enterprise",
+    rating: 5,
+    title: "Solução completa para grandes operações",
+    message:
+      "Gerenciamos 15 lojas com mais de 10 mil produtos. A infraestrutura é robusta e o suporte 24/7 é excepcional.",
+    authorName: "Fernando Costa",
+    authorEmail: "fernando.costa@example.com",
+    locale: "pt-BR",
+    isPublished: true,
+  },
+  {
+    planKey: "enterprise",
+    rating: 5,
+    title: "Enterprise-grade solution",
+    message:
+      "We handle millions in transactions monthly. The dedicated infrastructure and SLA guarantee give us peace of mind.",
+    authorName: "David Wilson",
+    authorEmail: "david.wilson@example.com",
+    locale: "en-US",
+    isPublished: true,
+  },
+  {
+    planKey: "enterprise",
+    rating: 5,
+    title: "Sem limites, como prometido",
+    message:
+      "A possibilidade de integração customizada foi fundamental para nosso negócio. Equipe técnica muito competente.",
+    authorName: "Patricia Ferreira",
+    authorEmail: "patricia.ferreira@example.com",
+    locale: "pt-BR",
+    isPublished: true,
+  },
+  {
+    planKey: "enterprise",
+    rating: 5,
+    title: "Best investment we made",
+    message:
+      "The unlimited everything approach plus dedicated support made scaling our business seamless. Can't recommend enough.",
+    authorName: "James Anderson",
+    authorEmail: "james.anderson@example.com",
+    locale: "en-US",
+    isPublished: true,
+  },
+  {
+    planKey: null,
+    rating: 5,
+    title: "Melhor plataforma de e-commerce",
+    message:
+      "Já testei várias plataformas e essa é de longe a melhor. Multi-tenant real, segurança top e performance excelente.",
+    authorName: "Lucas Mendes",
+    authorEmail: "lucas.mendes@example.com",
+    locale: "pt-BR",
+    isPublished: true,
+  },
+  {
+    planKey: null,
+    rating: 5,
+    title: "Outstanding platform",
+    message:
+      "The attention to detail and modern architecture make this platform stand out from the competition.",
+    authorName: "Emily Davis",
+    authorEmail: "emily.davis@example.com",
+    locale: "en-US",
+    isPublished: true,
+  },
+] as const;

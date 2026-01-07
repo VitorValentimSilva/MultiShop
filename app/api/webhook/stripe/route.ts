@@ -30,13 +30,16 @@ export async function POST(req: Request) {
       return new Response("Missing tenantId in metadata", { status: 400 });
     }
 
-    const plan = await prisma.plan.findFirst({
+    const planPrice = await prisma.planPrice.findUnique({
       where: { stripePriceId: subscription.items.data[0].price.id },
+      include: { plan: true },
     });
 
-    if (!plan) {
+    if (!planPrice || !planPrice.plan) {
       return new Response("Plan not found", { status: 400 });
     }
+
+    const plan = planPrice.plan;
 
     await prisma.tenant.update({
       where: { id: session.metadata.tenantId },

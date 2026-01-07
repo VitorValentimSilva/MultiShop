@@ -1,0 +1,38 @@
+export const TENANTS = [
+  {
+    slug: "multishop",
+    name: "MultiShop",
+    isActive: true,
+    stripeCustomerId: null,
+    stripeSubscriptionId: null,
+    subscriptionStatus: null,
+    planKey: null,
+  },
+  {
+    slug: "demo-store",
+    name: "Demo Store",
+    isActive: true,
+    stripeCustomerId: "cus_demo_starter",
+    stripeSubscriptionId: "sub_demo_starter",
+    subscriptionStatus: "active",
+    planKey: "starter",
+  },
+  {
+    slug: "acme-corp",
+    name: "ACME Corporation",
+    isActive: true,
+    stripeCustomerId: "cus_demo_pro",
+    stripeSubscriptionId: "sub_demo_pro",
+    subscriptionStatus: "active",
+    planKey: "pro",
+  },
+  {
+    slug: "mega-store",
+    name: "Mega Store Enterprise",
+    isActive: true,
+    stripeCustomerId: "cus_demo_enterprise",
+    stripeSubscriptionId: "sub_demo_enterprise",
+    subscriptionStatus: "active",
+    planKey: "enterprise",
+  },
+] as const;

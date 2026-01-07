@@ -1,16 +1,9 @@
-import { seedPermissions } from "@/prisma/seed/permissions.seed";
-import { seedTenants } from "@/prisma/seed/tenants.seed";
-import { seedRoles } from "@/prisma/seed/roles.seed";
-import { seedUsers } from "@/prisma/seed/users.seed";
-import { seedDomain } from "@/prisma/seed/domain.seed";
-
-export async function runSeeds() {
-  await seedPermissions();
-
-  await seedDomain();
-
-  const tenant = await seedTenants();
-  const adminRole = await seedRoles(tenant.id);
-
-  await seedUsers(tenant.id, adminRole.id);
-}
+export * from "@/prisma/seed/features.seed";
+export * from "@/prisma/seed/plans.seed";
+export * from "@/prisma/seed/plan-features.seed";
+export * from "@/prisma/seed/permissions.seed";
+export * from "@/prisma/seed/reviews.seed";
+export * from "@/prisma/seed/roles.seed";
+export * from "@/prisma/seed/tenants.seed";
+export * from "@/prisma/seed/users.seed";
+export * from "@/prisma/seed/domain-metrics.seed";

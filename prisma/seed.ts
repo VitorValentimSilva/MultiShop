@@ -1,5 +1,5 @@
 import { prisma } from "@/app/_lib/prisma";
-import { runSeeds } from "@/prisma/seed/index";
+import { runSeeds } from "@/prisma/seed/run-seeds";
 
 async function main() {
   console.log("🌱 Starting database seed...");

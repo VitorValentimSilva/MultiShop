@@ -172,10 +172,9 @@ enum BillingInterval {
 }
 
 model Plan {
-  id              String          @id @default(uuid())
-  key             String          @unique
-  interval        BillingInterval @default(MONTH)
-  active          Boolean         @default(true)
+  id              String  @id @default(uuid())
+  key             String  @unique
+  active          Boolean @default(true)
   stripeProductId String?
 
   translations PlanTranslation[]
@@ -189,16 +188,19 @@ model Plan {
 }
 
 model PlanPrice {
-  id            String  @id @default(uuid())
+  id            String          @id @default(uuid())
   planId        String
   amountCents   Int
   currency      String
-  stripePriceId String?
+  interval      BillingInterval @default(MONTH)
+  stripePriceId String?         @unique
+  active        Boolean         @default(true)
 
   plan Plan @relation(fields: [planId], references: [id], onDelete: Cascade)
 
-  @@unique([planId, currency])
+  @@unique([planId, currency, interval])
   @@index([planId])
+  @@index([stripePriceId])
 }
 
 model PlanTranslation {
@@ -239,10 +241,12 @@ model FeatureTranslation {
 }
 
 model PlanFeature {
-  planId    String
-  featureId String
-  included  Boolean @default(true)
-  note      String?
+  planId     String
+  featureId  String
+  included   Boolean @default(true)
+  note       String?
+  limitValue Int?
+  limitUnit  String?
 
   plan    Plan    @relation(fields: [planId], references: [id], onDelete: Cascade)
   feature Feature @relation(fields: [featureId], references: [id], onDelete: Cascade)

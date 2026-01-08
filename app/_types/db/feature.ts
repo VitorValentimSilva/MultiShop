@@ -4,19 +4,19 @@ export interface Feature {
   id: string;
   key: string;
   name: string;
-  description?: string;
-  order?: number;
+  description?: string | null;
+  order?: number | null;
   plans: PlanFeature[];
-  createdAt?: Date;
-  updatedAt?: Date;
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
 }
 
 export interface FeatureWithoutRelations {
   id: string;
   key: string;
   name: string;
-  description?: string;
-  order?: number;
-  createdAt?: Date;
-  updatedAt?: Date;
+  description?: string | null;
+  order?: number | null;
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
 }

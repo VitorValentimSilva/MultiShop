@@ -1,5 +1,5 @@
 import { prisma } from "@/app/_lib/prisma";
-import { REVIEWS } from "@/prisma/seed/data/reviews.data";
+import { REVIEWS } from "@/prisma/seed/data";
 
 export async function seedReviews() {
   console.log("🌱 Seeding reviews...");

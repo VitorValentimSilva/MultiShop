@@ -1,3 +1,5 @@
+import { DomainMetricTranslation } from "@/app/_types/db";
+
 export interface DomainMetric {
   id: string;
   key: string;
@@ -5,7 +7,9 @@ export interface DomainMetric {
   value: number;
   unit?: string | null;
   meta?: Record<string, unknown> | null;
+  translations: DomainMetricTranslation[];
   createdAt?: Date | null;
+  updatedAt?: Date | null;
 }
 
 export interface DomainMetricWithoutRelations {
@@ -16,4 +20,5 @@ export interface DomainMetricWithoutRelations {
   unit?: string | null;
   meta?: Record<string, unknown> | null;
   createdAt?: Date | null;
+  updatedAt?: Date | null;
 }

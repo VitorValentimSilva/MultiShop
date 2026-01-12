@@ -17,3 +17,4 @@ export * from "@/app/_types/db/permission-translation";
 export * from "@/app/_types/db/role-translation";
 export * from "@/app/_types/db/plan-translation";
 export * from "@/app/_types/db/plan-price";
+export * from "@/app/_types/db/domain-metric-translation";

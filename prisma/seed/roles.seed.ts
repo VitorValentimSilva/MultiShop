@@ -1,5 +1,5 @@
 import { prisma } from "@/app/_lib/prisma";
-import { ROLES } from "@/prisma/seed/data/roles.data";
+import { ROLES } from "@/prisma/seed/data";
 
 export async function seedRoles(tenantId: string) {
   console.log("🌱 Seeding roles...");

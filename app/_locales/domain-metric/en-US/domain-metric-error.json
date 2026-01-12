@@ -1,1 +1,5 @@
-{}
+{
+  "GET_ALL_DOMAIN_METRIC_FAILED": "Failed to get all domain metrics.",
+  "GET_ALL_DOMAIN_METRIC_MISSING_LOCALE": "Missing locale when getting all domain metrics.",
+  "GET_ALL_DOMAIN_METRIC_NOT_FOUND": "Domain metrics not found."
+}

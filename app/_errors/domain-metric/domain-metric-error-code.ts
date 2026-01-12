@@ -1,1 +1,4 @@
-export type DomainMetricErrorCode = "";
+export type DomainMetricErrorCode =
+  | "GET_ALL_DOMAIN_METRIC_FAILED"
+  | "GET_ALL_DOMAIN_METRIC_MISSING_LOCALE"
+  | "GET_ALL_DOMAIN_METRIC_NOT_FOUND";

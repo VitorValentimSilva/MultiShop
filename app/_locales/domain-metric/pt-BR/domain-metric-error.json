@@ -1,1 +1,5 @@
-{}
+{
+  "GET_ALL_DOMAIN_METRIC_FAILED": "Falha ao obter todas as métricas de domínio.",
+  "GET_ALL_DOMAIN_METRIC_MISSING_LOCALE": "Locale ausente ao obter todas as métricas de domínio.",
+  "GET_ALL_DOMAIN_METRIC_NOT_FOUND": "Métricas de domínio não encontradas."
+}

@@ -7,3 +7,4 @@ export * from "@/app/_types/ui/pricing-section";
 export * from "@/app/_types/ui/testimonials-section";
 export * from "@/app/_types/ui/cta-section";
 export * from "@/app/_types/ui/footer";
+export * from "@/app/_types/ui/use-visible-metrics.dto";

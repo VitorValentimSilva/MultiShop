@@ -13,6 +13,8 @@ import {
   UserPlus,
   Rocket,
   TrendingUp,
+  ArrowRight,
+  Play,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -31,4 +33,6 @@ export const icons: Record<string, LucideIcon> = {
   userPlus: UserPlus,
   rocket: Rocket,
   trendingUp: TrendingUp,
+  arrowRight: ArrowRight,
+  play: Play,
 };

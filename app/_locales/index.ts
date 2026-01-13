@@ -62,6 +62,30 @@ import ptBRDomainMetric from "@/app/_locales/domain-metric/pt-BR/domain-metric.j
 import enUSDomainMetric from "@/app/_locales/domain-metric/en-US/domain-metric.json";
 import ptBRDomainMetricError from "@/app/_locales/domain-metric/pt-BR/domain-metric-error.json";
 import enUSDomainMetricError from "@/app/_locales/domain-metric/en-US/domain-metric-error.json";
+import ptBRPermissionTranslation from "@/app/_locales/permission-translation/pt-BR/permission-translation.json";
+import enUSPermissionTranslation from "@/app/_locales/permission-translation/en-US/permission-translation.json";
+import ptBRPermissionTranslationError from "@/app/_locales/permission-translation/pt-BR/permission-translation-error.json";
+import enUSPermissionTranslationError from "@/app/_locales/permission-translation/en-US/permission-translation-error.json";
+import ptBRRoleTranslation from "@/app/_locales/role-translation/pt-BR/role-translation.json";
+import enUSRoleTranslation from "@/app/_locales/role-translation/en-US/role-translation.json";
+import ptBRRoleTranslationError from "@/app/_locales/role-translation/pt-BR/role-translation-error.json";
+import enUSRoleTranslationError from "@/app/_locales/role-translation/en-US/role-translation-error.json";
+import ptBRFeatureTranslation from "@/app/_locales/feature-translation/pt-BR/feature-translation.json";
+import enUSFeatureTranslation from "@/app/_locales/feature-translation/en-US/feature-translation.json";
+import ptBRFeatureTranslationError from "@/app/_locales/feature-translation/pt-BR/feature-translation-error.json";
+import enUSFeatureTranslationError from "@/app/_locales/feature-translation/en-US/feature-translation-error.json";
+import ptBRPlanTranslation from "@/app/_locales/plan-translation/pt-BR/plan-translation.json";
+import enUSPlanTranslation from "@/app/_locales/plan-translation/en-US/plan-translation.json";
+import ptBRPlanTranslationError from "@/app/_locales/plan-translation/pt-BR/plan-translation-error.json";
+import enUSPlanTranslationError from "@/app/_locales/plan-translation/en-US/plan-translation-error.json";
+import ptBRPlanPrice from "@/app/_locales/plan-price/pt-BR/plan-price.json";
+import enUSPlanPrice from "@/app/_locales/plan-price/en-US/plan-price.json";
+import ptBRPlanPriceError from "@/app/_locales/plan-price/pt-BR/plan-price-error.json";
+import enUSPlanPriceError from "@/app/_locales/plan-price/en-US/plan-price-error.json";
+import ptBRDomainMetricTranslation from "@/app/_locales/domain-metric-translation/pt-BR/domain-metric-translation.json";
+import enUSDomainMetricTranslation from "@/app/_locales/domain-metric-translation/en-US/domain-metric-translation.json";
+import ptBRDomainMetricTranslationError from "@/app/_locales/domain-metric-translation/pt-BR/domain-metric-translation-error.json";
+import enUSDomainMetricTranslationError from "@/app/_locales/domain-metric-translation/en-US/domain-metric-translation-error.json";
 
 export {
   ptBRTenant,
@@ -128,4 +152,28 @@ export {
   enUSDomainMetric,
   ptBRDomainMetricError,
   enUSDomainMetricError,
+  ptBRPermissionTranslation,
+  enUSPermissionTranslation,
+  ptBRPermissionTranslationError,
+  enUSPermissionTranslationError,
+  ptBRRoleTranslation,
+  enUSRoleTranslation,
+  ptBRRoleTranslationError,
+  enUSRoleTranslationError,
+  ptBRFeatureTranslation,
+  enUSFeatureTranslation,
+  ptBRFeatureTranslationError,
+  enUSFeatureTranslationError,
+  ptBRPlanTranslation,
+  enUSPlanTranslation,
+  ptBRPlanTranslationError,
+  enUSPlanTranslationError,
+  ptBRPlanPrice,
+  enUSPlanPrice,
+  ptBRPlanPriceError,
+  enUSPlanPriceError,
+  ptBRDomainMetricTranslation,
+  enUSDomainMetricTranslation,
+  ptBRDomainMetricTranslationError,
+  enUSDomainMetricTranslationError,
 };

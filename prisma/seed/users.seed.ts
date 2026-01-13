@@ -1,5 +1,5 @@
 import { prisma } from "@/app/_lib/prisma";
-import { USERS } from "@/prisma/seed/data/users.data";
+import { USERS } from "@/prisma/seed/data";
 
 export async function seedUsers(tenantId: string) {
   console.log("🌱 Seeding users...");

@@ -1,12 +1,11 @@
-import { PlanFeature } from "@/app/_types/db";
+import { PlanFeature, FeatureTranslation } from "@/app/_types/db";
 
 export interface Feature {
   id: string;
   key: string;
-  name: string;
-  description?: string | null;
   order?: number | null;
-  plans: PlanFeature[];
+  translations: FeatureTranslation[];
+  planFeatures: PlanFeature[];
   createdAt?: Date | null;
   updatedAt?: Date | null;
 }
@@ -14,8 +13,6 @@ export interface Feature {
 export interface FeatureWithoutRelations {
   id: string;
   key: string;
-  name: string;
-  description?: string | null;
   order?: number | null;
   createdAt?: Date | null;
   updatedAt?: Date | null;

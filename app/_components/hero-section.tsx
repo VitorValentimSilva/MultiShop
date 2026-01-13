@@ -1,18 +1,39 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Play, Store, Users, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronDown,
+  ChevronUp,
+  Play,
+  Store,
+  Users,
+  Zap,
+} from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 import { Button } from "./ui/button";
 import { HeroSectionProps } from "@/app/_types/ui";
+import { useVisibleMetrics } from "@/app/_lib/hooks";
+import { useTString } from "@/app/_lib/i18n/client";
 
 export function HeroSection({
   icons,
   title,
   description,
   buttons,
-  stats,
+  domainMetrics,
 }: HeroSectionProps) {
+  const [showAllMetrics, setShowAllMetrics] = useState(false);
+  const t = useTString();
+
+  const {
+    visibleMetricsDesktop,
+    visibleMetricsMobile,
+    shouldShowButton,
+    totalCount,
+  } = useVisibleMetrics(domainMetrics, showAllMetrics);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-secondary/50">
       {icons !== undefined && icons.length > 0 && (
@@ -123,30 +144,101 @@ export function HeroSection({
             ))}
           </motion.div>
 
-          {stats && stats.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-border"
-            >
-              {stats.map((stat, index) => (
+          {domainMetrics && domainMetrics.length > 0 && (
+            <div className="space-y-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="hidden md:grid md:grid-cols-4 gap-8 pt-12 border-t border-border"
+              >
+                {visibleMetricsDesktop.map((domainMetric, index) => (
+                  <motion.div
+                    key={domainMetric.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                    className="text-center group"
+                    title={domainMetric.description || undefined}
+                  >
+                    <div className="text-3xl sm:text-4xl font-bold gradient-text mb-2">
+                      {domainMetric.value}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      {domainMetric.label}
+                    </div>
+                    {domainMetric.description && (
+                      <div className="text-xs text-muted-foreground/70 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                        {domainMetric.description}
+                      </div>
+                    )}
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="grid grid-cols-2 gap-6 pt-12 border-t border-border md:hidden"
+              >
+                {visibleMetricsMobile.map((domainMetric, index) => (
+                  <motion.div
+                    key={domainMetric.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                    className="text-center group"
+                    title={domainMetric.description || undefined}
+                  >
+                    <div className="text-2xl sm:text-3xl font-bold gradient-text mb-2">
+                      {domainMetric.value}
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      {domainMetric.label}
+                    </div>
+                    {domainMetric.description && (
+                      <div className="text-xs text-muted-foreground/70 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                        {domainMetric.description}
+                      </div>
+                    )}
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {shouldShowButton && (
                 <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                  className="text-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                  className="flex justify-center py-6"
                 >
-                  <div className="text-3xl sm:text-4xl font-bold gradient-text mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    {stat.label}
-                  </div>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setShowAllMetrics(!showAllMetrics)}
+                    className="gap-2"
+                  >
+                    {showAllMetrics ? (
+                      <>
+                        {t("common.buttons.showLess")}
+                        <ChevronUp className="w-4 h-4" />
+                      </>
+                    ) : (
+                      <>
+                        <span className="hidden md:inline">
+                          {t("common.buttons.showMore")} ({totalCount})
+                        </span>
+                        <span className="md:hidden">
+                          {t("common.buttons.viewMore")} ({totalCount})
+                        </span>
+                        <ChevronDown className="w-4 h-4" />
+                      </>
+                    )}
+                  </Button>
                 </motion.div>
-              ))}
-            </motion.div>
+              )}
+            </div>
           )}
         </div>
       </div>

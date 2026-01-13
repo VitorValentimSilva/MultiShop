@@ -280,8 +280,24 @@ model DomainMetric {
   unit      String?
   meta      Json?
 
+  translations DomainMetricTranslation[]
+
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@unique([key, namespace])
   @@index([key])
+}
+
+model DomainMetricTranslation {
+  id          String  @id @default(uuid())
+  locale      String
+  label       String
+  description String? @db.Text
+  metricId    String
+
+  metric DomainMetric @relation(fields: [metricId], references: [id], onDelete: Cascade)
+
+  @@unique([metricId, locale])
+  @@index([metricId])
 }

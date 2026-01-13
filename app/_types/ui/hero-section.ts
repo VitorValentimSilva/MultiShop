@@ -1,9 +1,5 @@
-import {
-  TitleProps,
-  IconProps,
-  ButtonProps,
-  LabeledValueProps,
-} from "@/app/_types/ui";
+import { TitleProps, IconProps, ButtonProps } from "@/app/_types/ui";
+import { GetAllDomainMetricResult } from "@/app/_types/dto/domain-metric";
 
 export type ButtonHeroSectionProps = ButtonProps & {
   icons: IconProps;
@@ -15,5 +11,5 @@ export type HeroSectionProps = {
   title: TitleProps;
   description: string;
   buttons: ButtonHeroSectionProps[];
-  stats?: LabeledValueProps[];
+  domainMetrics?: GetAllDomainMetricResult[];
 };

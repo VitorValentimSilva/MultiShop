@@ -9,25 +9,7 @@
     "buttons": {
       "primary": "Create My Store for Free",
       "secondary": "View Demo"
-    },
-    "stats": [
-      {
-        "label": "Stores Created",
-        "value": "10,000+"
-      },
-      {
-        "label": "Orders Processed",
-        "value": "500k+"
-      },
-      {
-        "label": "Guaranteed Uptime",
-        "value": "99.9%"
-      },
-      {
-        "label": "Support Available",
-        "value": "24/7"
-      }
-    ]
+    }
   },
   "featuresGrid": {
     "title": {

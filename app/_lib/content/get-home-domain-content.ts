@@ -8,6 +8,8 @@ import {
   testimonialsConfig,
 } from "@/app/_lib/ui/components";
 import { UiError } from "@/app/_errors";
+import { fetchGetAllDomainMetricSafe } from "@/app/_lib/services/domain-metric";
+import { DEFAULT_METRICS_LIMITS } from "@/app/_lib/constants/domain-metric";
 
 export function validateHomeUiConsistency(home: HomeDomainContent) {
   if (home.featuresGrid.features.length !== featureIcons.length) {
@@ -29,7 +31,9 @@ export function validateHomeUiConsistency(home: HomeDomainContent) {
   }
 }
 
-export function getHomeDomainContent(localeInput: string): HomeDomainContent {
+export async function getHomeDomainContent(
+  localeInput: string,
+): Promise<HomeDomainContent> {
   assertLocale(localeInput);
   const locale = localeInput as Locale;
 
@@ -40,9 +44,23 @@ export function getHomeDomainContent(localeInput: string): HomeDomainContent {
   const testimonialsRaw = tServer("ui.testimonialsSection", locale) as unknown;
   const ctaRaw = tServer("ui.ctaSection", locale) as unknown;
 
+  const domainMetrics = await fetchGetAllDomainMetricSafe({
+    locale,
+    options: {
+      limit: DEFAULT_METRICS_LIMITS.initialFetch,
+      sortBy: "createdAt",
+      sortOrder: "desc",
+    },
+  });
+
+  const heroWithMetrics = {
+    ...(heroRaw as Record<string, unknown>),
+    domainMetrics,
+  };
+
   const homeValidated = parseSchema("home", () =>
     HomeDomainSchema.parse({
-      heroSelection: heroRaw,
+      heroSelection: heroWithMetrics,
       featuresGrid: featuresRaw,
       howItWorks: howRaw,
       pricingSection: pricingRaw,

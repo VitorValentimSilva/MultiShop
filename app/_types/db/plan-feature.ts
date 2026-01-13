@@ -5,6 +5,8 @@ export interface PlanFeature {
   featureId: Feature["id"];
   included: boolean;
   note?: string | null;
+  limitValue?: number | null;
+  limitUnit?: string | null;
   plan: Plan;
   feature: Feature;
 }
@@ -14,4 +16,6 @@ export interface PlanFeatureWithoutRelations {
   featureId: Feature["id"];
   included: boolean;
   note?: string | null;
+  limitValue?: number | null;
+  limitUnit?: string | null;
 }

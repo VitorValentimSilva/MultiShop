@@ -1,10 +1,16 @@
-import { Tenant, UserRole, RolePermission } from "@/app/_types/db/";
+import {
+  Tenant,
+  UserRole,
+  RolePermission,
+  RoleTranslation,
+} from "@/app/_types/db/";
 
 export interface Role {
   id: string;
   name: string;
   tenantId: Tenant["id"];
   tenant: Tenant;
+  translations: RoleTranslation[];
   permissions: RolePermission[];
   users: UserRole[];
   createdAt?: Date | null;

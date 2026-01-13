@@ -1,1 +1,5 @@
-export type DomainMetricErrorCode = "";
+export type DomainMetricErrorCode =
+  | "GET_ALL_DOMAIN_METRIC_FAILED"
+  | "GET_ALL_DOMAIN_METRIC_MISSING_LOCALE"
+  | "INVALID_PAGE_NUMBER"
+  | "INVALID_LIMIT";

@@ -4,6 +4,7 @@ export * from "@/prisma/seed/data/plans.data";
 export * from "@/prisma/seed/data/plan-features.data";
 export * from "@/prisma/seed/data/reviews.data";
 export * from "@/prisma/seed/data/domain-metrics.data";
+export * from "@/prisma/seed/data/domain-metrics-translations.data";
 export * from "@/prisma/seed/data/tenants.data";
 export * from "@/prisma/seed/data/users.data";
 export * from "@/prisma/seed/data/roles.data";

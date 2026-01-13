@@ -30,19 +30,19 @@ export default async function HomeDomain({ params }: HomeDomainProps) {
     pricingSection,
     testimonialsSection,
     ctaSection,
-  } = home;
+  } = await home;
 
   return (
     <main className="flex-1">
       <HeroSection
         title={heroSelection.title}
         description={heroSelection.description}
-        stats={heroSelection.stats}
+        domainMetrics={heroSelection.domainMetrics}
         buttons={[
           {
             variant: "default",
             href: "/signup",
-            icons: { type: "icon", icon: "arrow-right" },
+            icons: { type: "icon", icon: "arrowRight" },
             title: heroSelection.buttons.primary,
           },
           {

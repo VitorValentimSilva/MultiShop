@@ -1,8 +1,14 @@
 import { z } from "zod";
 
-export const StatSchema = z.object({
+export const DomainMetricSchema = z.object({
+  id: z.string(),
+  key: z.string(),
+  namespace: z.string().nullable().optional(),
+  value: z.number(),
+  unit: z.string().nullable().optional(),
+  meta: z.record(z.string(), z.unknown()).nullable().optional(),
   label: z.string(),
-  value: z.string(),
+  description: z.string().nullable().optional(),
 });
 
 export const HeroSchema = z.object({
@@ -16,7 +22,7 @@ export const HeroSchema = z.object({
     primary: z.string(),
     secondary: z.string(),
   }),
-  stats: z.array(StatSchema),
+  domainMetrics: z.array(DomainMetricSchema).optional(),
 });
 
 export const FeatureItemSchema = z.object({

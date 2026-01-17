@@ -1,0 +1,7 @@
+{
+  "HOME_DOMAIN_FEATURES_MATCH_ICONS_VALIDATION": "The number of features must match the number of feature icons.",
+  "HOME_DOMAIN_HOW_IT_WORKS_MATCH_ICONS_VALIDATION": "The number of 'How It Works' steps must match the number of step icons.",
+  "HOME_DOMAIN_PRICING_MATCH_CONFIG_VALIDATION": "The number of pricing plans must match the pricing configuration.",
+  "HOME_DOMAIN_TESTIMONIALS_MATCH_CONFIG_VALIDATION": "The number of testimonials must match the testimonials configuration.",
+  "FETCH_GET_ALL_DOMAIN_METRIC_OR_THROW_FAILED": "Failed to fetch all domain metrics."
+}

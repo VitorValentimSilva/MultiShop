@@ -1,0 +1,19 @@
+{
+  "USER_NOT_FOUND_GET_USER_BY_EMAIL": "User not found when getting by email",
+  "GET_USER_BY_EMAIL_FAILED": "Failed to get user by email: {error}",
+  "USER_NOT_FOUND_CREATE_USER": "User not found when creating",
+  "CREATE_USER_FAILED": "Failed to create user: {error}",
+  "GET_USER_BY_ACCOUNT_FAILED": "Failed to get user by account: {error}",
+  "USER_PASSWORD_HASH_NOT_FOUND_AUTHORIZE": "User password hash not found during authorization",
+  "USER_PASSWORD_INVALID_AUTHORIZE": "Invalid password during authorization",
+  "AUTHORIZE_FAILED": "Authorization failed: {error}",
+  "MISSING_USER_SIGNIN": "Missing user for sign in",
+  "SIGNIN_FAILED": "Sign in failed: {error}",
+  "INPUT_REQUIRED_FIND_USER_BY_EMAIL_AND_TENANT": "Required input not provided to find user by email and tenant",
+  "USER_NOT_FOUND_FIND_USER_BY_EMAIL_AND_TENANT": "User not found when finding by email and tenant",
+  "FIND_USER_BY_EMAIL_AND_TENANT_FAILED": "Failed to find user by email and tenant",
+  "INPUT_REQUIRED_GET_SESSION_USER": "Required input not provided to get session user",
+  "USER_NOT_FOUND_GET_SESSION_USER": "User not found when getting session user",
+  "RESULT_NOT_FOUND_GET_SESSION_USER": "Result not found when getting session user",
+  "GET_SESSION_USER_FAILED": "Failed to get session user"
+}

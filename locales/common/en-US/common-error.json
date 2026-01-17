@@ -1,0 +1,5 @@
+{
+  "INVALID_LOCALE_ASSERT_LOCALE": "Invalid locale \"{locale}\". Supported: {supportedLocales}",
+  "SCHEMA_VALIDATION_FAILED_PARSE_SCHEMA": "Schema validation failed for {schemaName}",
+  "MISSING_TRANSLATION_T_SERVER": "Missing translation for key \"{key}\" in locale \"{locale}\" on server"
+}

@@ -1,0 +1,7 @@
+{
+  "HOME_DOMAIN_FEATURES_MATCH_ICONS_VALIDATION": "O número de recursos deve corresponder ao número de ícones de recursos.",
+  "HOME_DOMAIN_HOW_IT_WORKS_MATCH_ICONS_VALIDATION": "O número de etapas 'Como Funciona' deve corresponder ao número de ícones de etapas.",
+  "HOME_DOMAIN_PRICING_MATCH_CONFIG_VALIDATION": "O número de planos de preços deve corresponder à configuração de preços.",
+  "HOME_DOMAIN_TESTIMONIALS_MATCH_CONFIG_VALIDATION": "O número de depoimentos deve corresponder à configuração de depoimentos.",
+  "FETCH_GET_ALL_DOMAIN_METRIC_OR_THROW_FAILED": "Falha ao buscar todas as métricas de domínio."
+}

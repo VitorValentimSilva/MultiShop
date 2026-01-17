@@ -1,0 +1,6 @@
+{
+  "GET_ALL_DOMAIN_METRIC_FAILED": "Failed to get all domain metrics.",
+  "GET_ALL_DOMAIN_METRIC_MISSING_LOCALE": "Locale is required.",
+  "INVALID_PAGE_NUMBER": "Invalid page number. Must be greater than 0.",
+  "INVALID_LIMIT": "Invalid limit. Must be between 1 and 100."
+}

@@ -1,5 +1,0 @@
-{
-  "INVALID_LOCALE_ASSERT_LOCALE": "Locale inválido \"{locale}\". Suportados: {supportedLocales}",
-  "SCHEMA_VALIDATION_FAILED_PARSE_SCHEMA": "Falha na validação do esquema para {schemaName}",
-  "MISSING_TRANSLATION_T_SERVER": "Tradução ausente para a chave \"{key}\" no locale \"{locale}\" no servidor"
-}

@@ -1,3 +1,4 @@
+/*
 import { NextRequest, NextResponse } from "next/server";
 import { getTenantBySlug } from "@/app/_actions/tenant";
 import { auth } from "@/app/_lib/auth";
@@ -82,3 +83,4 @@ export async function proxy(req: NextRequest) {
 export const config = {
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };
+*/

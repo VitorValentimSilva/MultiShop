@@ -1,5 +1,5 @@
 import { prisma } from "@/app/_lib/prisma";
-import { BillingInterval } from "@/app/generated/prisma/enums";
+import { BillingInterval } from "@/src/app/generated/prisma/enums";
 import { PLANS } from "@/prisma/seed/data";
 
 export async function seedPlans() {

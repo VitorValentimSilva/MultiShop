@@ -1,0 +1,81 @@
+.white.theme-landing {
+  --radius: 0.75rem;
+  --background: rgba(248, 250, 252, 1);
+  --foreground: rgba(8, 12, 22, 1);
+  --card: rgba(255, 255, 255, 1);
+  --card-foreground: rgba(8, 12, 22, 1);
+  --popover: rgba(255, 255, 255, 1);
+  --popover-foreground: rgba(8, 12, 22, 1);
+  --primary: rgba(60, 131, 246, 1);
+  --primary-foreground: rgba(255, 255, 255, 1);
+  --secondary: rgba(241, 245, 249, 1);
+  --secondary-foreground: rgba(15, 23, 42, 1);
+  --muted: rgba(226, 232, 240, 1);
+  --muted-foreground: rgba(100, 116, 139, 1);
+  --accent: rgba(43, 212, 189, 1);
+  --accent-foreground: rgba(8, 12, 22, 1);
+  --destructive: rgba(239, 67, 67, 1);
+  --border: rgba(226, 232, 240, 1);
+  --input: rgba(226, 232, 240, 1);
+  --ring: rgba(60, 131, 246, 1);
+  --shadow-glow: 0 0 30px rgba(60, 131, 246, 0.25);
+  --gradient-primary: linear-gradient(
+    135deg,
+    rgba(60, 131, 246, 1) 0%,
+    rgba(43, 212, 189, 1) 100%
+  );
+  --sidebar-foreground: rgba(15, 23, 42, 1);
+  --sidebar-primary: rgba(60, 131, 246, 1);
+  --sidebar-primary-foreground: rgba(255, 255, 255, 1);
+  --sidebar-accent: rgba(241, 245, 249, 1);
+  --sidebar-accent-foreground: rgba(15, 23, 42, 1);
+  --sidebar-border: rgba(226, 232, 240, 1);
+  --sidebar-ring: rgba(60, 131, 246, 1);
+}
+
+.dark.theme-landing {
+  --radius: 0.75rem;
+  --background: rgba(8, 12, 22, 1);
+  --foreground: rgba(248, 250, 252, 1);
+  --card: rgba(11, 17, 30, 1);
+  --card-foreground: rgba(248, 250, 252, 1);
+  --popover: rgba(11, 17, 30, 1);
+  --popover-foreground: rgba(248, 250, 252, 1);
+  --primary: rgba(60, 131, 246, 1);
+  --primary-foreground: rgba(8, 12, 22, 1);
+  --secondary: rgba(16, 25, 45, 1);
+  --secondary-foreground: rgba(248, 250, 252, 1);
+  --muted: rgba(27, 34, 50, 1);
+  --muted-foreground: rgba(148, 163, 184, 1);
+  --accent: rgba(43, 212, 189, 1);
+  --accent-foreground: rgba(8, 12, 22, 1);
+  --destructive: rgba(239, 67, 67, 1);
+  --border: rgba(32, 40, 60, 1);
+  --input: rgba(32, 40, 60, 1);
+  --ring: rgba(60, 131, 246, 1);
+  --shadow-glow: 0 0 60px rgba(60, 131, 246, 0.3);
+  --gradient-primary: linear-gradient(
+    135deg,
+    rgba(60, 131, 246, 1) 0%,
+    rgba(43, 212, 189, 1) 100%
+  );
+  --sidebar-foreground: rgba(248, 250, 252, 1);
+  --sidebar-primary: rgba(60, 131, 246, 1);
+  --sidebar-primary-foreground: rgba(8, 12, 22, 1);
+  --sidebar-accent: rgba(16, 25, 45, 1);
+  --sidebar-accent-foreground: rgba(248, 250, 252, 1);
+  --sidebar-border: rgba(32, 40, 60, 1);
+  --sidebar-ring: rgba(60, 131, 246, 1);
+}
+
+@layer utilities {
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(60, 131, 246, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(60, 131, 246, 0.5);
+    }
+  }
+}

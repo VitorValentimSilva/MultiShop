@@ -1,5 +1,5 @@
 import { prisma } from "@/app/_lib/prisma";
-import { Prisma } from "@/app/generated/prisma/client";
+import { Prisma } from "@/src/app/generated/prisma/client";
 import {
   DOMAIN_METRICS,
   DOMAIN_METRICS_TRANSLATIONS,
@@ -71,7 +71,7 @@ export async function seedDomainMetrics() {
       }
     } else {
       console.warn(
-        `⚠️  No translations found for metric: ${m.key} (namespace: ${m.namespace})`,
+        `⚠️  No translations found for metric: ${m.key} (namespace: ${m.namespace})`
       );
     }
   }

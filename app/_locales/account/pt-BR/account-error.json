@@ -1,5 +1,0 @@
-{
-  "ACCOUNT_NOT_FOUND_LINK_ACCOUNT": "Conta não encontrada ao vincular a conta",
-  "LINK_ACCOUNT_FAILED": "Falha ao vincular a conta: {error}",
-  "MISSING_ACCOUNT_SIGNIN": "Conta ausente ao fazer login"
-}

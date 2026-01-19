@@ -1,0 +1,62 @@
+/* Base Tenant Styles */
+/* These are the DEFAULT styles that ALL tenants inherit */
+
+.tenant-layout {
+  min-height: 100vh;
+}
+
+.tenant-header {
+  @apply border-b bg-card;
+}
+
+.tenant-sidebar {
+  @apply border-r bg-card;
+}
+
+.tenant-content {
+  @apply p-6;
+}
+
+/* Dashboard Styles */
+.dashboard-card {
+  @apply bg-card rounded-lg p-6 shadow-sm;
+}
+
+.dashboard-stats {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4;
+}
+
+/* Admin Panel */
+.admin-table {
+  @apply w-full border-collapse;
+}
+
+.admin-table th {
+  @apply text-left p-4 bg-muted font-semibold;
+}
+
+.admin-table td {
+  @apply p-4 border-t;
+}
+
+/* Forms */
+.tenant-form {
+  @apply space-y-4;
+}
+
+.tenant-input {
+  @apply w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary;
+}
+
+/* Buttons */
+.tenant-button {
+  @apply px-4 py-2 rounded-lg font-medium transition-all;
+}
+
+.tenant-button-primary {
+  @apply bg-primary text-primary-foreground hover:opacity-90;
+}
+
+.tenant-button-secondary {
+  @apply bg-secondary text-secondary-foreground hover:opacity-90;
+}

@@ -46,7 +46,7 @@ next-env.d.ts
 
 # * Prisma generated client
 # ! Generated automatically, should not be committed
-/app/generated/prisma
+/src/app/generated/prisma
 
 # * IDE-specific settings
 .vscode/*
@@ -60,3 +60,6 @@ next-env.d.ts
 
 # * Bundle analyzer output
 stats.json
+
+# Sentry Config File
+.env.sentry-build-plugin

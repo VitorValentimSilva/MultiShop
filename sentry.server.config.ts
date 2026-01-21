@@ -4,7 +4,7 @@ import {
   parseBoolean,
   parseRate,
   resolveEnvironment,
-} from "./config/sentry";
+} from "@/config/sentry";
 
 // * Resolve the Sentry DSN
 // * Server-side DSN takes precedence over the public one

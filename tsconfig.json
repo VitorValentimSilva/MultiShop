@@ -1,39 +1,95 @@
 {
   "compilerOptions": {
+    // * Target ECMAScript version for the emitted JavaScript
+    // * ES2017 is a good balance between modern features and broad compatibility
     "target": "ES2017",
+
+    // * Standard library definitions to include during type checking
+    // * DOM APIs + iterable support + latest ECMAScript features
     "lib": ["dom", "dom.iterable", "esnext"],
+
+    // * Allows JavaScript files to be part of the project
+    // * Useful when migrating or consuming legacy JS code
     "allowJs": true,
+
+    // * Skips type checking of declaration files (*.d.ts)
+    // * Improves performance and avoids third-party typing issues
     "skipLibCheck": true,
+
+    // * Enables all strict type-checking options
+    // * Strongly recommended for production-grade TypeScript projects
     "strict": true,
+
+    // * Prevents TypeScript from emitting JavaScript output
+    // * Next.js handles transpilation and bundling
     "noEmit": true,
+
+    // * Enables interoperability between CommonJS and ES Modules
+    // * Allows default imports from CommonJS packages
     "esModuleInterop": true,
+
+    // * Use native ES modules
+    // * Required for modern bundlers and Next.js App Router
     "module": "esnext",
+
+    // * Uses bundler-aware module resolution
+    // * Optimized for tools like Next.js, Vite, and Turbopack
     "moduleResolution": "bundler",
+
+    // * Allows importing JSON files as modules
     "resolveJsonModule": true,
+
+    // * Ensures each file can be safely transpiled in isolation
+    // * Required for tools like Babel and Next.js
     "isolatedModules": true,
+
+    // * Use the new JSX transform (React 17+)
+    // * No need to import React manually
     "jsx": "react-jsx",
+
+    // * Enables incremental compilation for faster rebuilds
     "incremental": true,
+
+    // * Next.js TypeScript plugin
+    // * Improves DX and enables framework-specific type checks
     "plugins": [
       {
         "name": "next"
       }
     ],
+
+    // * Path aliases for cleaner and more maintainable imports
+    // * Mirrors project folder structure
     "paths": {
       "@/*": ["./*"],
+      "@/config/*": ["./config/*"],
+      "@/docs/*": ["./docs/*"],
+      "@/public/*": ["./public/*"],
+      "@/prisma/*": ["./prisma/*"],
+      "@/seed/*": ["./prisma/seed/*"],
       "@/src/*": ["./src/*"],
       "@/app/*": ["./src/app/*"],
       "@/core/*": ["./src/core/*"],
+      "@/features/*": ["./src/features/*"],
       "@/modules/*": ["./src/modules/*"],
-      "@/pages/*": ["./src/pages/*"]
+      "@/tests/*": ["./tests/*"]
     }
   },
+
+  // * Files and patterns included in the TypeScript program
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+
+    // * Next.js generated type definitions
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
+
+    // * ES module TypeScript files
     "**/*.mts"
   ],
+
+  // * Explicitly exclude dependencies from type checking
   "exclude": ["node_modules"]
 }

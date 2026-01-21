@@ -53,8 +53,12 @@ export default defineConfig({
       "@/src": path.resolve(__dirname, "./src"),
       "@/app": path.resolve(__dirname, "./src/app"),
       "@/core": path.resolve(__dirname, "./src/core"),
+      "@/features": path.resolve(__dirname, "./src/features"),
       "@/modules": path.resolve(__dirname, "./src/modules"),
-      "@/pages": path.resolve(__dirname, "./src/pages"),
+      "@/prisma": path.resolve(__dirname, "./prisma"),
+      "@/seed": path.resolve(__dirname, "./prisma/seed"),
+      "@/config": path.resolve(__dirname, "./config"),
+      "@/tests": path.resolve(__dirname, "./tests"),
     },
   },
 });

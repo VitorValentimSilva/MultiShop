@@ -1,5 +1,0 @@
-{
-  // * Defines where i18n Ally should look for translation files
-  // * This helps the extension detect and autocomplete translation keys
-  "i18n-ally.localesPaths": ["app/_lib/i18n"]
-}

@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 import withBundleAnalyzer from "@next/bundle-analyzer";
 import { withSentryConfig } from "@sentry/nextjs";
-import { sentryNextjsPluginOptions } from "./config/sentry";
+import { sentryNextjsPluginOptions } from "@/config/sentry";
 
 // * Base Next.js configuration
 // * This configuration is incrementally composed by plugins below

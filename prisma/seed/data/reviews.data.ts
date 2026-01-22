@@ -77,7 +77,7 @@ export const REVIEWS = [
     isPublished: true,
   },
   {
-    planKey: "enterprise",
+    planKey: "business",
     rating: 5,
     title: "Solução completa para grandes operações",
     message:
@@ -88,7 +88,7 @@ export const REVIEWS = [
     isPublished: true,
   },
   {
-    planKey: "enterprise",
+    planKey: "business",
     rating: 5,
     title: "Enterprise-grade solution",
     message:
@@ -99,7 +99,7 @@ export const REVIEWS = [
     isPublished: true,
   },
   {
-    planKey: "enterprise",
+    planKey: "business",
     rating: 5,
     title: "Sem limites, como prometido",
     message:
@@ -110,7 +110,7 @@ export const REVIEWS = [
     isPublished: true,
   },
   {
-    planKey: "enterprise",
+    planKey: "business",
     rating: 5,
     title: "Best investment we made",
     message:

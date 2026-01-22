@@ -1,36 +1,46 @@
-import { prisma } from "@/app/_lib/prisma";
+import { createLogger } from "@/core/lib";
+import { prismaSeedClient } from "@/core/database/prisma-seed-client";
+import { LOCALES } from "@/core/lib/i18n";
 import {
   PERMISSION_ENTITIES,
   PERMISSION_ACTIONS,
   actionLabel,
   entityLabel,
-} from "@/prisma/seed/data";
-import { generateCrudPermissions } from "@/prisma/seed/helpers";
+} from "@/seed/data";
+import { generateCrudPermissions } from "@/seed/helpers";
 
-const LOCALES = ["pt-BR", "en-US"] as const;
+const log = createLogger({ scope: "seed", seed: "permissions" });
 
+// * Seeds all permissions and their translations
+// * Permissions are generated dynamically based on entities and actions
 export async function seedPermissions() {
-  console.log("🌱 Seeding permissions (with translations)...");
+  log.info("🌱 Seeding permissions (with translations)...");
 
+  // * Generate all CRUD-like permissions for each entity
+  // * Example: create:user, read:user, update:user, delete:user
   const permissions = PERMISSION_ENTITIES.flatMap((entity) =>
-    generateCrudPermissions(entity, PERMISSION_ACTIONS),
+    generateCrudPermissions(entity, PERMISSION_ACTIONS)
   );
 
   for (const p of permissions) {
-    const permission = await prisma.permission.upsert({
+    // * Upsert permission by unique key to ensure idempotency
+    const permission = await prismaSeedClient.permission.upsert({
       where: { key: p.key },
       update: {},
       create: {
         key: p.key,
+        // * Default label is created using pt-BR locale
         label: `${actionLabel(p.action, "pt-BR")} ${entityLabel(p.entity, "pt-BR")}`,
       },
     });
 
+    // * Create or update translations for all supported locales
     for (const locale of LOCALES) {
       const label = `${actionLabel(p.action, locale)} ${entityLabel(p.entity, locale)}`;
 
-      await prisma.permissionTranslation.upsert({
+      await prismaSeedClient.permissionTranslation.upsert({
         where: {
+          // * Composite unique constraint: (permissionId + locale)
           permissionId_locale: {
             permissionId: permission.id,
             locale,
@@ -46,5 +56,5 @@ export async function seedPermissions() {
     }
   }
 
-  console.log("✅ Permissions seed completed.");
+  log.info("✅ Permissions seed completed.");
 }

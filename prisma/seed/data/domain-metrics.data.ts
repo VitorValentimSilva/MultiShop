@@ -95,11 +95,11 @@ export const DOMAIN_METRICS = [
   },
   {
     key: "subscribers_count",
-    namespace: "plan:enterprise",
+    namespace: "plan:business",
     value: "43",
     unit: "count",
     meta: {
-      description: "Total de assinantes do plano Enterprise",
+      description: "Total de assinantes do plano Business",
     },
   },
   {
@@ -124,12 +124,12 @@ export const DOMAIN_METRICS = [
   },
   {
     key: "monthly_revenue",
-    namespace: "plan:enterprise",
+    namespace: "plan:business",
     value: "855700.00",
     unit: "BRL",
     meta: {
       period: "2026-01",
-      description: "Receita mensal do plano Enterprise",
+      description: "Receita mensal do plano Business",
     },
   },
   {

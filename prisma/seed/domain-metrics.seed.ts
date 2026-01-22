@@ -1,79 +1,97 @@
-import { prisma } from "@/app/_lib/prisma";
-import { Prisma } from "@/src/app/generated/prisma/client";
-import {
-  DOMAIN_METRICS,
-  DOMAIN_METRICS_TRANSLATIONS,
-} from "@/prisma/seed/data";
+import { createLogger } from "@/core/lib";
+import { prismaSeedClient } from "@/core/database/prisma-seed-client";
+import { Prisma } from "@/app/generated/prisma/client";
+import { DOMAIN_METRICS, DOMAIN_METRICS_TRANSLATIONS } from "@/seed/data";
 
-export async function seedDomainMetrics() {
-  console.log("🌱 Seeding domain metrics...");
+const log = createLogger({ scope: "seed", seed: "domain-metrics" });
 
-  for (const m of DOMAIN_METRICS) {
-    const exists = await prisma.domainMetric.findFirst({
-      where: { key: m.key, namespace: m.namespace ?? null },
-    });
+// * Creates or updates a DomainMetric record based on its unique key + namespace
+// * Returns the persisted metric ID to be reused by translations
+async function upsertDomainMetric(
+  m: (typeof DOMAIN_METRICS)[number]
+): Promise<string> {
+  // * Normalize seed data to match database schema
+  // ! Decimal values must be wrapped using Prisma.Decimal
+  const metricData = {
+    key: m.key,
+    namespace: m.namespace ?? null,
+    value: new Prisma.Decimal(m.value),
+    unit: m.unit ?? null,
+    meta: m.meta ?? null,
+  };
 
-    const metricData = {
-      key: m.key,
-      namespace: m.namespace ?? null,
-      value: new Prisma.Decimal(m.value),
-      unit: m.unit ?? null,
-      meta: m.meta ?? null,
+  // * Uses upsert to make the seed idempotent
+  // * This allows running the seed multiple times safely
+  const metric = await prismaSeedClient.domainMetric.upsert({
+    where: {
+      // * Composite unique constraint: (key + namespace)
+      key_namespace: {
+        key: m.key,
+        namespace: m.namespace ?? null,
+      },
+    },
+    create: metricData,
+    update: metricData,
+  });
+
+  // * Return the metric ID for later association
+  return metric.id;
+}
+
+// * Creates or updates all translations for a given DomainMetric
+// * Translations are resolved by metric key
+async function upsertDomainMetricTranslations(
+  metricId: string,
+  m: (typeof DOMAIN_METRICS)[number]
+) {
+  // * Resolve translations from static seed dictionary
+  const translations =
+    DOMAIN_METRICS_TRANSLATIONS[
+      m.key as keyof typeof DOMAIN_METRICS_TRANSLATIONS
+    ];
+
+  // ? Metrics without translations are allowed
+  // ! Warn to help identify missing i18n data during development
+  if (!translations) {
+    log.warn(
+      `⚠️  No translations found for metric: ${m.key} (namespace: ${m.namespace})`
+    );
+    return;
+  }
+
+  // * Upsert translations per locale to ensure idempotency
+  for (const [locale, translation] of Object.entries(translations)) {
+    const translationData = {
+      locale,
+      label: translation.label,
+      description: translation.description ?? null,
+      metricId,
     };
 
-    let metricId: string;
-
-    if (!exists) {
-      const created = await prisma.domainMetric.create({ data: metricData });
-      metricId = created.id;
-    } else {
-      await prisma.domainMetric.update({
-        where: { id: exists.id },
-        data: metricData,
-      });
-      metricId = exists.id;
-    }
-
-    const translations =
-      DOMAIN_METRICS_TRANSLATIONS[
-        m.key as keyof typeof DOMAIN_METRICS_TRANSLATIONS
-      ];
-
-    if (translations) {
-      for (const [locale, translation] of Object.entries(translations)) {
-        const existingTranslation =
-          await prisma.domainMetricTranslation.findUnique({
-            where: {
-              metricId_locale: {
-                metricId,
-                locale,
-              },
-            },
-          });
-
-        const translationData = {
-          locale,
-          label: translation.label,
-          description: translation.description ?? null,
+    await prismaSeedClient.domainMetricTranslation.upsert({
+      where: {
+        // * Composite unique constraint: (metricId + locale)
+        metricId_locale: {
           metricId,
-        };
-
-        if (!existingTranslation) {
-          await prisma.domainMetricTranslation.create({
-            data: translationData,
-          });
-        } else {
-          await prisma.domainMetricTranslation.update({
-            where: { id: existingTranslation.id },
-            data: translationData,
-          });
-        }
-      }
-    } else {
-      console.warn(
-        `⚠️  No translations found for metric: ${m.key} (namespace: ${m.namespace})`
-      );
-    }
+          locale,
+        },
+      },
+      create: translationData,
+      update: translationData,
+    });
   }
-  console.log("✅ Domain metrics seed completed.");
+}
+
+// * Entry point for Domain Metrics seeding
+// * Responsible for metrics and their translations
+export async function seedDomainMetrics() {
+  log.warn("🌱 Seeding domain metrics...");
+
+  // * Iterate through all predefined domain metrics
+  for (const m of DOMAIN_METRICS) {
+    const metricId = await upsertDomainMetric(m);
+    await upsertDomainMetricTranslations(metricId, m);
+  }
+
+  log.warn("✅ Domain metrics seed completed.");
 }

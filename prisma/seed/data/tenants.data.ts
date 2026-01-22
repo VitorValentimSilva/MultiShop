@@ -33,6 +33,6 @@ export const TENANTS = [
     stripeCustomerId: "cus_demo_enterprise",
     stripeSubscriptionId: "sub_demo_enterprise",
     subscriptionStatus: "active",
-    planKey: "enterprise",
+    planKey: "business",
   },
 ] as const;

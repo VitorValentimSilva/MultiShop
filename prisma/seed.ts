@@ -1,17 +1,29 @@
-import { prisma } from "@/app/_lib/prisma";
-import { runSeeds } from "@/prisma/seed/run-seeds";
+import { createLogger } from "@/core/lib";
+import { prismaSeedClient } from "@/core/database/prisma-seed-client";
+import { runSeeds } from "@/seed/index";
 
+const log = createLogger({ scope: "prisma-seed" });
+
+// * Main entry point for database seeding
+// * Responsible for orchestrating all seed operations
 async function main() {
-  console.log("🌱 Starting database seed...");
+  log.info("🌱 Starting database seed...");
+
+  // * Executes the full seed pipeline
   await runSeeds();
-  console.log("✅ Seed completed successfully");
+
+  log.info("✅ Seed completed successfully");
 }
 
+// ! Global error handler for the seed process
+// ! Ensures the process exits with a non-zero code on failure
 main()
   .catch((error) => {
-    console.error("❌ Seed failed:", error);
+    log.error({ error }, "❌ Seed failed");
     process.exit(1);
   })
   .finally(async () => {
-    await prisma.$disconnect();
+    // * Ensures Prisma disconnects from the database
+    // * Prevents hanging connections after seeding
+    await prismaSeedClient.$disconnect();
   });

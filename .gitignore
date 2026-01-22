@@ -46,12 +46,11 @@ next-env.d.ts
 
 # * Prisma generated client
 # ! Generated automatically, should not be committed
-/app/generated/prisma
+/src/app/generated/prisma/**
 
 # * IDE-specific settings
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
+# ! Entire .vscode folder is ignored
+.vscode/
 .idea
 
 # * Temporary editor files

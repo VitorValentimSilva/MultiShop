@@ -1,12 +1,18 @@
-import { prisma } from "@/app/_lib/prisma";
-import { BillingInterval } from "@/src/app/generated/prisma/enums";
-import { PLANS } from "@/prisma/seed/data";
+import { createLogger } from "@/core/lib";
+import { prismaSeedClient } from "@/core/database/prisma-seed-client";
+import { BillingInterval } from "@/app/generated/prisma/enums";
+import { PLANS } from "@/seed/data";
 
+const log = createLogger({ scope: "seed", seed: "plans" });
+
+// * Seeds all subscription plans, their prices and translations
+// * Uses upsert to ensure idempotent execution
 export async function seedPlans() {
-  console.log("🌱 Seeding plans...");
+  log.info("🌱 Seeding plans...");
 
   for (const p of PLANS) {
-    const plan = await prisma.plan.upsert({
+    // * Create or update the plan using its unique key
+    const plan = await prismaSeedClient.plan.upsert({
       where: { key: p.key },
       update: {
         active: p.active,
@@ -19,8 +25,10 @@ export async function seedPlans() {
       },
     });
 
+    // * Upsert all prices associated with the plan
+    // * Uses a composite unique key (planId + currency + interval)
     for (const price of p.prices) {
-      await prisma.planPrice.upsert({
+      await prismaSeedClient.planPrice.upsert({
         where: {
           planId_currency_interval: {
             planId: plan.id,
@@ -44,9 +52,11 @@ export async function seedPlans() {
       });
     }
 
+    // * Upsert plan translations for each locale
     for (const [locale, tr] of Object.entries(p.translations)) {
-      await prisma.planTranslation.upsert({
+      await prismaSeedClient.planTranslation.upsert({
         where: {
+          // * Composite unique constraint: (planId + locale)
           planId_locale: {
             planId: plan.id,
             locale,
@@ -68,5 +78,5 @@ export async function seedPlans() {
     }
   }
 
-  console.log("✅ Plans seed completed.");
+  log.info("✅ Plans seed completed.");
 }

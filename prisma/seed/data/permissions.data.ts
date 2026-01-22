@@ -1,4 +1,4 @@
-import { Locale } from "@/prisma/seed/helpers";
+import { Locale } from "@/core/lib/i18n";
 
 export const PERMISSION_ACTIONS = [
   "CREATE",

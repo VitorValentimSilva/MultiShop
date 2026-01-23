@@ -1,6 +1,7 @@
 import type {
   LocaleCode,
   LanguageCode,
+  RegionCode,
   CurrencyCode,
   TextDirection,
 } from "@/core/types";
@@ -59,7 +60,7 @@ export interface LocaleInfoDto {
   readonly language: LanguageCode;
 
   // * Optional region code (e.g. US, BR)
-  readonly region?: string;
+  readonly region?: RegionCode;
 
   // * Text direction used by the locale (LTR or RTL)
   readonly direction: TextDirection;

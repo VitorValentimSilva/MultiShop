@@ -23,6 +23,7 @@ export function endOfDay(date: Date): Date {
 export function startOfWeek(date: Date): Date {
   const day = startOfDay(date);
   day.setDate(day.getDate() - day.getDay());
+
   return day;
 }
 
@@ -34,6 +35,7 @@ export function startOfMonth(date: Date): Date {
 // * Returns a new Date representing the first day of the current quarter
 export function startOfQuarter(date: Date): Date {
   const quarter = Math.floor(date.getMonth() / 3);
+
   return new Date(date.getFullYear(), quarter * 3, 1);
 }
 
@@ -77,6 +79,7 @@ export function isValidDate(value: unknown): value is Date {
 // * Returns null if the resulting date is invalid
 export function parseDate(value: string | Date): Date | null {
   const date = toDate(value);
+
   return isValidDate(date) ? date : null;
 }
 
@@ -88,6 +91,7 @@ export function formatISODate(date: Date): string {
 // * Calculates the number of days between two dates (rounded up)
 export function daysBetween(startDate: Date, endDate: Date): number {
   const diffTime = Math.abs(endDate.getTime() - startDate.getTime());
+
   return Math.ceil(diffTime / MS_PER_DAY);
 }
 

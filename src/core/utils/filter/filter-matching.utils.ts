@@ -19,6 +19,7 @@ export function stringToComparable(value: unknown): number | null {
   if (!isString(value)) return null;
 
   const date = new Date(value);
+
   return Number.isNaN(date.getTime()) ? null : date.getTime();
 }
 
@@ -52,6 +53,7 @@ export function compare(
   comparator: (a: number, b: number) => boolean
 ): boolean {
   const pair = getComparablePair(actual, expected);
+
   return pair ? comparator(pair[0], pair[1]) : false;
 }
 

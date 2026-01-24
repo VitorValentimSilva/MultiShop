@@ -33,6 +33,7 @@ export function safeMatchRegex(
   flags = "i"
 ): RegExpMatchArray | null {
   const regex = safeRegex(pattern, flags);
+
   return regex ? value.match(regex) : null;
 }
 

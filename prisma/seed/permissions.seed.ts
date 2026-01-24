@@ -1,6 +1,6 @@
 import { createLogger } from "@/core/lib";
 import { prismaSeedClient } from "@/core/database/prisma-seed-client";
-import { LOCALES } from "@/core/lib/i18n";
+import { SUPPORTED_LOCALES } from "@/core/constants";
 import {
   PERMISSION_ENTITIES,
   PERMISSION_ACTIONS,
@@ -35,7 +35,7 @@ export async function seedPermissions() {
     });
 
     // * Create or update translations for all supported locales
-    for (const locale of LOCALES) {
+    for (const locale of SUPPORTED_LOCALES) {
       const label = `${actionLabel(p.action, locale)} ${entityLabel(p.entity, locale)}`;
 
       await prismaSeedClient.permissionTranslation.upsert({

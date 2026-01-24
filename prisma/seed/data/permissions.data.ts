@@ -1,4 +1,4 @@
-import { Locale } from "@/core/lib/i18n";
+import { LocaleCode } from "@/core/types";
 
 export const PERMISSION_ACTIONS = [
   "CREATE",
@@ -23,8 +23,8 @@ export type PermissionAction = (typeof PERMISSION_ACTIONS)[number];
 
 export type PermissionEntity = (typeof PERMISSION_ENTITIES)[number];
 
-export function actionLabel(action: PermissionAction, locale: Locale) {
-  const map: Record<Locale, Record<PermissionAction, string>> = {
+export function actionLabel(action: PermissionAction, locale: LocaleCode) {
+  const map: Record<LocaleCode, Record<PermissionAction, string>> = {
     "pt-BR": {
       CREATE: "Criar",
       READ: "Visualizar",
@@ -42,8 +42,8 @@ export function actionLabel(action: PermissionAction, locale: Locale) {
   return map[locale][action];
 }
 
-export function entityLabel(entity: PermissionEntity, locale: Locale) {
-  const map: Record<Locale, Record<PermissionEntity, string>> = {
+export function entityLabel(entity: PermissionEntity, locale: LocaleCode) {
+  const map: Record<LocaleCode, Record<PermissionEntity, string>> = {
     "pt-BR": {
       TENANT: "tenant",
       USER: "usuário",

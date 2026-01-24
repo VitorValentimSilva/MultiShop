@@ -25,3 +25,10 @@ export type CurrencyCode = "BRL" | "USD" | "EUR" | "GBP" | "ARS" | "MXN";
 
 // * Type of locale matching result
 export type LocaleMatchType = "exact" | "language" | "fallback";
+
+// * Represents a resolved translation candidate with metadata
+export type TranslationCandidate<T> = {
+  translation: T;
+  resolvedLocale: LocaleCode;
+  isFallback: boolean;
+};

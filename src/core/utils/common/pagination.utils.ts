@@ -1,3 +1,4 @@
+import { DEFAULT_PAGINATION } from "@/core/constants";
 import {
   NormalizedPaginationDto,
   PaginatedResponseDto,
@@ -5,7 +6,6 @@ import {
   PaginationMetaDto,
   PaginationMetaParamsDto,
 } from "@/core/types/dtos";
-import { DEFAULT_PAGINATION } from "@/core/constants";
 
 // * Normalizes pagination input into skip/take-based pagination
 // * Supports page-based and skip-based inputs

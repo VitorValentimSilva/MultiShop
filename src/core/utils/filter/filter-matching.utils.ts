@@ -1,7 +1,6 @@
-import { operatorHandlers } from "@/core/constants";
 import { FilterLogic } from "@/core/types";
 import { FilterConditionDto } from "@/core/types/dtos";
-import { isNumber, isDate, isString } from "@/core/utils";
+import { isNumber, isDate, isString, operatorHandlers } from "@/core/utils";
 
 // * Converts a value to a comparable number if it is already a number
 export function numberToComparable(value: unknown): number | null {

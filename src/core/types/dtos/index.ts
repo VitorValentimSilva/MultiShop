@@ -2,6 +2,7 @@ export * from "@/core/types/dtos/api";
 export * from "@/core/types/dtos/async";
 export * from "@/core/types/dtos/entity";
 export * from "@/core/types/dtos/filter";
+export * from "@/core/types/dtos/i18n";
 export * from "@/core/types/dtos/locale";
 export * from "@/core/types/dtos/operation";
 export * from "@/core/types/dtos/pagination";

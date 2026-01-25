@@ -36,6 +36,7 @@ export function LanguageSwitcherStandalone() {
       }
 
       router.push(`/${segments.join("/")}`);
+      router.refresh();
     },
     [router]
   );

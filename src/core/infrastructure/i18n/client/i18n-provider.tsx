@@ -43,20 +43,25 @@ export function setLocaleStorage(locale: LocaleCode) {
 }
 
 /**
- * ? Replace the locale segment in the URL path (e.g., /en-US/home -> /pt-BR/home).
- * ? If the first path segment is not a supported locale, it returns null.
+ * * Builds the new URL path with the locale segment replaced or added.
+ * * Example: /en-US/home -> /pt-BR/home or /home -> /pt-BR/home
  */
-export function replaceLocaleInPath(pathname: string, newLocale: LocaleCode) {
+export function buildLocaleUrl(
+  pathname: string,
+  newLocale: LocaleCode
+): string {
   const segments = pathname.split("/").filter(Boolean);
   const firstSegment = segments[0];
 
+  // * If first segment is a valid locale, replace it
   if (firstSegment && SUPPORTED_LOCALES.includes(firstSegment as LocaleCode)) {
     segments[0] = newLocale;
-
-    return `/${segments.join("/")}`;
+  } else {
+    // * Otherwise, prepend the new locale
+    segments.unshift(newLocale);
   }
 
-  return null;
+  return `/${segments.join("/")}`;
 }
 
 export function I18nProvider({
@@ -115,10 +120,12 @@ export function I18nProvider({
       setLocaleCookie(newLocale);
       setLocaleStorage(newLocale);
 
-      // * Update the URL if the current path contains a locale segment
-      const newPath = replaceLocaleInPath(pathname, newLocale);
+      // * Navigate to the new locale URL
+      const newPath = buildLocaleUrl(pathname, newLocale);
 
-      if (newPath) router.push(newPath);
+      router.push(newPath);
+      // * Force refresh to update Server Components (html lang, metadata, etc.)
+      router.refresh();
     },
     [pathname, router]
   );

@@ -3,7 +3,10 @@
 import i18next from "i18next";
 import { createContext } from "react";
 
-import { i18nClientConfig } from "@/core/infrastructure/i18n/i18n.config";
+import {
+  i18nClientConfig,
+  i18nHttpBackend,
+} from "@/core/infrastructure/i18n/i18n.config";
 import type { LocaleCode, I18nContextValue } from "@/core/types";
 
 // * Creates a React context to share i18n state across the app.
@@ -30,6 +33,9 @@ export async function initI18nClient(
 
   // * Initialize i18next with config on first call
   if (!isClientInitialized) {
+    // * Use HTTP backend to load translations from public/locales
+    clientInstance.use(i18nHttpBackend);
+
     await clientInstance.init({
       ...i18nClientConfig,
       lng: locale,

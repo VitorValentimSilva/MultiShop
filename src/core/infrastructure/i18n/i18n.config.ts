@@ -1,4 +1,5 @@
 import type { InitOptions } from "i18next";
+import HttpBackend, { HttpBackendOptions } from "i18next-http-backend";
 
 import {
   SUPPORTED_LOCALES,
@@ -11,6 +12,11 @@ import {
   LOCALE_HEADER_NAME,
 } from "@/core/constants";
 import type { I18nNamespace } from "@/core/types";
+
+/**
+ * * HTTP Backend for loading translations from public/locales
+ */
+export const i18nHttpBackend = HttpBackend;
 
 /**
  * * Re-export constants so other modules can import from this file.
@@ -96,10 +102,16 @@ export const i18nServerConfig: InitOptions = {
 
 /**
  * * Client-side configuration
- * * Enables locale detection and caching.
+ * * Enables locale detection, caching, and HTTP backend for loading translations.
  */
-export const i18nClientConfig: InitOptions = {
+export const i18nClientConfig: InitOptions<HttpBackendOptions> = {
   ...i18nBaseConfig,
+
+  // * Backend configuration to load translations from public/locales
+  backend: {
+    // * Path to load translations from
+    loadPath: "/locales/{{lng}}/{{ns}}.json",
+  },
 
   detection: {
     // * Order of locale detection
@@ -113,4 +125,7 @@ export const i18nClientConfig: InitOptions = {
       maxAge: LOCALE_COOKIE_MAX_AGE,
     },
   },
+
+  // * Partition namespaces to optimize loading
+  partialBundledLanguages: true,
 };

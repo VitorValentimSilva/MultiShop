@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Home, Search, ArrowLeft } from "lucide-react";
 
+import { I18N_NAMESPACES } from "@/core/constants";
 import { useTranslation } from "@/core/infrastructure/i18n/hooks/use-i18n";
 import {
   Button,
@@ -14,7 +15,7 @@ import {
 
 export default function NotFound() {
   const router = useRouter();
-  const { t } = useTranslation("pages/status");
+  const { t } = useTranslation(I18N_NAMESPACES.status);
 
   return (
     <StatusPageLayout>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { TriangleAlert, Home, RotateCcw } from "lucide-react";
 
+import { I18N_NAMESPACES } from "@/core/constants";
 import { useTranslation } from "@/core/infrastructure/i18n/hooks/use-i18n";
 import {
   Badge,
@@ -21,7 +22,7 @@ interface ErrorProps {
 }
 
 export default function Error({ error, reset }: ErrorProps) {
-  const { t } = useTranslation("pages/status");
+  const { t } = useTranslation(I18N_NAMESPACES.status);
 
   useEffect(() => {
     Sentry.captureException(error);

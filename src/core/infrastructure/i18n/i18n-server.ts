@@ -1,7 +1,9 @@
 import "server-only";
 
 import * as Sentry from "@sentry/nextjs";
+import fs from "fs/promises";
 import i18next, { TFunction } from "i18next";
+import path from "path";
 import { cache } from "react";
 import { cookies, headers } from "next/headers";
 
@@ -212,3 +214,80 @@ export function getI18nInstance(): typeof i18next {
 
   return i18next;
 }
+
+/**
+ * * Loads a locale JSON file for a given locale and namespace.
+ * * Returns null if the file does not exist or cannot be parsed.
+ */
+export async function loadLocaleFile<T>(
+  locale: LocaleCode,
+  namespace: I18nNamespace
+): Promise<T | null> {
+  try {
+    const filePath = path.join(
+      process.cwd(),
+      "public",
+      "locales",
+      locale,
+      `${namespace}.json`
+    );
+
+    const content = await fs.readFile(filePath, "utf-8");
+
+    return JSON.parse(content) as T;
+  } catch {
+    // ? Fail silently and let the caller decide how to handle missing files
+    return null;
+  }
+}
+
+/**
+ * * Attempts to load the translation file for the default locale.
+ * * Used when a locale-specific translation is missing.
+ */
+export async function loadFallbackLocaleFile<T>(
+  locale: LocaleCode,
+  namespace: I18nNamespace
+): Promise<T | null> {
+  // * No fallback needed if already using the default locale
+  if (locale === DEFAULT_LOCALE) {
+    logger.warn({ locale, namespace }, "Translation file not found");
+
+    return null;
+  }
+
+  logger.debug(
+    { locale, namespace },
+    "Translation not found, falling back to default locale"
+  );
+
+  const fallback = await loadLocaleFile<T>(DEFAULT_LOCALE, namespace);
+
+  if (!fallback) {
+    logger.warn(
+      { locale: DEFAULT_LOCALE, namespace },
+      "Default locale translation also not found"
+    );
+  }
+
+  return fallback;
+}
+
+/**
+ * * Loads a translation JSON with automatic fallback to the default locale.
+ * * Results are cached per locale + namespace.
+ * * Always returns an object to keep consumers safe.
+ */
+export const loadTranslationJson = cache(
+  async <T = Record<string, unknown>>(
+    locale: LocaleCode,
+    namespace: I18nNamespace = "common"
+  ): Promise<T> => {
+    const data =
+      (await loadLocaleFile<T>(locale, namespace)) ??
+      (await loadFallbackLocaleFile<T>(locale, namespace));
+
+    // ? Ensure a stable return type even when translations are missing
+    return data ?? ({} as T);
+  }
+);

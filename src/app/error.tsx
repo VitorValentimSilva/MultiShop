@@ -4,9 +4,16 @@ import * as Sentry from "@sentry/nextjs";
 import Link from "next/link";
 import { useEffect } from "react";
 import { TriangleAlert, Home, RotateCcw } from "lucide-react";
-import { StatusPageLayout } from "@/features/shared/components/layouts";
-import { Badge, Button, Separator } from "@/features/shared/components/ui";
-import { ModeToggle } from "@/features/shared/components";
+
+import { useTranslation } from "@/core/infrastructure/i18n/hooks/use-i18n";
+import {
+  Badge,
+  Button,
+  LanguageSwitcher,
+  ModeToggle,
+  Separator,
+  StatusPageLayout,
+} from "@/features/shared/components";
 
 interface ErrorProps {
   error: Error & { digest?: string };
@@ -14,13 +21,17 @@ interface ErrorProps {
 }
 
 export default function Error({ error, reset }: ErrorProps) {
+  const { t } = useTranslation("pages/status");
+
   useEffect(() => {
     Sentry.captureException(error);
   }, [error]);
 
   return (
     <StatusPageLayout>
-      <div className="float-right ml-2">
+      <div className="float-right ml-2 flex gap-2">
+        <LanguageSwitcher />
+
         <ModeToggle />
       </div>
 
@@ -31,12 +42,11 @@ export default function Error({ error, reset }: ErrorProps) {
 
         <div className="min-w-0">
           <h1 className="text-foreground text-lg font-semibold tracking-tight text-balance sm:text-xl">
-            Opa… algo deu errado
+            {t("error.title")}
           </h1>
 
           <p className="text-muted-foreground mt-1 text-sm text-pretty sm:text-base">
-            Tente novamente. Se continuar acontecendo, entre em contato com o
-            suporte.
+            {t("error.description")}
           </p>
         </div>
       </div>
@@ -44,13 +54,13 @@ export default function Error({ error, reset }: ErrorProps) {
       <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
         <Button type="button" onClick={reset} className="font-semibold">
           <RotateCcw className="size-4" />
-          Tentar novamente
+          {t("error.tryAgain")}
         </Button>
 
         <Button asChild variant="outline" className="font-semibold">
           <Link href="/">
             <Home className="size-4" />
-            Ir para o início
+            {t("error.goHome")}
           </Link>
         </Button>
 
@@ -69,7 +79,7 @@ export default function Error({ error, reset }: ErrorProps) {
 
           <details className="bg-muted/30 rounded-lg border p-3">
             <summary className="text-foreground cursor-pointer text-sm font-medium select-none">
-              Detalhes técnicos (dev)
+              {t("error.technicalDetails")}
             </summary>
 
             <pre className="bg-background/60 text-foreground mt-3 max-h-64 overflow-auto rounded-md p-3 text-xs leading-relaxed">

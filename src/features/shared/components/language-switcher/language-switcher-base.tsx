@@ -31,7 +31,7 @@ export function LanguageSwitcherBase({
           <Globe className="h-[1.2rem] w-[1.2rem]" />
 
           <span className="sr-only">
-            {`Change language. Current: ${currentLocaleConfig?.nativeName || locale}`}
+            {`${currentLocaleConfig?.nativeName || locale}`}
           </span>
         </Button>
       </DropdownMenuTrigger>

@@ -11,6 +11,7 @@ import {
 } from "@/core/constants";
 import type { LocaleCode } from "@/core/types";
 import { isValidLocale } from "@/core/utils";
+import { I18nProvider } from "@/core/infrastructure/i18n/client/i18n-provider";
 import { ThemeProvider } from "@/features/shared/components";
 
 const geistSans = Geist({
@@ -51,7 +52,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <I18nProvider initialLocale={locale}>{children}</I18nProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -22,7 +22,7 @@ import { isValidLocale } from "@/core/utils";
  * * Saves the selected locale into a cookie.
  * * This is used to persist user preference between sessions.
  */
-export function setLocaleCookie(locale: LocaleCode) {
+export function setLocaleCookie(locale: LocaleCode): void {
   document.cookie = `${LOCALE_COOKIE_NAME}=${locale}; path=/; max-age=${LOCALE_COOKIE_MAX_AGE}`;
 }
 

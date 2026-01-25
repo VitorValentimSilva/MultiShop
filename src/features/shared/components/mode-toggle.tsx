@@ -3,6 +3,7 @@
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
+import { useTranslation } from "@/core/infrastructure/i18n/hooks/use-i18n";
 import {
   Button,
   DropdownMenu,
@@ -13,6 +14,7 @@ import {
 
 export function ModeToggle() {
   const { setTheme } = useTheme();
+  const { t } = useTranslation("ui");
 
   return (
     <DropdownMenu>
@@ -22,21 +24,21 @@ export function ModeToggle() {
 
           <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
 
-          <span className="sr-only">Toggle theme</span>
+          <span className="sr-only">{t("theme.toggle")}</span>
         </Button>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
+          {t("theme.light")}
         </DropdownMenuItem>
 
         <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
+          {t("theme.dark")}
         </DropdownMenuItem>
 
         <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
+          {t("theme.system")}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

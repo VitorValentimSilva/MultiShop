@@ -9,6 +9,12 @@ export const I18N_NAMESPACES = {
 
   // * UI-specific texts (layout, navigation, component labels)
   ui: "ui",
+
+  // * Public home page translations
+  homePublic: "pages/public/home",
+
+  // * Status pages (error, not-found, loading)
+  status: "pages/status",
 } as const;
 
 /**

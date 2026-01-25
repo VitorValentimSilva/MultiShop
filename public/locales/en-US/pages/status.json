@@ -1,0 +1,20 @@
+{
+  "error": {
+    "title": "Oops… something went wrong",
+    "description": "Try again. If it keeps happening, please contact support.",
+    "tryAgain": "Try again",
+    "goHome": "Go to home",
+    "technicalDetails": "Technical details (dev)"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Page not found",
+    "description": "Sorry, we couldn't find the page you're looking for. It may have been moved or no longer exists.",
+    "goHome": "Go to home",
+    "goBack": "Go back"
+  },
+  "loading": {
+    "title": "Loading...",
+    "description": "Please wait a moment while we prepare everything for you."
+  }
+}

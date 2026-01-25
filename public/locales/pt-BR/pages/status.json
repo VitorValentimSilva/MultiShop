@@ -1,0 +1,20 @@
+{
+  "error": {
+    "title": "Opa… algo deu errado",
+    "description": "Tente novamente. Se continuar acontecendo, entre em contato com o suporte.",
+    "tryAgain": "Tentar novamente",
+    "goHome": "Ir para o início",
+    "technicalDetails": "Detalhes técnicos (dev)"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Página não encontrada",
+    "description": "Desculpe, não conseguimos encontrar a página que você está procurando. Ela pode ter sido movida ou não existe mais.",
+    "goHome": "Ir para o início",
+    "goBack": "Voltar"
+  },
+  "loading": {
+    "title": "Carregando...",
+    "description": "Aguarde um momento enquanto preparamos tudo para você."
+  }
+}

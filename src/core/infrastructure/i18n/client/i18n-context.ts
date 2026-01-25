@@ -3,7 +3,7 @@
 import i18next from "i18next";
 import { createContext } from "react";
 
-import { i18nClientConfig } from "@/core/infrastructure";
+import { i18nClientConfig } from "@/core/infrastructure/i18n/i18n.config";
 import type { LocaleCode, I18nContextValue } from "@/core/types";
 
 // * Creates a React context to share i18n state across the app.

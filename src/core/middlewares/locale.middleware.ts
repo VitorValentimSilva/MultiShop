@@ -11,8 +11,15 @@ import {
 } from "@/core/constants";
 import { createLogger } from "@/core/lib";
 import type { LocaleCode } from "@/core/types";
-import type { LocaleMiddlewareOptionsDto } from "@/core/types/dtos";
-import { isValidLocale, normalizeLocale } from "@/core/utils";
+import type {
+  LocaleMiddlewareOptionsDto,
+  ParsedLanguagePreferenceDto,
+} from "@/core/types/dtos";
+import {
+  isValidLocale,
+  normalizeLocale,
+  parseAcceptLanguageHeader,
+} from "@/core/utils";
 
 const logger = createLogger({ module: "locale-middleware" });
 
@@ -26,44 +33,61 @@ export const defaultOptions: LocaleMiddlewareOptionsDto = {
 };
 
 /**
- * * Parses the Accept-Language header and returns a sorted list of valid locales.
- * * The list is sorted by quality (q) value.
+ * * Normalizes and filters a list of language preferences,
+ * * returning only valid application locales.
  */
-export function parseAcceptLanguage(header: string): LocaleCode[] {
-  if (!header) return [];
+export function extractValidLocales(
+  preferences: readonly ParsedLanguagePreferenceDto[]
+): LocaleCode[] {
+  return preferences
+    .map(({ code }) => normalizeLocale(code)) // * Normalize locale format (e.g. en_US -> en-US)
+    .filter(isValidLocale); // * Keep only supported locales
+}
 
+/**
+ * * Reports an error that occurred while parsing the Accept-Language header.
+ * * Logs locally and sends the error to Sentry for observability.
+ */
+export function reportAcceptLanguageError(header: string, error: unknown) {
+  logger.warn({ header, error }, "Failed to parse Accept-Language header");
+
+  Sentry.captureException(error, {
+    extra: { header },
+    tags: { module: "locale-middleware" },
+  });
+}
+
+/**
+ * * Safely parses the Accept-Language header.
+ * * Returns an empty array if parsing fails.
+ */
+export function safeParseAcceptLanguage(header: string): LocaleCode[] {
   try {
-    return header
-      .split(",")
-      .map((lang) => {
-        const [code, quality = "q=1"] = lang.trim().split(";");
-        const q = parseFloat(quality.replace("q=", "")) || 1;
-
-        return {
-          code: normalizeLocale(code.trim()),
-          quality: q,
-        };
-      })
-      .sort((a, b) => b.quality - a.quality)
-      .map(({ code }) => code)
-      .filter((locale): locale is LocaleCode => isValidLocale(locale));
+    return extractValidLocales(parseAcceptLanguageHeader(header));
   } catch (error) {
-    // ! Log and report errors to Sentry if parsing fails
-    logger.warn({ header, error }, "Failed to parse Accept-Language header");
+    reportAcceptLanguageError(header, error);
 
-    Sentry.captureException(error, {
-      extra: { header },
-      tags: { module: "locale-middleware" },
-    });
-
+    // ? Fail gracefully by returning no locales
     return [];
   }
 }
 
 /**
- * * Reads locale from cookie (if available and valid).
+ * * Parses the Accept-Language header into valid locales.
+ * * Acts as a defensive wrapper to avoid throwing errors.
  */
-export function getLocaleFromCookie(request: NextRequest): LocaleCode | null {
+export function parseAcceptLanguage(header: string): LocaleCode[] {
+  if (!header) return [];
+
+  return safeParseAcceptLanguage(header);
+}
+
+/**
+ * * Reads locale from request cookie (server-side, for middleware use).
+ */
+export function getLocaleFromRequestCookie(
+  request: NextRequest
+): LocaleCode | null {
   const cookie = request.cookies.get(LOCALE_COOKIE_NAME);
 
   if (cookie?.value && isValidLocale(cookie.value)) {
@@ -121,7 +145,7 @@ export function detectLocale(request: NextRequest): LocaleCode {
     return pathLocale;
   }
 
-  const cookieLocale = getLocaleFromCookie(request);
+  const cookieLocale = getLocaleFromRequestCookie(request);
 
   if (cookieLocale) {
     logger.debug({ locale: cookieLocale, source: "cookie" }, "Locale detected");

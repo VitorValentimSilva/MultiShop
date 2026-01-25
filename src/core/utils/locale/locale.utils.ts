@@ -4,6 +4,7 @@ import {
   LOCALE_CONFIG,
   LANGUAGE_TO_DEFAULT_LOCALE,
   LOCALE_CACHE_MAX_SIZE,
+  LOCALE_COOKIE_NAME,
 } from "@/core/constants";
 import type { LocaleCode, LanguageCode } from "@/core/types";
 import type {
@@ -213,4 +214,81 @@ export function parseAcceptLanguage(
 // * Clears the Accept-Language cache
 export function clearAcceptLanguageCache(): void {
   acceptLanguageCache.clear();
+}
+
+/**
+ * * Returns the emoji flag based on the locale region.
+ * * Example: "pt-BR" -> 🇧🇷, "en-US" -> 🇺🇸
+ */
+export function getLocaleFlag(locale: LocaleCode): string {
+  // * Extracts the region part of the locale (e.g. "BR" from "pt-BR")
+  const regionCode = locale.split("-")[1]?.toUpperCase();
+
+  // ? If no region is present, return a generic globe icon
+  if (!regionCode) return "🌐";
+
+  // * Unicode offset used to convert ASCII letters to regional indicator symbols
+  const flagOffset = 127397;
+
+  // * Convert each character (A-Z) into its corresponding flag emoji code point
+  const flag = [...regionCode]
+    .map((char) => String.fromCodePoint(char.charCodeAt(0) + flagOffset))
+    .join("");
+
+  return flag;
+}
+
+/**
+ * * Checks if the code is running in a browser environment.
+ * * Useful to avoid accessing document/window during SSR.
+ */
+export function isBrowser(): boolean {
+  return typeof document !== "undefined";
+}
+
+/**
+ * * Extracts and validates a locale value from a raw cookie string.
+ * * Returns null if no valid locale cookie is found.
+ */
+export function getValidLocaleFromCookies(
+  cookieString: string
+): LocaleCode | null {
+  return (
+    cookieString
+      .split(";") // * Split multiple cookies
+      .map(parseCookie) // * Parse each cookie into name/value
+      .find(isValidLocaleCookie)?.value ?? null // * Find a valid locale cookie
+  );
+}
+
+/**
+ * * Parses a single cookie string into name and value.
+ * * Example: "NEXT_LOCALE=pt-BR"
+ */
+export function parseCookie(cookie: string): { name: string; value: string } {
+  const [name = "", value = ""] = cookie.trim().split("=");
+
+  return { name, value };
+}
+
+/**
+ * * Type guard that checks if a cookie contains a valid locale.
+ * ! Ensures the value matches a supported LocaleCode.
+ */
+export function isValidLocaleCookie(cookie: {
+  name: string;
+  value: string;
+}): cookie is { name: string; value: LocaleCode } {
+  return cookie.name === LOCALE_COOKIE_NAME && isValidLocale(cookie.value);
+}
+
+/**
+ * * Reads the locale from document cookies on the client.
+ * * Falls back to DEFAULT_LOCALE when running on the server or if invalid.
+ */
+export function getLocaleFromClientCookie(): LocaleCode {
+  // ! Prevents access to document during SSR
+  if (!isBrowser()) return DEFAULT_LOCALE;
+
+  return getValidLocaleFromCookies(document.cookie) ?? DEFAULT_LOCALE;
 }

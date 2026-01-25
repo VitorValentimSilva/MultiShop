@@ -1,7 +1,16 @@
 import "@/app/_styles/index.css";
-import type { Metadata } from "next";
+
 import { ReactNode } from "react";
+import { cookies } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
+
+import {
+  LOCALE_COOKIE_NAME,
+  DEFAULT_LOCALE,
+  LOCALE_CONFIG,
+} from "@/core/constants";
+import type { LocaleCode } from "@/core/types";
+import { isValidLocale } from "@/core/utils";
 import { ThemeProvider } from "@/features/shared/components";
 
 const geistSans = Geist({
@@ -14,21 +23,25 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Multi Shop",
-  description:
-    "Multi Shop é uma plataforma de e-commerce multi-tenant, desenvolvida para suportar diversos tipos de vendas e categorias de produtos, permitindo que diferentes lojas utilizem a mesma infraestrutura de forma escalável e configurável.",
-};
-
-interface LocaleRootLayoutProps {
+interface RootLayoutProps {
   children: ReactNode;
 }
 
-export default async function LocaleRootLayout({
-  children,
-}: LocaleRootLayoutProps) {
+export default async function RootLayout({ children }: RootLayoutProps) {
+  const cookieStore = await cookies();
+  const localeCookie = cookieStore.get(LOCALE_COOKIE_NAME)?.value;
+
+  const locale: LocaleCode =
+    localeCookie && isValidLocale(localeCookie) ? localeCookie : DEFAULT_LOCALE;
+
+  const localeConfig = LOCALE_CONFIG[locale];
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang={locale}
+      dir={localeConfig?.direction || "ltr"}
+      suppressHydrationWarning
+    >
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground antialiased`}
       >

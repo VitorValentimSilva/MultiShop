@@ -54,3 +54,18 @@ export const LOCALE_COOKIE_MAX_AGE = 365 * 24 * 60 * 60;
  * ! Should be treated as trusted only in controlled environments.
  */
 export const LOCALE_HEADER_NAME = "x-locale";
+
+/**
+ * * Paths that should be excluded from locale middleware processing.
+ * * These paths don't need locale prefixes (static files, API routes, etc.).
+ */
+export const LOCALE_EXCLUDED_PATHS = [
+  "/api",
+  "/_next",
+  "/favicon.ico",
+  "/robots.txt",
+  "/sitemap.xml",
+  "/manifest.json",
+  "/images",
+  "/fonts",
+] as const;

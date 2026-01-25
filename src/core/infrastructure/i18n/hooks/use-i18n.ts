@@ -4,7 +4,7 @@ import * as Sentry from "@sentry/nextjs";
 import { useContext, useMemo } from "react";
 import type { TFunction } from "i18next";
 
-import { I18nContext } from "@/core/infrastructure";
+import { I18nContext } from "@/core/infrastructure/i18n/client/i18n-context";
 import type { LocaleCode, I18nNamespace, I18nContextValue } from "@/core/types";
 
 /**

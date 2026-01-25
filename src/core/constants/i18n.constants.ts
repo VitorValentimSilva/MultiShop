@@ -7,26 +7,8 @@ export const I18N_NAMESPACES = {
   // * Shared and generic translations (buttons, labels, common texts)
   common: "common",
 
-  // * Error messages and validation-related texts
-  errors: "errors",
-
   // * UI-specific texts (layout, navigation, component labels)
   ui: "ui",
-
-  // * Permission and access-control related translations
-  permission: "permission",
-
-  // * Role and authorization domain translations
-  role: "role",
-
-  // * Subscription plans, pricing, and billing related texts
-  plan: "plan",
-
-  // * Feature flags and feature-specific translations
-  feature: "feature",
-
-  // * Domain metrics, analytics, and reporting-related texts
-  domainMetric: "domainMetric",
 } as const;
 
 /**
@@ -68,4 +50,5 @@ export const LOCALE_EXCLUDED_PATHS = [
   "/manifest.json",
   "/images",
   "/fonts",
+  "/locales",
 ] as const;

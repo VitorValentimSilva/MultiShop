@@ -18,6 +18,9 @@ export const I18N_NAMESPACES = {
 
   // * Error messages nanoid
   nanoid: "errors/nanoid",
+
+  // * Error messages date
+  date: "errors/date",
 } as const;
 
 /**

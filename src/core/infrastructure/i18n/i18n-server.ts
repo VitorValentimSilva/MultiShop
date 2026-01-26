@@ -12,7 +12,7 @@ import {
   LOCALE_COOKIE_NAME,
   LOCALE_HEADER_NAME,
 } from "@/core/constants";
-import { i18nServerConfig } from "@/core/infrastructure/i18n/i18n.config";
+import { i18nServerConfig } from "@/core/infrastructure";
 import { createLogger } from "@/core/lib";
 import type { LocaleCode, I18nNamespace } from "@/core/types";
 import { isValidLocale, ensureValidLocale } from "@/core/utils";

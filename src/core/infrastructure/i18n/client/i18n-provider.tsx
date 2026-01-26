@@ -11,10 +11,7 @@ import {
   LOCALE_COOKIE_NAME,
   LOCALE_COOKIE_MAX_AGE,
 } from "@/core/constants";
-import {
-  I18nContext,
-  initI18nClient,
-} from "@/core/infrastructure/i18n/client/i18n-context";
+import { I18nContext, initI18nClient } from "@/core/infrastructure";
 import type { LocaleCode, I18nProviderProps } from "@/core/types";
 import { isValidLocale } from "@/core/utils";
 

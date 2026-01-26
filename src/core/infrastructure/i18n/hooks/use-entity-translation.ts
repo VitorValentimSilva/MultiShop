@@ -2,10 +2,7 @@
 
 import { useMemo, useCallback } from "react";
 
-import {
-  useI18n,
-  useTranslation,
-} from "@/core/infrastructure/i18n/hooks/use-i18n";
+import { useI18n, useTranslation } from "@/core/infrastructure";
 import type { CurrencyCode, I18nNamespace } from "@/core/types";
 import type {
   UseEntityTranslationOptionsDto,

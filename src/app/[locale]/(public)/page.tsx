@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslation } from "@/core/infrastructure/i18n/hooks/use-i18n";
+import { useTranslation } from "@/core/infrastructure";
 import { LanguageSwitcher, ModeToggle } from "@/features/shared/components";
 
 export default function Public() {

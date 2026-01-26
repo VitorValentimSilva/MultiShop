@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Home, Search, ArrowLeft } from "lucide-react";
 
 import { I18N_NAMESPACES } from "@/core/constants";
-import { useTranslation } from "@/core/infrastructure/i18n/hooks/use-i18n";
+import { useTranslation } from "@/core/infrastructure";
 import {
   Button,
   LanguageSwitcher,

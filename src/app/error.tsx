@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { TriangleAlert, Home, RotateCcw } from "lucide-react";
 
 import { I18N_NAMESPACES } from "@/core/constants";
-import { useTranslation } from "@/core/infrastructure/i18n/hooks/use-i18n";
+import { useTranslation } from "@/core/infrastructure";
 import {
   Badge,
   Button,

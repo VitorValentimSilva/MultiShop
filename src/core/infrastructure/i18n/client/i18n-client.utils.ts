@@ -2,10 +2,7 @@
 
 import * as Sentry from "@sentry/nextjs";
 
-import {
-  getClientInstance,
-  isClientReady,
-} from "@/core/infrastructure/i18n/client/i18n-context";
+import { getClientInstance, isClientReady } from "@/core/infrastructure";
 import type { LocaleCode } from "@/core/types";
 
 /**

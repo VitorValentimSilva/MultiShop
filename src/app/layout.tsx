@@ -11,7 +11,7 @@ import {
 } from "@/core/constants";
 import type { LocaleCode } from "@/core/types";
 import { isValidLocale } from "@/core/utils";
-import { I18nProvider } from "@/core/infrastructure/i18n/client/i18n-provider";
+import { I18nProvider } from "@/core/infrastructure";
 import { ThemeProvider } from "@/features/shared/components";
 
 const geistSans = Geist({

@@ -3,7 +3,7 @@
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
-import { useTranslation } from "@/core/infrastructure/i18n/hooks/use-i18n";
+import { useTranslation } from "@/core/infrastructure";
 import {
   Button,
   DropdownMenu,

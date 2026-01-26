@@ -3,10 +3,7 @@
 import { Globe } from "lucide-react";
 
 import { LOCALE_CONFIG, SUPPORTED_LOCALES } from "@/core/constants";
-import {
-  useLocale,
-  useChangeLocale,
-} from "@/core/infrastructure/i18n/hooks/use-i18n";
+import { useLocale, useChangeLocale } from "@/core/infrastructure";
 import type { LocaleCode } from "@/core/types";
 import { getLocaleFlag } from "@/core/utils";
 import {

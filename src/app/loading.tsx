@@ -1,7 +1,7 @@
 "use client";
 
 import { I18N_NAMESPACES } from "@/core/constants";
-import { useTranslation } from "@/core/infrastructure/i18n/hooks/use-i18n";
+import { useTranslation } from "@/core/infrastructure";
 import {
   LanguageSwitcher,
   ModeToggle,

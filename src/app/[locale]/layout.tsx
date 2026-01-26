@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 
 import { LOCALE_STATIC_PARAMS, SUPPORTED_LOCALES } from "@/core/constants";
 import type { LocaleCode } from "@/core/types";
-import { generateHomeMetadata } from "@/core/utils";
+import { generateHomeMetadata } from "@/core/utils/seo/metadata-server.utils";
 
 /**
  * * Generate static params for all supported locales.

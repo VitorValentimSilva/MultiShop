@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
 
-import { I18N_NAMESPACES, SUPPORTED_LOCALES } from "@/core/constants";
-import { loadTranslationJson } from "@/core/infrastructure/i18n/i18n-server";
+import { SUPPORTED_LOCALES } from "@/core/constants";
 import { LocaleCode } from "@/core/types";
-import type {
-  GenerateLocaleMetadataOptionsDto,
-  PageMetadataTranslationDto,
-} from "@/core/types/dtos";
+import type { PageMetadataTranslationDto } from "@/core/types/dtos";
 
 /**
  * * Builds a map of alternate language URLs for SEO.
@@ -85,26 +81,4 @@ export function buildHomeMetadata({
     alternates: buildAlternates(baseUrl, locale),
     openGraph: buildOpenGraph(metadata, title, description, locale),
   };
-}
-
-/**
- * * Loads translations and generates localized metadata for the home page.
- */
-export async function generateHomeMetadata({
-  locale,
-  baseUrl = process.env.NEXT_PUBLIC_APP_URL ??
-    "https://multi-shop-vv.vercel.app",
-  defaultTitle = "MultiShop",
-}: GenerateLocaleMetadataOptionsDto): Promise<Metadata> {
-  const translations = await loadTranslationJson<PageMetadataTranslationDto>(
-    locale,
-    I18N_NAMESPACES.homePublic
-  );
-
-  return buildHomeMetadata({
-    locale,
-    baseUrl,
-    defaultTitle,
-    metadata: translations.metadata,
-  });
 }

@@ -2,17 +2,11 @@ import "server-only";
 
 import { Redis } from "@upstash/redis";
 
+import { normalizeEnv } from "@/core/utils";
+
 // * Singleton instance for the Redis client
 // * Ensures only one Redis connection is created per runtime
 let redisSingleton: Redis | null = null;
-
-// * Normalizes environment variables
-// * - Trims whitespace
-// * - Converts empty strings to null
-function normalizeEnv(value?: string): string | null {
-  const normalized = value?.trim();
-  return normalized ? normalized : null;
-}
 
 // * Resolves the Redis configuration from environment variables
 // * Returns null when configuration is incomplete

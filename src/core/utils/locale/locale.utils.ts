@@ -1,11 +1,11 @@
 import {
-  SUPPORTED_LOCALES,
   DEFAULT_LOCALE,
-  LOCALE_CONFIG,
   LANGUAGE_TO_DEFAULT_LOCALE,
   LOCALE_CACHE_MAX_SIZE,
+  LOCALE_CONFIG,
+  SUPPORTED_LOCALES,
 } from "@/core/constants";
-import type { LocaleCode, LanguageCode } from "@/core/types";
+import type { LanguageCode, LocaleCode } from "@/core/types";
 import type {
   LocaleInfoDto,
   LocaleMatchResultDto,
@@ -14,6 +14,11 @@ import type {
 
 // * Cache for parsed Accept-Language headers to improve performance
 const acceptLanguageCache = new Map<string, LocaleCode>();
+
+// * Returns the locale configuration for a given locale code
+export function getLocaleConfig(locale: LocaleCode): LocaleInfoDto {
+  return LOCALE_CONFIG[locale];
+}
 
 // * Checks if a value is a supported and valid locale code
 export function isValidLocale(locale: unknown): locale is LocaleCode {
@@ -39,11 +44,6 @@ export function ensureValidLocale(locale: unknown): LocaleCode {
   const normalized = normalizeLocale(locale);
 
   return isValidLocale(normalized) ? normalized : DEFAULT_LOCALE;
-}
-
-// * Returns locale configuration metadata
-export function getLocaleInfo(locale: LocaleCode): LocaleInfoDto {
-  return LOCALE_CONFIG[locale];
 }
 
 // * Extracts the language part from a locale string (e.g. pt from pt-BR)

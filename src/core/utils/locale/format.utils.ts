@@ -1,11 +1,5 @@
-import { LOCALE_CONFIG } from "@/core/constants";
 import type { CurrencyCode, LocaleCode } from "@/core/types";
-import type { LocaleInfoDto } from "@/core/types/dtos";
-
-// * Returns the locale configuration for a given locale code
-export function getLocaleConfig(locale: LocaleCode): LocaleInfoDto {
-  return LOCALE_CONFIG[locale];
-}
+import { getLocaleConfig } from "@/core/utils";
 
 // * Formats a date according to the given locale and date style
 export function formatDateForLocale(

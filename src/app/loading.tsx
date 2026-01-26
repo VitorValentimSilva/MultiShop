@@ -1,12 +1,28 @@
-import { StatusPageLayout } from "@/features/shared/components/layouts";
-import { Spinner } from "@/features/shared/components/ui";
+"use client";
+
+import { I18N_NAMESPACES } from "@/core/constants";
+import { useTranslation } from "@/core/infrastructure";
+import {
+  LanguageSwitcher,
+  ModeToggle,
+  Spinner,
+  StatusPageLayout,
+} from "@/features/shared/components";
 
 export default function Loading() {
+  const { t } = useTranslation(I18N_NAMESPACES.status);
+
   return (
     <StatusPageLayout
       maxWidth="sm"
       className="flex flex-col items-center p-8 sm:p-10"
     >
+      <div className="absolute top-3 right-3 flex gap-2">
+        <LanguageSwitcher />
+
+        <ModeToggle />
+      </div>
+
       <div className="relative">
         <div className="bg-primary/10 absolute inset-0 animate-ping rounded-full opacity-30" />
 
@@ -16,11 +32,11 @@ export default function Loading() {
       </div>
 
       <h1 className="text-foreground mt-6 text-lg font-semibold tracking-tight">
-        Carregando...
+        {t("loading.title")}
       </h1>
 
       <p className="text-muted-foreground mt-2 text-center text-sm">
-        Aguarde um momento enquanto preparamos tudo para você.
+        {t("loading.description")}
       </p>
 
       <div className="mt-6 flex gap-1">

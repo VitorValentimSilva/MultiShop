@@ -214,3 +214,25 @@ export function parseAcceptLanguage(
 export function clearAcceptLanguageCache(): void {
   acceptLanguageCache.clear();
 }
+
+/**
+ * * Returns the emoji flag based on the locale region.
+ * * Example: "pt-BR" -> 🇧🇷, "en-US" -> 🇺🇸
+ */
+export function getLocaleFlag(locale: LocaleCode): string {
+  // * Extracts the region part of the locale (e.g. "BR" from "pt-BR")
+  const regionCode = locale.split("-")[1]?.toUpperCase();
+
+  // ? If no region is present, return a generic globe icon
+  if (!regionCode) return "🌐";
+
+  // * Unicode offset used to convert ASCII letters to regional indicator symbols
+  const flagOffset = 127397;
+
+  // * Convert each character (A-Z) into its corresponding flag emoji code point
+  const flag = [...regionCode]
+    .map((char) => String.fromCodePoint(char.charCodeAt(0) + flagOffset))
+    .join("");
+
+  return flag;
+}

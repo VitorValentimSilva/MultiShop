@@ -24,6 +24,15 @@ export const DEFAULT_LOCALE: LocaleCode = "pt-BR";
 export const FALLBACK_LOCALE: LocaleCode = "en-US";
 
 /**
+ * * Pre-computed static params for locale-based routes.
+ * * Used by generateStaticParams in Next.js layouts/pages.
+ * * Enables static generation for each supported locale at build time.
+ */
+export const LOCALE_STATIC_PARAMS = SUPPORTED_LOCALES.map((locale) => ({
+  locale,
+}));
+
+/**
  * * Maps a language code to its preferred default locale.
  * * Useful when only the language is known (e.g. from browser settings).
  * ? Currently most languages fall back to "en-US".

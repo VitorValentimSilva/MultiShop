@@ -1,1 +1,1 @@
-export * from "@/core/infrastructure/redis";
+export * from "@/core/infrastructure/i18n";

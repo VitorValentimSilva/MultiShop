@@ -1,3 +1,4 @@
+import { ERROR_CODES, ErrorCode } from "@/core/constants";
 import {
   ApiErrorResponseDto,
   ApiSuccessResponseDto,
@@ -37,7 +38,7 @@ export function createSuccessResponse<T>(
  * @param requestId - Optional request identifier for tracing/logging
  */
 export function createErrorResponse(
-  code: string,
+  code: ErrorCode,
   message: string,
   statusCode: number = 500,
   details?: Record<string, unknown>,
@@ -75,7 +76,7 @@ export function createValidationErrorResponse(
     success: false,
     error: {
       // Fixed error code for validation-related failures
-      code: "VALIDATION_ERROR",
+      code: ERROR_CODES.VALIDATION_FAILED,
       message,
       statusCode: 400,
       fieldErrors,

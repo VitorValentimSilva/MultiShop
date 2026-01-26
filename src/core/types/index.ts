@@ -3,6 +3,7 @@ export * from "@/core/types/async-state.types";
 export * from "@/core/types/cursor.types";
 export * from "@/core/types/entity.types";
 export * from "@/core/types/filter.types";
+export * from "@/core/types/i18n.types";
 export * from "@/core/types/locale.types";
 export * from "@/core/types/operation.types";
 export * from "@/core/types/result.types";

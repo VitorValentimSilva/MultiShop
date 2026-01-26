@@ -1,3 +1,9 @@
+import {
+  subMonths,
+  endOfMonth,
+  startOfMonth as dateFnsStartOfMonth,
+} from "date-fns";
+
 import { DateRangePeriod } from "@/core/types";
 import { DateRangeFilterDto } from "@/core/types/dtos";
 import {
@@ -60,8 +66,9 @@ export function thisMonthRange(today: Date, now: Date): DateRangeFilterDto {
 
 // * Creates a date range covering the entire previous month
 export function lastMonthRange(today: Date): DateRangeFilterDto {
-  const start = new Date(today.getFullYear(), today.getMonth() - 1, 1);
-  const end = new Date(today.getFullYear(), today.getMonth(), 0);
+  const lastMonth = subMonths(today, 1);
+  const start = dateFnsStartOfMonth(lastMonth);
+  const end = endOfMonth(lastMonth);
 
   return {
     startDate: start.toISOString(),

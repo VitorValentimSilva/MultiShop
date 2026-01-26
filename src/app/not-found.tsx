@@ -3,16 +3,25 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Home, Search, ArrowLeft } from "lucide-react";
-import { StatusPageLayout } from "@/features/shared/components/layouts";
-import { Button } from "@/features/shared/components/ui";
-import { ModeToggle } from "@/features/shared/components";
+
+import { I18N_NAMESPACES } from "@/core/constants";
+import { useTranslation } from "@/core/infrastructure";
+import {
+  Button,
+  LanguageSwitcher,
+  ModeToggle,
+  StatusPageLayout,
+} from "@/features/shared/components";
 
 export default function NotFound() {
   const router = useRouter();
+  const { t } = useTranslation(I18N_NAMESPACES.status);
 
   return (
     <StatusPageLayout>
-      <div className="absolute top-3 right-3">
+      <div className="absolute top-3 right-3 flex gap-2">
+        <LanguageSwitcher />
+
         <ModeToggle />
       </div>
 
@@ -22,16 +31,15 @@ export default function NotFound() {
         </div>
 
         <div className="text-primary/20 mt-4 text-8xl font-bold tracking-tighter sm:text-9xl">
-          404
+          {t("notFound.code")}
         </div>
 
         <h1 className="text-foreground -mt-2 text-xl font-semibold tracking-tight sm:text-2xl">
-          Página não encontrada
+          {t("notFound.title")}
         </h1>
 
         <p className="text-muted-foreground mt-3 max-w-md text-sm text-pretty sm:text-base">
-          Desculpe, não conseguimos encontrar a página que você está procurando.
-          Ela pode ter sido movida ou não existe mais.
+          {t("notFound.description")}
         </p>
       </div>
 
@@ -39,7 +47,7 @@ export default function NotFound() {
         <Button asChild className="font-semibold">
           <Link href="/">
             <Home className="size-4" />
-            Ir para o início
+            {t("notFound.goHome")}
           </Link>
         </Button>
 
@@ -49,7 +57,7 @@ export default function NotFound() {
           onClick={() => router.back()}
         >
           <ArrowLeft className="size-4" />
-          Voltar
+          {t("notFound.goBack")}
         </Button>
       </div>
     </StatusPageLayout>

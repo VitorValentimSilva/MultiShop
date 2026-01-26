@@ -78,6 +78,15 @@ export function isValidDate(value: unknown): value is Date {
   return value instanceof Date && isValid(value);
 }
 
+// * Checks whether a value is a valid Date or ISO string
+export function isValidDateValue(value: unknown): boolean {
+  if (value instanceof Date) return isValidDate(value);
+
+  if (typeof value === "string") return isValid(parseISO(value));
+
+  return false;
+}
+
 // * Attempts to parse a Date or ISO string
 // * Returns null if the resulting date is invalid
 export function parseDate(value: string | Date): Date | null {

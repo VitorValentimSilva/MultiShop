@@ -17,16 +17,19 @@ export const I18N_NAMESPACES = {
   status: "pages/status",
 
   // * Error messages nanoid
-  nanoid: "errors/nanoid",
+  nanoidErrors: "errors/nanoid",
 
   // * Error messages date
-  date: "errors/date",
+  dateErrors: "errors/date",
 
   // * Error messages schema
-  schema: "errors/schema",
+  schemaErrors: "errors/schema",
 
   // * Locale-related translations
-  locale: "locale",
+  localeErrors: "errors/locale",
+
+  // * Domain-specific translations
+  domainMetricErrors: "entities/domain-metric/errors",
 } as const;
 
 /**

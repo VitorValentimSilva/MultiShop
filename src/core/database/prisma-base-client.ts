@@ -1,25 +1,12 @@
 import { WebSocket } from "ws";
 import { PrismaNeon } from "@prisma/adapter-neon";
 import { Prisma, PrismaClient } from "@/app/generated/prisma/client";
+import { normalizeEnv, isTruthyFlag } from "@/core/utils";
 
 // * Ensure WebSocket is available in the Node.js runtime
 // * Required by the Neon Prisma adapter
 if (typeof globalThis.WebSocket === "undefined") {
   globalThis.WebSocket = WebSocket as unknown as typeof globalThis.WebSocket;
-}
-
-// * Normalize environment variables
-// * - Trims whitespace
-// * - Converts empty strings to null
-export function normalizeEnv(value?: string): string | null {
-  const normalized = value?.trim();
-  return normalized ? normalized : null;
-}
-
-// * Checks if a flag-like env value is truthy
-// * Accepted values: "1", "true"
-function isTruthyFlag(value: string): boolean {
-  return value === "1" || value.toLowerCase() === "true";
 }
 
 // * Default Prisma log levels used in development

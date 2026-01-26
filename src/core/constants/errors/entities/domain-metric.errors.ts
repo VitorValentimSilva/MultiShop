@@ -1,4 +1,4 @@
-import { createErrorCodes } from "@/src/core/utils";
+import { createErrorCodes } from "@/core/utils";
 
 export const DOMAIN_METRIC_ERROR_CODES = createErrorCodes(
   ["UNIT_LENGTH_EXCEEDED"] as const,

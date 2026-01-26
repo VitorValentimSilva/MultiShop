@@ -7,3 +7,4 @@ export * from "@/core/types/dtos/locale";
 export * from "@/core/types/dtos/operation";
 export * from "@/core/types/dtos/pagination";
 export * from "@/core/types/dtos/search";
+export * from "@/core/types/dtos/seo";

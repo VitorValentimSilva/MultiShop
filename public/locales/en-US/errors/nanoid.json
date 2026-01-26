@@ -1,0 +1,4 @@
+{
+  "NANOID_INVALID_LENGTH": "NanoID must be exactly {{length}} characters",
+  "NANOID_INVALID_CHARACTERS": "NanoID must contain only URL-safe characters (letters, numbers, - and _)"
+}

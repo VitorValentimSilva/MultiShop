@@ -1,5 +1,6 @@
 export * from "@/core/constants/errors/common.errors";
 export * from "@/core/constants/errors/metric.errors";
+export * from "@/src/core/constants/errors/nanoid.errors";
 
 // * Re-export all error code modules so consumers can import from a single entry point
 import {
@@ -7,6 +8,8 @@ import {
   type CommonErrorCode,
   METRIC_ERROR_CODES,
   type MetricErrorCode,
+  NANOID_ERROR_CODES,
+  type NanoidErrorCode,
 } from "@/core/constants/errors";
 
 /**
@@ -20,6 +23,7 @@ import {
 export const ERROR_CODES = {
   ...COMMON_ERROR_CODES,
   ...METRIC_ERROR_CODES,
+  ...NANOID_ERROR_CODES,
 } as const;
 
 /**
@@ -30,4 +34,4 @@ export const ERROR_CODES = {
  * - Domain errors
  * - API responses
  */
-export type ErrorCode = CommonErrorCode | MetricErrorCode;
+export type ErrorCode = CommonErrorCode | MetricErrorCode | NanoidErrorCode;

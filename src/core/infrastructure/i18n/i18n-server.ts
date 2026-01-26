@@ -15,7 +15,11 @@ import {
 import { i18nServerConfig } from "@/core/infrastructure";
 import { createLogger } from "@/core/lib";
 import type { LocaleCode, I18nNamespace } from "@/core/types";
-import { isValidLocale, ensureValidLocale } from "@/core/utils";
+import {
+  isValidLocale,
+  ensureValidLocale,
+  parseAcceptLanguage,
+} from "@/core/utils";
 
 const logger = createLogger({ module: "i18n-server" });
 
@@ -73,33 +77,6 @@ export const getServerLocale = cache(async (): Promise<LocaleCode> => {
   // * If none is valid, fallback to default locale
   return DEFAULT_LOCALE;
 });
-
-/**
- * * Parses the Accept-Language header and returns the best matching locale.
- * * If no match is found, returns null.
- */
-export function parseAcceptLanguage(header: string): LocaleCode | null {
-  const parseLang = (lang: string) => {
-    const [code, quality = "q=1"] = lang.trim().split(";");
-    const q = parseFloat(quality.replace("q=", "")) || 1;
-
-    return { code: code.trim(), quality: q };
-  };
-
-  const languages = header
-    .split(",")
-    .map(parseLang)
-    .sort((a, b) => b.quality - a.quality);
-
-  // * Select the first locale that is valid
-  const preferred = languages.find(({ code }) => {
-    const normalized = ensureValidLocale(code);
-
-    return isValidLocale(normalized);
-  });
-
-  return preferred ? ensureValidLocale(preferred.code) : null;
-}
 
 /**
  * * Returns a translation function for a single namespace.

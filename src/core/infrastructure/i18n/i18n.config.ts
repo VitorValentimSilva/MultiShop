@@ -7,30 +7,13 @@ import {
   FALLBACK_LOCALE,
   I18N_NAMESPACES,
   DEFAULT_I18N_NAMESPACE,
-  LOCALE_COOKIE_NAME,
   LOCALE_COOKIE_MAX_AGE,
-  LOCALE_HEADER_NAME,
 } from "@/core/constants";
-import type { I18nNamespace } from "@/core/types";
 
 /**
  * * HTTP Backend for loading translations from public/locales
  */
 export const i18nHttpBackend = HttpBackend;
-
-/**
- * * Re-export constants so other modules can import from this file.
- */
-export {
-  I18N_NAMESPACES,
-  LOCALE_COOKIE_NAME,
-  LOCALE_COOKIE_MAX_AGE,
-  LOCALE_HEADER_NAME,
-};
-
-export const DEFAULT_NAMESPACE: I18nNamespace = DEFAULT_I18N_NAMESPACE;
-
-export type { I18nNamespace };
 
 /**
  * * Base i18next configuration shared between server and client.

@@ -43,7 +43,7 @@ export const isoDateSchema = z
  * * Accepts a Date object or a string and normalizes it into a Date.
  */
 export const dateSchema = z
-  .union([z.string(), z.date()])
+  .union([z.string(), z.iso.date()])
   .refine((val) => isValidDateValue(val), {
     message: DATE_ERROR_MESSAGES.invalid,
   })

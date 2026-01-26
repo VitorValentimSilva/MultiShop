@@ -2,6 +2,7 @@ export * from "@/core/constants/errors/common.errors";
 export * from "@/core/constants/errors/date.errors";
 export * from "@/core/constants/errors/metric.errors";
 export * from "@/src/core/constants/errors/nanoid.errors";
+export * from "@/core/constants/errors/schema.errors";
 
 // * Re-export all error code modules so consumers can import from a single entry point
 import {
@@ -13,6 +14,8 @@ import {
   type MetricErrorCode,
   NANOID_ERROR_CODES,
   type NanoidErrorCode,
+  SCHEMA_ERROR_CODES,
+  type SchemaErrorCode,
 } from "@/core/constants/errors";
 
 /**
@@ -28,6 +31,7 @@ export const ERROR_CODES = {
   ...DATE_ERROR_CODES,
   ...METRIC_ERROR_CODES,
   ...NANOID_ERROR_CODES,
+  ...SCHEMA_ERROR_CODES,
 } as const;
 
 /**
@@ -42,4 +46,5 @@ export type ErrorCode =
   | CommonErrorCode
   | DateErrorCode
   | MetricErrorCode
-  | NanoidErrorCode;
+  | NanoidErrorCode
+  | SchemaErrorCode;

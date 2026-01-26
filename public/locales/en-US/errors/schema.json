@@ -1,0 +1,23 @@
+{
+  "UUID_INVALID": "Invalid UUID format",
+  "EMAIL_INVALID": "Invalid email address",
+  "URL_INVALID": "Invalid URL",
+  "SLUG_REQUIRED": "Slug is required",
+  "SLUG_TOO_LONG": "Slug must be at most {{max}} characters",
+  "SLUG_INVALID_FORMAT": "Slug must contain only lowercase letters, numbers, and hyphens",
+  "KEY_REQUIRED": "Key is required",
+  "KEY_TOO_LONG": "Key must be at most {{max}} characters",
+  "KEY_INVALID_FORMAT": "Key must contain only lowercase letters, numbers, and underscores",
+  "NAMESPACE_TOO_LONG": "Namespace must be at most {{max}} characters",
+  "LABEL_REQUIRED": "Label is required",
+  "LABEL_TOO_LONG": "Label must be at most {{max}} characters",
+  "DESCRIPTION_TOO_LONG": "Description must be at most {{max}} characters",
+  "TITLE_REQUIRED": "Title is required",
+  "TITLE_TOO_LONG": "Title must be at most {{max}} characters",
+  "DECIMAL_INVALID": "Value must be a valid decimal number",
+  "INTEGER_MUST_BE_POSITIVE": "Value must be a positive integer",
+  "INTEGER_MUST_BE_NON_NEGATIVE": "Value must be zero or greater",
+  "PERCENTAGE_OUT_OF_RANGE": "Percentage must be between 0 and 100",
+  "CURRENCY_CODE_INVALID_LENGTH": "Currency code must be exactly 3 characters",
+  "CURRENCY_CODE_INVALID_FORMAT": "Currency code must be uppercase letters"
+}

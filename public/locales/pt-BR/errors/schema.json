@@ -1,0 +1,23 @@
+{
+  "UUID_INVALID": "Formato de UUID inválido",
+  "EMAIL_INVALID": "Endereço de e-mail inválido",
+  "URL_INVALID": "URL inválida",
+  "SLUG_REQUIRED": "Slug é obrigatório",
+  "SLUG_TOO_LONG": "Slug deve ter no máximo {{max}} caracteres",
+  "SLUG_INVALID_FORMAT": "Slug deve conter apenas letras minúsculas, números e hífens",
+  "KEY_REQUIRED": "Key é obrigatória",
+  "KEY_TOO_LONG": "Key deve ter no máximo {{max}} caracteres",
+  "KEY_INVALID_FORMAT": "Key deve conter apenas letras minúsculas, números e underscores",
+  "NAMESPACE_TOO_LONG": "Namespace deve ter no máximo {{max}} caracteres",
+  "LABEL_REQUIRED": "Label é obrigatório",
+  "LABEL_TOO_LONG": "Label deve ter no máximo {{max}} caracteres",
+  "DESCRIPTION_TOO_LONG": "Descrição deve ter no máximo {{max}} caracteres",
+  "TITLE_REQUIRED": "Título é obrigatório",
+  "TITLE_TOO_LONG": "Título deve ter no máximo {{max}} caracteres",
+  "DECIMAL_INVALID": "O valor deve ser um número decimal válido",
+  "INTEGER_MUST_BE_POSITIVE": "O valor deve ser um número inteiro positivo",
+  "INTEGER_MUST_BE_NON_NEGATIVE": "O valor deve ser zero ou maior",
+  "PERCENTAGE_OUT_OF_RANGE": "A porcentagem deve estar entre 0 e 100",
+  "CURRENCY_CODE_INVALID_LENGTH": "O código da moeda deve ter exatamente 3 caracteres",
+  "CURRENCY_CODE_INVALID_FORMAT": "O código da moeda deve ser em letras maiúsculas"
+}

@@ -21,6 +21,9 @@ export const I18N_NAMESPACES = {
 
   // * Error messages date
   date: "errors/date",
+
+  // * Error messages schema
+  schema: "errors/schema",
 } as const;
 
 /**

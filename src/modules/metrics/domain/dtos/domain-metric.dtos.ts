@@ -20,16 +20,16 @@ export interface DomainMetricDto
   readonly key: string;
 
   // * Optional namespace to logically group metrics
-  readonly namespace?: string | null;
+  readonly namespace?: string;
 
   // * Numeric value of the metric (stored as Decimal for precision)
   readonly value: Prisma.Decimal;
 
   // * Optional unit of measurement (e.g. %, ms, kg)
-  readonly unit?: string | null;
+  readonly unit?: string;
 
   // * Optional JSON metadata for extensibility
-  readonly meta?: Prisma.JsonValue | null;
+  readonly meta?: Prisma.JsonValue;
 }
 
 /**
@@ -41,16 +41,16 @@ export interface CreateDomainMetricDto {
   readonly key: string;
 
   // * Optional namespace for grouping
-  readonly namespace?: string | null;
+  readonly namespace?: string;
 
   // * Initial metric value
   readonly value: Prisma.Decimal;
 
   // * Optional unit of measurement
-  readonly unit?: string | null;
+  readonly unit?: string;
 
   // * Optional metadata for custom use cases
-  readonly meta?: Prisma.JsonValue | null;
+  readonly meta?: Prisma.JsonValue;
 
   // * Initial set of translations for the metric
   readonly translations: CreateDomainMetricTranslationDto[];
@@ -65,16 +65,16 @@ export interface UpdateDomainMetricDto {
   readonly key?: string;
 
   // * Updated namespace (optional)
-  readonly namespace?: string | null;
+  readonly namespace?: string;
 
   // * Updated metric value (optional)
   readonly value?: Prisma.Decimal;
 
   // * Updated unit (optional)
-  readonly unit?: string | null;
+  readonly unit?: string;
 
   // * Updated metadata (optional)
-  readonly meta?: Prisma.JsonValue | null;
+  readonly meta?: Prisma.JsonValue;
 
   // * Updated translations (optional)
   readonly translations?: UpdateDomainMetricTranslationDto[];

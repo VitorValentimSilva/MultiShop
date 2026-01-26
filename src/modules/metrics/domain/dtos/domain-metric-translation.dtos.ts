@@ -11,7 +11,7 @@ export interface DomainMetricTranslationDto extends BaseTranslationDto {
   readonly label: string;
 
   // * Optional description providing more context about the metric
-  readonly description?: string | null;
+  readonly description?: string;
 
   // * Reference to the parent Domain Metric
   readonly metricId: DomainMetricDto["id"];
@@ -29,7 +29,7 @@ export interface CreateDomainMetricTranslationDto {
   readonly label: string;
 
   // * Optional localized description
-  readonly description?: string | null;
+  readonly description?: string;
 }
 
 /**
@@ -44,5 +44,5 @@ export interface UpdateDomainMetricTranslationDto {
   readonly label?: string;
 
   // * Updated description (optional)
-  readonly description?: string | null;
+  readonly description?: string;
 }

@@ -1,5 +1,6 @@
 export * from "@/core/constants/errors/common.errors";
 export * from "@/core/constants/errors/date.errors";
+export * from "@/core/constants/errors/locale.errors";
 export * from "@/core/constants/errors/metric.errors";
 export * from "@/src/core/constants/errors/nanoid.errors";
 export * from "@/core/constants/errors/schema.errors";
@@ -10,6 +11,8 @@ import {
   type CommonErrorCode,
   DATE_ERROR_CODES,
   type DateErrorCode,
+  LOCALE_ERROR_CODES,
+  type LocaleErrorCode,
   METRIC_ERROR_CODES,
   type MetricErrorCode,
   NANOID_ERROR_CODES,
@@ -29,6 +32,7 @@ import {
 export const ERROR_CODES = {
   ...COMMON_ERROR_CODES,
   ...DATE_ERROR_CODES,
+  ...LOCALE_ERROR_CODES,
   ...METRIC_ERROR_CODES,
   ...NANOID_ERROR_CODES,
   ...SCHEMA_ERROR_CODES,
@@ -45,6 +49,7 @@ export const ERROR_CODES = {
 export type ErrorCode =
   | CommonErrorCode
   | DateErrorCode
+  | LocaleErrorCode
   | MetricErrorCode
   | NanoidErrorCode
   | SchemaErrorCode;

@@ -1,0 +1,9 @@
+{
+  "LOCALE_TOO_SHORT": "Locale must be at least {{min}} characters",
+  "LOCALE_TOO_LONG": "Locale must be at most {{max}} characters",
+  "LOCALE_NOT_SUPPORTED": "Locale is not supported",
+  "LANGUAGE_CODE_INVALID_LENGTH": "Language code must be exactly {{length}} characters",
+  "LANGUAGE_CODE_INVALID_FORMAT": "Language code must be lowercase letters",
+  "REGION_CODE_INVALID_LENGTH": "Region code must be exactly {{length}} characters",
+  "REGION_CODE_INVALID_FORMAT": "Region code must be uppercase letters"
+}

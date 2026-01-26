@@ -24,6 +24,9 @@ export const I18N_NAMESPACES = {
 
   // * Error messages schema
   schema: "errors/schema",
+
+  // * Locale-related translations
+  locale: "locale",
 } as const;
 
 /**

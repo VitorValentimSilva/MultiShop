@@ -1,0 +1,9 @@
+{
+  "LOCALE_TOO_SHORT": "Locale deve ter pelo menos {{min}} caracteres",
+  "LOCALE_TOO_LONG": "Locale deve ter no máximo {{max}} caracteres",
+  "LOCALE_NOT_SUPPORTED": "Locale não é suportado",
+  "LANGUAGE_CODE_INVALID_LENGTH": "Código do idioma deve ter exatamente {{length}} caracteres",
+  "LANGUAGE_CODE_INVALID_FORMAT": "Código do idioma deve ser em letras minúsculas",
+  "REGION_CODE_INVALID_LENGTH": "Código da região deve ter exatamente {{length}} caracteres",
+  "REGION_CODE_INVALID_FORMAT": "Código da região deve ser em letras maiúsculas"
+}

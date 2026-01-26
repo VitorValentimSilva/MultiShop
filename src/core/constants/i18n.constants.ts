@@ -15,6 +15,9 @@ export const I18N_NAMESPACES = {
 
   // * Status pages (error, not-found, loading)
   status: "pages/status",
+
+  // * Error messages nanoid
+  nanoid: "errors/nanoid",
 } as const;
 
 /**

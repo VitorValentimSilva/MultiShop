@@ -6,3 +6,4 @@ export * from "@/core/utils/filter";
 export * from "@/core/utils/functional";
 export * from "@/core/utils/locale";
 export * from "@/core/utils/seo";
+export * from "@/core/utils/zod";

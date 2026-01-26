@@ -29,6 +29,18 @@ export const DATE_ERROR_MESSAGES = {
 } as const;
 
 /**
+ * * ISO 8601 datetime string schema.
+ * * Example: 2024-01-01T12:00:00.000Z
+ */
+export const isoDateStringSchema = z.iso.datetime();
+
+/**
+ * * Date field schema.
+ * * Accepts either an ISO datetime or ISO date string.
+ */
+export const dateFieldSchema = z.union([z.iso.datetime(), z.iso.date()]);
+
+/**
  * * Validates an ISO 8601 date string.
  * * Ensures the string can be parsed into a valid Date.
  */
@@ -170,6 +182,8 @@ export function createDateBeforeSchema(maxDate: Date) {
 /**
  * * Schema inference types.
  */
+export type IsoDateStringSchemaType = z.infer<typeof isoDateStringSchema>;
+export type DateFieldSchemaType = z.infer<typeof dateFieldSchema>;
 export type IsoDateSchemaType = z.infer<typeof isoDateSchema>;
 export type DateSchemaType = z.infer<typeof dateSchema>;
 export type PastDateSchemaType = z.infer<typeof pastDateSchema>;

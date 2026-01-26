@@ -1,4 +1,5 @@
 export * from "@/core/constants/errors/common.errors";
+export * from "@/core/constants/errors/date.errors";
 export * from "@/core/constants/errors/metric.errors";
 export * from "@/src/core/constants/errors/nanoid.errors";
 
@@ -6,6 +7,8 @@ export * from "@/src/core/constants/errors/nanoid.errors";
 import {
   COMMON_ERROR_CODES,
   type CommonErrorCode,
+  DATE_ERROR_CODES,
+  type DateErrorCode,
   METRIC_ERROR_CODES,
   type MetricErrorCode,
   NANOID_ERROR_CODES,
@@ -22,6 +25,7 @@ import {
  */
 export const ERROR_CODES = {
   ...COMMON_ERROR_CODES,
+  ...DATE_ERROR_CODES,
   ...METRIC_ERROR_CODES,
   ...NANOID_ERROR_CODES,
 } as const;
@@ -34,4 +38,8 @@ export const ERROR_CODES = {
  * - Domain errors
  * - API responses
  */
-export type ErrorCode = CommonErrorCode | MetricErrorCode | NanoidErrorCode;
+export type ErrorCode =
+  | CommonErrorCode
+  | DateErrorCode
+  | MetricErrorCode
+  | NanoidErrorCode;

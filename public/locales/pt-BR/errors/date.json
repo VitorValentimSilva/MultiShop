@@ -1,0 +1,12 @@
+{
+  "DATE_INVALID": "Data inválida",
+  "DATE_INVALID_ISO_FORMAT": "Formato de data ISO inválido",
+  "DATE_MUST_BE_PAST": "A data deve estar no passado",
+  "DATE_MUST_BE_FUTURE": "A data deve estar no futuro",
+  "DATE_MUST_BE_PAST_OR_TODAY": "A data deve ser hoje ou no passado",
+  "DATE_MUST_BE_FUTURE_OR_TODAY": "A data deve ser hoje ou no futuro",
+  "DATE_RANGE_INVALID": "A data inicial deve ser anterior ou igual à data final",
+  "DATE_OUT_OF_RANGE": "A data deve estar entre {{minDate}} e {{maxDate}}",
+  "DATE_MUST_BE_AFTER": "A data deve ser posterior a {{minDate}}",
+  "DATE_MUST_BE_BEFORE": "A data deve ser anterior a {{maxDate}}"
+}

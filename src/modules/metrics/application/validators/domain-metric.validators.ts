@@ -10,7 +10,7 @@ import {
   metaSchema,
   namespaceSchema,
   uuidSchema,
-} from "@/core/utils";
+} from "@/core/schemas";
 import {
   createDomainMetricTranslationSchema,
   updateDomainMetricTranslationSchema,

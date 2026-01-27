@@ -11,6 +11,8 @@ import {
   type CommonErrorCode,
   DATE_ERROR_CODES,
   type DateErrorCode,
+  DOMAIN_METRIC_ERROR_CODES,
+  type DomainMetricErrorCode,
   LOCALE_ERROR_CODES,
   type LocaleErrorCode,
   NANOID_ERROR_CODES,
@@ -30,6 +32,7 @@ import {
 export const ERROR_CODES = {
   ...COMMON_ERROR_CODES,
   ...DATE_ERROR_CODES,
+  ...DOMAIN_METRIC_ERROR_CODES,
   ...LOCALE_ERROR_CODES,
   ...NANOID_ERROR_CODES,
   ...SCHEMA_ERROR_CODES,
@@ -46,6 +49,7 @@ export const ERROR_CODES = {
 export type ErrorCode =
   | CommonErrorCode
   | DateErrorCode
+  | DomainMetricErrorCode
   | LocaleErrorCode
   | NanoidErrorCode
   | SchemaErrorCode;

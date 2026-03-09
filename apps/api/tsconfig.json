@@ -12,7 +12,8 @@
     "types": ["node", "jest"],
 
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@repo/database": ["../../packages/database/src"]
     },
 
     "esModuleInterop": true,

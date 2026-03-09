@@ -1,0 +1,18 @@
+{
+  "name": "multi-shop",
+  "description": "",
+  "author": "Vitor Valentim da Silva Ferreira",
+  "private": true,
+  "packageManager": "pnpm@10.31.0+sha512.e3927388bfaa8078ceb79b748ffc1e8274e84d75163e67bc22e06c0d3aed43dd153151cbf11d7f8301ff4acb98c68bdc5cadf6989532801ffafe3b3e4a63c268",
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test"
+  },
+  "devDependencies": {
+    "turbo": "^2.8.14",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.3.2"
+  }
+}

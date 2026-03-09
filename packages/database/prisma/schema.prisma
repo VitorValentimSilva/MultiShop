@@ -7,10 +7,26 @@ datasource db {
 }
 
 model Tenant {
-  id        String   @id @default(uuid())
+  id        String      @id @default(uuid())
   name      String
-  slug      String   @unique
-  status    String   @default("active")
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  slug      String       @unique
+  status    String       @default("active")
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  users     TenantUser[]
+}
+
+model TenantUser {
+  id           String   @id @default(uuid())
+  tenantId     String
+  clerkUserId  String   @unique
+  email        String
+  role         String   @default("owner")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  tenant       Tenant   @relation(fields: [tenantId], references: [id])
+
+  @@index([tenantId, email])
 }

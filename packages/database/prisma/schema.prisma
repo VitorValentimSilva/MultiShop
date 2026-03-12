@@ -7,6 +7,13 @@ datasource db {
   provider = "postgresql"
 }
 
+enum TenantUserRole {
+  OWNER
+  ADMIN
+  MEMBER
+  GUEST
+}
+
 model Tenant {
   id        String      @id @default(uuid())
   name      String
@@ -19,15 +26,16 @@ model Tenant {
 }
 
 model TenantUser {
-  id           String   @id @default(uuid())
+  id           String         @id @default(uuid())
   tenantId     String
-  clerkUserId  String   @unique
+  clerkUserId  String
   email        String
-  role         String   @default("owner")
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  role         TenantUserRole @default(MEMBER)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
 
-  tenant       Tenant   @relation(fields: [tenantId], references: [id])
+  tenant       Tenant         @relation(fields: [tenantId], references: [id])
 
+  @@unique([tenantId, clerkUserId])
   @@index([tenantId, email])
 }

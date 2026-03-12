@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "target": "ES2023",
     "declaration": true,
     "outDir": "dist",
-    "strict": true
+    "strict": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
 
   "include": ["src", "prisma.config.ts"]

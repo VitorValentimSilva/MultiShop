@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 
 import { PrismaNeon } from "@prisma/adapter-neon";
-import { PrismaClient } from "./generated/prisma/client.js";
+import { PrismaClient } from "@/generated/prisma/client";
 
 dotenv.config({
   path: `.env.${process.env.NODE_ENV || "development"}`,

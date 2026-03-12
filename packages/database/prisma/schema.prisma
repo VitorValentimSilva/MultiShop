@@ -7,6 +7,13 @@ datasource db {
   provider = "postgresql"
 }
 
+enum TenantStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+  PENDING
+}
+
 enum TenantUserRole {
   OWNER
   ADMIN
@@ -18,7 +25,7 @@ model Tenant {
   id        String      @id @default(uuid())
   name      String
   slug      String       @unique
-  status    String       @default("active")
+  status    TenantStatus @default(ACTIVE)
   createdAt DateTime     @default(now())
   updatedAt DateTime     @updatedAt
 

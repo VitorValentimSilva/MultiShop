@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "",
   "author": "Vitor Valentim da Silva Ferreira",
-  "type": "module",
   "private": true,
   "scripts": {
     "build": "nest build && tsc-alias -p tsconfig.build.json",

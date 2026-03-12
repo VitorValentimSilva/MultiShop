@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "resolvePackageJsonExports": true,
 
     "target": "ES2023",
@@ -12,8 +12,7 @@
     "types": ["node", "jest"],
 
     "paths": {
-      "@/*": ["./src/*"],
-      "@repo/database": ["../../packages/database/src"]
+      "@/*": ["./src/*", "./src/modules/*"]
     },
 
     "esModuleInterop": true,

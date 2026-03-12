@@ -11,7 +11,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^7.0.1",
+    "@clerk/nextjs": "^7.0.4",
     "@hookform/resolvers": "^5.2.2",
     "@tanstack/react-query": "^5.90.21",
     "clsx": "^2.1.1",
@@ -29,10 +29,10 @@
     "@tailwindcss/postcss": "^4.2.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
-    "@types/node": "^25.3.3",
+    "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "eslint": "^10.0.2",
+    "eslint": "^10.0.3",
     "eslint-config-next": "16.1.6",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",

@@ -6,14 +6,16 @@
   "main": "src/client.ts",
   "scripts": {
     "generate": "prisma generate",
-    "migrate": "prisma migrate dev"
+    "migrate": "prisma migrate dev",
+    "reset": "prisma migrate reset"
   },
   "dependencies": {
-    "@prisma/client": "^7.4.2"
+    "@prisma/adapter-neon": "^7.5.0",
+    "@prisma/client": "^7.5.0"
   },
   "devDependencies": {
     "dotenv": "^17.3.1",
-    "prisma": "^7.4.2",
+    "prisma": "^7.5.0",
     "typescript": "^5.9.3"
   }
 }

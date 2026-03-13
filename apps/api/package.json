@@ -4,6 +4,7 @@
   "description": "",
   "author": "Vitor Valentim da Silva Ferreira",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "nest build && tsc-alias -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",

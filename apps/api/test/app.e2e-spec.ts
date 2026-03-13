@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 
-import { AppModule } from '@/app.module';
+import { AppModule } from '@/app.module.js';
 
 import { App } from 'supertest/types.js';
 
